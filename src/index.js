@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/app.jsx';
 
-let offerValue = 2;
 
+let offers = [`Beautiful & luxurious apartment at great location`, `Wood and stone place`, `Nice, cozy, warm big bed apartment`];
 
 ReactDOM.render(
-    <App offerValue={offerValue} />
-    , document.getElementById('root'));
+    <App offers={offers} />
+    , document.getElementById(`root`));

@@ -6,9 +6,9 @@ class App extends React.PureComponent {
 
   render() {
     // eslint-disable-next-line react/prop-types
-    const {offerValue} = this.props;
+    const {offers} = this.props;
     return (
-      <Main offerValue={offerValue} />
+      <Main offers={offers} />
     );
   }
 }
