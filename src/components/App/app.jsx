@@ -1,16 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Main from '../Main/main.jsx';
 
 
-class App extends React.PureComponent {
+const App = (props) => {
+  const {offers} = props;
+  return (
+    <Main offers={offers} />
+  );
+};
 
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const {offers} = this.props;
-    return (
-      <Main offers={offers} />
-    );
-  }
-}
+App.propTypes = {
+  offers: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 export default App;
