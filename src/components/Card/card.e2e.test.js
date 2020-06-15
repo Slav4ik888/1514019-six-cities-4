@@ -25,7 +25,7 @@ describe(`<Card> Component`, () => {
         />
     );
 
-    const cardTitle = component.find(`place-card__name`);
+    const cardTitle = component.find(`.place-card__name_href`);
     cardTitle.props().onClick();
 
     expect(cardTitleClick.mock.calls.length).toBe(1);

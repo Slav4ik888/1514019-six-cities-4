@@ -90,6 +90,7 @@ exports[`<Main /> рендерит <Card> <Card> со offers Beautiful & luxurio
       className="place-card__name"
     >
       <a
+        className="place-card__name_href"
         href="#"
         onClick={[Function]}
       >

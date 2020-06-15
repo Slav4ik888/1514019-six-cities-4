@@ -319,6 +319,7 @@ exports[`Snapshot of <Main> index рендерит <Main> offers Beautiful & lux
                   className="place-card__name"
                 >
                   <a
+                    className="place-card__name_href"
                     href="#"
                     onClick={[Function]}
                   >
@@ -421,6 +422,7 @@ exports[`Snapshot of <Main> index рендерит <Main> offers Beautiful & lux
                   className="place-card__name"
                 >
                   <a
+                    className="place-card__name_href"
                     href="#"
                     onClick={[Function]}
                   >
@@ -523,6 +525,7 @@ exports[`Snapshot of <Main> index рендерит <Main> offers Beautiful & lux
                   className="place-card__name"
                 >
                   <a
+                    className="place-card__name_href"
                     href="#"
                     onClick={[Function]}
                   >
@@ -625,6 +628,7 @@ exports[`Snapshot of <Main> index рендерит <Main> offers Beautiful & lux
                   className="place-card__name"
                 >
                   <a
+                    className="place-card__name_href"
                     href="#"
                     onClick={[Function]}
                   >
@@ -727,6 +731,7 @@ exports[`Snapshot of <Main> index рендерит <Main> offers Beautiful & lux
                   className="place-card__name"
                 >
                   <a
+                    className="place-card__name_href"
                     href="#"
                     onClick={[Function]}
                   >
@@ -829,6 +834,7 @@ exports[`Snapshot of <Main> index рендерит <Main> offers Beautiful & lux
                   className="place-card__name"
                 >
                   <a
+                    className="place-card__name_href"
                     href="#"
                     onClick={[Function]}
                   >
@@ -931,6 +937,7 @@ exports[`Snapshot of <Main> index рендерит <Main> offers Beautiful & lux
                   className="place-card__name"
                 >
                   <a
+                    className="place-card__name_href"
                     href="#"
                     onClick={[Function]}
                   >

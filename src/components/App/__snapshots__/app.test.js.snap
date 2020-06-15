@@ -314,6 +314,7 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                   className="place-card__name"
                 >
                   <a
+                    className="place-card__name_href"
                     href="#"
                     onClick={[Function]}
                   >
@@ -416,6 +417,7 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                   className="place-card__name"
                 >
                   <a
+                    className="place-card__name_href"
                     href="#"
                     onClick={[Function]}
                   >

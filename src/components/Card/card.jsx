@@ -34,7 +34,7 @@ const Card = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#" onClick={onCardTitleClick}>{offerTitle}</a>
+          <a className="place-card__name_href" href="#" onClick={onCardTitleClick}>{offerTitle}</a>
         </h2>
         <p className="place-card__type">Apartment</p>
       </div>
