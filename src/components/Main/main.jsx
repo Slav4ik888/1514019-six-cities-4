@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CardList from '../CardList/card-list.jsx';
+import {offerTypes} from '../../utils/const.js';
 
 
 const Main = (props) => {
 
-  const {offers} = props;
+  const {offers, onCardTitleClick} = props;
 
   return (
     <>
@@ -103,7 +104,9 @@ const Main = (props) => {
                 </form>
                 <div className="cities__places-list places__list tabs__content">
 
-                  <CardList offers={offers} />;
+                  <CardList offers={offers}
+                    onCardTitleClick={onCardTitleClick}
+                  />;
                 </div>
               </section>
               <div className="cities__right-section">
@@ -120,16 +123,17 @@ const Main = (props) => {
 
 
 Main.propTypes = {
+  onCardTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        cardMark: PropTypes.string.isRequired,
-        src: PropTypes.string.isRequired,
-        priceValue: PropTypes.number.isRequired,
-        priceText: PropTypes.string.isRequired,
-        raiting: PropTypes.number.isRequired,
-        cardName: PropTypes.string.isRequired,
-        cardType: PropTypes.string.isRequired,
+        isPremium: PropTypes.bool.isRequired,
+        isFavourite: PropTypes.bool.isRequired,
+        previewImage: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        rating: PropTypes.number.isRequired,
+        cardTitle: PropTypes.string.isRequired,
+        offerType: PropTypes.oneOf([offerTypes.apartment, offerTypes.room, offerTypes.house, offerTypes.hotel]).isRequired,
       }).isRequired
   ).isRequired,
 };

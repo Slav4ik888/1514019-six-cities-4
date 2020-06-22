@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`index рендерит <App />  index рендерит <App />  1`] = `
+exports[`index рендерит <App />  Render <App />  1`] = `
 <div
   className="page page--gray page--main"
 >
@@ -164,8 +164,6 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
           <b
             className="places__found"
           >
-            Offer1
-            Offer2
              places to stay in Amsterdam
           </b>
           <form
@@ -227,6 +225,8 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
           >
             <article
               className="cities__place-card place-card"
+              onPointerEnter={[Function]}
+              onPointerLeave={[Function]}
             >
               <div
                 className="place-card__mark"
@@ -245,7 +245,7 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/apartment-03.jpg"
+                    src="img/apartment-01.jpg"
                     width="260"
                   />
                 </a>
@@ -262,7 +262,8 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €180
+                      €
+                      55
                     </b>
                     <span
                       className="place-card__price-text"
@@ -271,7 +272,7 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button"
+                    className="place-card__bookmark-button button place-card__bookmark-button--active"
                     type="button"
                   >
                     <svg
@@ -299,7 +300,7 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     <span
                       style={
                         Object {
-                          "width": "100%",
+                          "width": "96%",
                         }
                       }
                     />
@@ -318,7 +319,7 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Offer1
+                    Test name-1
                   </a>
                 </h2>
                 <p
@@ -330,14 +331,10 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
             </article>
             <article
               className="cities__place-card place-card"
+              onPointerEnter={[Function]}
+              onPointerLeave={[Function]}
             >
-              <div
-                className="place-card__mark"
-              >
-                <span>
-                  Premium
-                </span>
-              </div>
+              
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
               >
@@ -348,7 +345,7 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/apartment-03.jpg"
+                    src="img/apartment-02.jpg"
                     width="260"
                   />
                 </a>
@@ -365,7 +362,8 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €180
+                      €
+                      250
                     </b>
                     <span
                       className="place-card__price-text"
@@ -374,7 +372,7 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button"
+                    className="place-card__bookmark-button button "
                     type="button"
                   >
                     <svg
@@ -402,7 +400,7 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     <span
                       style={
                         Object {
-                          "width": "100%",
+                          "width": "40%",
                         }
                       }
                     />
@@ -421,16 +419,17 @@ exports[`index рендерит <App />  index рендерит <App />  1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Offer2
+                    Test name-2
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Apartment
+                  Hotel
                 </p>
               </div>
             </article>
+            ;
           </div>
         </section>
         <div
