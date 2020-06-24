@@ -225,8 +225,6 @@ exports[`index рендерит <App />  Render <App />  1`] = `
           >
             <article
               className="cities__place-card place-card"
-              onPointerEnter={[Function]}
-              onPointerLeave={[Function]}
             >
               <div
                 className="place-card__mark"
@@ -331,10 +329,7 @@ exports[`index рендерит <App />  Render <App />  1`] = `
             </article>
             <article
               className="cities__place-card place-card"
-              onPointerEnter={[Function]}
-              onPointerLeave={[Function]}
             >
-              
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
               >
@@ -372,7 +367,7 @@ exports[`index рендерит <App />  Render <App />  1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button "
+                    className="place-card__bookmark-button button null"
                     type="button"
                   >
                     <svg

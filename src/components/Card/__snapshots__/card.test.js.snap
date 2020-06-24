@@ -3,8 +3,6 @@
 exports[`Snapshot of <Card> Render <Card> 1`] = `
 <article
   className="cities__place-card place-card"
-  onPointerEnter={[Function]}
-  onPointerLeave={[Function]}
 >
   <div
     className="place-card__mark"

@@ -42,7 +42,7 @@ describe(`<Card> tests`, () => {
 
     card.simulate(`pointerenter`);
     expect(handleCardFocusEnter).toHaveBeenCalledTimes(1);
-    expect(handleCardFocusEnter).toHaveBeenCalledWith(testOffer.id);
+    expect(handleCardFocusEnter).toHaveBeenCalledWith(testOffer);
   });
 
   it(`Убрали мышку с карточки`, () => {

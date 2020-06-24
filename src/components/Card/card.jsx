@@ -4,23 +4,30 @@ import {offerTypes} from '../../utils/const.js';
 import {getRating} from '../../utils/random.js';
 
 const Card = (props) => {
-  const {offer, onCardTitleClick, handleCardFocusEnter, handleCardFocusLeave} = props;
-  const {id, isPremium, isFavourite, previewImage, price, rating, cardTitle, offerType} = offer;
-  const favClass = isFavourite ? `place-card__bookmark-button--active` : ``;
+  const {offer: {isPremium, isFavourite, previewImage, price, rating, cardTitle, offerType},
+    onCardTitleClick,
+    handleCardFocusEnter,
+    handleCardFocusLeave} = props;
+
+  const favClass = isFavourite ? `place-card__bookmark-button--active` : null;
+
+  const handlePointerEnter = (offer) => {
+    handleCardFocusEnter(offer);
+  };
+
+  const handlePointerLeave = () => {
+    handleCardFocusLeave();
+  };
 
   return (
     <article className="cities__place-card place-card"
-      onPointerEnter={() => {
-        handleCardFocusEnter(id);
-      }}
-      onPointerLeave={() => {
-        handleCardFocusLeave();
-      }}
+      onPointerEnter={handlePointerEnter(props.offer)}
+      onPointerLeave={handlePointerLeave()}
     >
-      {isPremium ?
+      {isPremium &&
         <div className="place-card__mark">
           <span>Premium</span>
-        </div> : ``}
+        </div>}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">

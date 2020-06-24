@@ -13,8 +13,8 @@ class CardList extends PureComponent {
     this.state = {focusCard: null};
   }
 
-  _handleCardFocusEnter(id) {
-    this.setState({focusCard: id});
+  _handleCardFocusEnter(offer) {
+    this.setState({focusCard: offer});
   }
 
   _handleCardFocusLeave() {
