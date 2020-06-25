@@ -4,6 +4,8 @@ exports[`Snapshot of <CardList> Render <CardList> 1`] = `
 Array [
   <article
     className="cities__place-card place-card"
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
   >
     <div
       className="place-card__mark"
@@ -108,6 +110,8 @@ Array [
   </article>,
   <article
     className="cities__place-card place-card"
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
   >
     <div
       className="cities__image-wrapper place-card__image-wrapper"
