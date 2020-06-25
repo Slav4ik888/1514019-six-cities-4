@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import Card from '../Card/card.jsx';
-import {offerTypes} from '../../utils/const.js';
+import {offerPropTypes} from '../../utils/offer-prop-types.js';
 
 
 class CardList extends PureComponent {
@@ -44,16 +44,7 @@ class CardList extends PureComponent {
 CardList.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        isPremium: PropTypes.bool.isRequired,
-        isFavourite: PropTypes.bool.isRequired,
-        previewImage: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        rating: PropTypes.number.isRequired,
-        cardTitle: PropTypes.string.isRequired,
-        offerType: PropTypes.oneOf([offerTypes.apartment, offerTypes.room, offerTypes.house, offerTypes.hotel]).isRequired,
-      }).isRequired
+      PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
 };
 

@@ -8,6 +8,7 @@ export default [
     rating: 5,
     cardTitle: `Beautiful & luxurious apartment at great location`,
     offerType: `House`,
+    coordinates: [52.3509553943508, 4.97309666406198],
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ export default [
     price: 180,
     rating: 3,
     cardTitle: `Nice, cozy, warm big bed apartment`,
-    offerType: `Hotel`
+    offerType: `Hotel`,
+    coordinates: [52.3609553943508, 4.95309666406198],
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export default [
     rating: 5,
     cardTitle: `Wood and stone place`,
     offerType: `Apartment`,
+    coordinates: [52.3709553943508, 4.78309666406198],
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ export default [
     rating: 5,
     cardTitle: `Beautiful & luxurious apartment at great location`,
     offerType: `Private room`,
+    coordinates: [52.3809553943508, 4.90309666406198],
   },
   {
     id: 5,
@@ -47,7 +51,8 @@ export default [
     price: 480,
     rating: 4,
     cardTitle: `Beautiful & luxurious apartment at great location`,
-    offerType: `Hotel`
+    offerType: `Hotel`,
+    coordinates: [52.3909553943508, 4.75309666406198],
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ export default [
     rating: 3,
     cardTitle: `Nice, cozy, warm big bed apartment`,
     offerType: `House`,
+    coordinates: [52.4009553943508, 4.95309666406198],
   },
   {
     id: 7,
@@ -68,6 +74,7 @@ export default [
     rating: 4,
     cardTitle: `Wood and stone place`,
     offerType: `Apartment`,
+    coordinates: [52.4109553943508, 4.87309666406198],
   },
   {
     id: 8,
@@ -78,5 +85,6 @@ export default [
     rating: 4,
     cardTitle: `Beautiful & luxurious apartment at great location`,
     offerType: `Private room`,
+    coordinates: [52.4309553943508, 4.86309666406198],
   },
 ];

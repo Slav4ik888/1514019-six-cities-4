@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CardList from '../CardList/card-list.jsx';
-import {offerTypes} from '../../utils/const.js';
+import {offerPropTypes} from '../../utils/offer-prop-types.js';
+import MapCity from '../MapCity/map-city.jsx';
 
 
 const Main = (props) => {
@@ -110,13 +111,14 @@ const Main = (props) => {
                 </div>
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map"></section>
+                <section className="cities__map map">
+                  <MapCity offers={offers}/>
+                </section>
               </div>
             </div>
           </div>
         </main>
       </div >
-
     </>
   );
 };
@@ -125,16 +127,7 @@ const Main = (props) => {
 Main.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        isPremium: PropTypes.bool.isRequired,
-        isFavourite: PropTypes.bool.isRequired,
-        previewImage: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        rating: PropTypes.number.isRequired,
-        cardTitle: PropTypes.string.isRequired,
-        offerType: PropTypes.oneOf([offerTypes.apartment, offerTypes.room, offerTypes.house, offerTypes.hotel]).isRequired,
-      }).isRequired
+      PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
 };
 
