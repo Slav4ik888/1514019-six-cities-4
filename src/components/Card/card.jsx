@@ -11,8 +11,8 @@ const Card = (props) => {
 
   const favClass = isFavourite ? `place-card__bookmark-button--active` : null;
 
-  const handlePointerEnter = (offer) => {
-    handleCardFocusEnter(offer);
+  const handlePointerEnter = () => {
+    handleCardFocusEnter(props.offer);
   };
 
   const handlePointerLeave = () => {
@@ -21,8 +21,8 @@ const Card = (props) => {
 
   return (
     <article className="cities__place-card place-card"
-      onPointerEnter={handlePointerEnter(props.offer)}
-      onPointerLeave={handlePointerLeave()}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
     >
       {isPremium &&
         <div className="place-card__mark">
