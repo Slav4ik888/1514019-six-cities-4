@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {offerTypes} from '../../utils/const.js';
+import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import {getRating} from '../../utils/random.js';
 
 const Card = (props) => {
@@ -68,16 +68,7 @@ Card.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
   handleCardFocusEnter: PropTypes.func.isRequired,
   handleCardFocusLeave: PropTypes.func.isRequired,
-  offer: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    isFavourite: PropTypes.bool.isRequired,
-    previewImage: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    cardTitle: PropTypes.string.isRequired,
-    offerType: PropTypes.oneOf([offerTypes.apartment, offerTypes.room, offerTypes.house, offerTypes.hotel]).isRequired,
-  }).isRequired
+  offer: PropTypes.shape(offerPropTypes).isRequired,
 };
 
 export default Card;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CardList from '../CardList/card-list.jsx';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import MapCity from '../MapCity/map-city.jsx';
+import CitiesList from '../CitiesList/cities-list.jsx';
 
 
 const Main = (props) => {
@@ -37,7 +38,9 @@ const Main = (props) => {
 
 
         <main className="page__main page__main--index">
-          <h1 className="visually-hidden">Cities</h1>
+          <CitiesList />
+
+          {/* <h1 className="visually-hidden">Cities</h1>
           <div className="tabs">
             <section className="locations container">
               <ul className="locations__list tabs__list">
@@ -73,7 +76,7 @@ const Main = (props) => {
                 </li>
               </ul>
             </section>
-          </div>
+          </div> */}
 
           <div className="cities">
             <div className="cities__places-container container">
