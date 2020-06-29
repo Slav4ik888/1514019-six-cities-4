@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Main /> рендерит <Card> <Card> со offers Beautiful & luxurious apartment at great location 1`] = `
+exports[`Snapshot of <Card> Render <Card> 1`] = `
 <article
   className="cities__place-card place-card"
+  onPointerEnter={[Function]}
+  onPointerLeave={[Function]}
 >
   <div
     className="place-card__mark"
@@ -21,7 +23,7 @@ exports[`<Main /> рендерит <Card> <Card> со offers Beautiful & luxurio
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/apartment-03.jpg"
+        src="img/apartment-01.jpg"
         width="260"
       />
     </a>
@@ -38,7 +40,8 @@ exports[`<Main /> рендерит <Card> <Card> со offers Beautiful & luxurio
         <b
           className="place-card__price-value"
         >
-          €180
+          €
+          55
         </b>
         <span
           className="place-card__price-text"
@@ -47,7 +50,7 @@ exports[`<Main /> рендерит <Card> <Card> со offers Beautiful & luxurio
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button"
+        className="place-card__bookmark-button button place-card__bookmark-button--active"
         type="button"
       >
         <svg
@@ -75,7 +78,7 @@ exports[`<Main /> рендерит <Card> <Card> со offers Beautiful & luxurio
         <span
           style={
             Object {
-              "width": "100%",
+              "width": "96%",
             }
           }
         />
@@ -94,13 +97,13 @@ exports[`<Main /> рендерит <Card> <Card> со offers Beautiful & luxurio
         href="#"
         onClick={[Function]}
       >
-        Beautiful & luxurious apartment at great location
+        Test name-1
       </a>
     </h2>
     <p
       className="place-card__type"
     >
-      Apartment
+      Private room
     </p>
   </div>
 </article>

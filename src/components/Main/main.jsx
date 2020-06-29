@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../Card/card.jsx';
+import CardList from '../CardList/card-list.jsx';
+import {offerTypes} from '../../utils/const.js';
 
-const cardTitleHandler = () => {};
 
 const Main = (props) => {
 
-  const {offers} = props;
+  const {offers, onCardTitleClick} = props;
 
   return (
     <>
@@ -78,7 +78,7 @@ const Main = (props) => {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offers} places to stay in Amsterdam</b>
+                <b className="places__found"> places to stay in Amsterdam</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -104,13 +104,9 @@ const Main = (props) => {
                 </form>
                 <div className="cities__places-list places__list tabs__content">
 
-                  {offers.map((offerTitle, index) => {
-                    return <Card
-                      key={offerTitle + index}
-                      offerTitle={offerTitle}
-                      onCardTitleClick={cardTitleHandler}
-                    />;
-                  })}
+                  <CardList offers={offers}
+                    onCardTitleClick={onCardTitleClick}
+                  />;
                 </div>
               </section>
               <div className="cities__right-section">
@@ -127,9 +123,19 @@ const Main = (props) => {
 
 
 Main.propTypes = {
+  onCardTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
-      PropTypes.string
-  ).isRequired
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        isPremium: PropTypes.bool.isRequired,
+        isFavourite: PropTypes.bool.isRequired,
+        previewImage: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        rating: PropTypes.number.isRequired,
+        cardTitle: PropTypes.string.isRequired,
+        offerType: PropTypes.oneOf([offerTypes.apartment, offerTypes.room, offerTypes.house, offerTypes.hotel]).isRequired,
+      }).isRequired
+  ).isRequired,
 };
 
 export default Main;

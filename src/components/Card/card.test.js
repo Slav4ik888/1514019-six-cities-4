@@ -2,26 +2,19 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Card from './card.jsx';
 
-const offerTitles = [
-  `Beautiful & luxurious apartment at great location`,
-  `Wood and stone place`,
-  `Beautiful & luxurious apartment at great location`,
-  `Wood and stone place`, `Wood and stone place`,
-  `Beautiful & luxurious apartment at great location`,
-  `Wood and stone place`
-];
+import {testOffer} from "../../mocks/test-mocks.js";
 
-const cardTitleHandler = () => {};
-
-describe(`<Main /> рендерит <Card>`, () => {
-  it(`<Card> со offers ${offerTitles[0]}`, () => {
+describe(`Snapshot of <Card>`, () => {
+  it(`Render <Card>`, () => {
     const tree = renderer
-      .create(<Card
-        offerTitle={offerTitles[0]}
-        onCardTitleClick={cardTitleHandler}
-      />)
+      .create(
+          <Card
+            offer={testOffer}
+            onCardTitleClick={() => {}}
+            handleCardFocusEnter = {() => {}}
+            handleCardFocusLeave = {() => {}}
+          />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-
 });
