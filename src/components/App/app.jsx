@@ -1,32 +1,66 @@
 import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Main from '../Main/main.jsx';
-import {offerTypes} from '../../utils/const.js';
+import {offerPropTypes} from '../../utils/offer-prop-types.js';
+import {OfferDetails} from '../OfferDetails/offer-details.jsx';
+import {ActionCreator} from '../../reducers/reducer.js';
+
 
 const handleCardTitleClick = () => {};
 
 const App = (props) => {
-  const {offers} = props;
+  const {offers, activeCity, handleChangeCity} = props;
+
+  const _renderApp = () => {
+
+    return (
+      <Main
+        offers={offers}
+        onCardTitleClick={handleCardTitleClick}
+        activeCity={activeCity}
+        onChangeCity={handleChangeCity}
+      />
+    );
+  };
+
   return (
-    <Main offers={offers}
-      onCardTitleClick={handleCardTitleClick}
-    />
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            {_renderApp()}
+          </Route>
+          <Route exact path="/offer">
+            <OfferDetails offer={offers[1]}/>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 };
 
 App.propTypes = {
   offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        isPremium: PropTypes.bool.isRequired,
-        isFavourite: PropTypes.bool.isRequired,
-        previewImage: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        rating: PropTypes.number.isRequired,
-        cardTitle: PropTypes.string.isRequired,
-        offerType: PropTypes.oneOf([offerTypes.apartment, offerTypes.room, offerTypes.house, offerTypes.hotel]).isRequired,
-      }).isRequired
+      PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
+  activeCity: PropTypes.number.isRequired,
+  handleChangeCity: PropTypes.func.isRequired,
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  activeCity: state.activeCity,
+  offers: state.offers,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  handleChangeCity(id, city) {
+    dispatch(ActionCreator.changeCity(id));
+    dispatch(ActionCreator.getOffers(city));
+  },
+});
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+

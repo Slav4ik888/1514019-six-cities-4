@@ -8,7 +8,10 @@ describe(`Snapshot of <Main>`, () => {
     const tree = renderer
       .create(
           <Main
-            offers={testOffers} onCardTitleClick={() => {}}
+            offers={testOffers}
+            onCardTitleClick={() => {}}
+            activeCity={0}
+            onChangeCity={() => {}}
           />)
       .toJSON();
     expect(tree).toMatchSnapshot();

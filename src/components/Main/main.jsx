@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CardList from '../CardList/card-list.jsx';
-import {offerTypes} from '../../utils/const.js';
+import {offerPropTypes} from '../../utils/offer-prop-types.js';
+import MapCity from '../MapCity/map-city.jsx';
+import CitiesList from '../CitiesList/cities-list.jsx';
+import {cities, coordsCities} from '../../utils/const.js';
 
 
 const Main = (props) => {
 
-  const {offers, onCardTitleClick} = props;
+  const {offers, onCardTitleClick, activeCity, onChangeCity} = props;
 
   return (
     <>
@@ -36,49 +39,19 @@ const Main = (props) => {
 
 
         <main className="page__main page__main--index">
-          <h1 className="visually-hidden">Cities</h1>
-          <div className="tabs">
-            <section className="locations container">
-              <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Paris</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Cologne</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Brussels</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
-                    <span>Amsterdam</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Hamburg</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Dusseldorf</span>
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </div>
+          <CitiesList
+            activeCity={activeCity}
+            onChangeCity={onChangeCity}
+          />
 
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found"> places to stay in Amsterdam</b>
+                <b className="places__found">
+                  {offers.length ? `${offers.length} places to stay ` :
+                    `No places to stay available `}
+                  in {cities[activeCity]} </b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -102,21 +75,22 @@ const Main = (props) => {
                   </select>
                   */}
                 </form>
-                <div className="cities__places-list places__list tabs__content">
 
+                <div className="cities__places-list places__list tabs__content">
                   <CardList offers={offers}
                     onCardTitleClick={onCardTitleClick}
                   />;
                 </div>
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map"></section>
+                <section className="cities__map map">
+                  <MapCity offers={offers} activeCoords={coordsCities[activeCity]}/>
+                </section>
               </div>
             </div>
           </div>
         </main>
       </div >
-
     </>
   );
 };
@@ -125,17 +99,10 @@ const Main = (props) => {
 Main.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        isPremium: PropTypes.bool.isRequired,
-        isFavourite: PropTypes.bool.isRequired,
-        previewImage: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        rating: PropTypes.number.isRequired,
-        cardTitle: PropTypes.string.isRequired,
-        offerType: PropTypes.oneOf([offerTypes.apartment, offerTypes.room, offerTypes.house, offerTypes.hotel]).isRequired,
-      }).isRequired
+      PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
+  activeCity: PropTypes.number.isRequired,
+  onChangeCity: PropTypes.func.isRequired,
 };
 
 export default Main;
