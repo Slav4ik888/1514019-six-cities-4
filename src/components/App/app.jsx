@@ -11,13 +11,16 @@ import {ActionCreator} from '../../reducers/reducer.js';
 const handleCardTitleClick = () => {};
 
 const App = (props) => {
-  const {offers, activeCity} = props;
+  const {offers, activeCity, handleChangeCity} = props;
 
   const _renderApp = () => {
 
     return (
-      <Main offers={offers}
+      <Main
+        offers={offers}
         onCardTitleClick={handleCardTitleClick}
+        activeCity={activeCity}
+        onChangeCity={handleChangeCity}
       />
     );
   };
@@ -42,6 +45,8 @@ App.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
+  activeCity: PropTypes.number.isRequired,
+  handleChangeCity: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -50,7 +55,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onChangeCity(id, city) {
+  handleChangeCity(id, city) {
     dispatch(ActionCreator.changeCity(id));
     dispatch(ActionCreator.getOffers(city));
   },

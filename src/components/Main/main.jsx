@@ -4,11 +4,12 @@ import CardList from '../CardList/card-list.jsx';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import MapCity from '../MapCity/map-city.jsx';
 import CitiesList from '../CitiesList/cities-list.jsx';
+import {cities, coordsCities} from '../../utils/const.js';
 
 
 const Main = (props) => {
 
-  const {offers, onCardTitleClick} = props;
+  const {offers, onCardTitleClick, activeCity, onChangeCity} = props;
 
   return (
     <>
@@ -38,51 +39,19 @@ const Main = (props) => {
 
 
         <main className="page__main page__main--index">
-          <CitiesList />
-
-          {/* <h1 className="visually-hidden">Cities</h1>
-          <div className="tabs">
-            <section className="locations container">
-              <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Paris</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Cologne</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Brussels</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
-                    <span>Amsterdam</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Hamburg</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Dusseldorf</span>
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </div> */}
+          <CitiesList
+            activeCity={activeCity}
+            onChangeCity={onChangeCity}
+          />
 
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found"> places to stay in Amsterdam</b>
+                <b className="places__found">
+                  {offers.length ? `${offers.length} places to stay ` :
+                    `No places to stay available `}
+                  in {cities[activeCity]} </b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -106,8 +75,8 @@ const Main = (props) => {
                   </select>
                   */}
                 </form>
-                <div className="cities__places-list places__list tabs__content">
 
+                <div className="cities__places-list places__list tabs__content">
                   <CardList offers={offers}
                     onCardTitleClick={onCardTitleClick}
                   />;
@@ -115,7 +84,7 @@ const Main = (props) => {
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <MapCity offers={offers}/>
+                  <MapCity offers={offers} activeCoords={coordsCities[activeCity]}/>
                 </section>
               </div>
             </div>
@@ -132,6 +101,8 @@ Main.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
+  activeCity: PropTypes.number.isRequired,
+  onChangeCity: PropTypes.func.isRequired,
 };
 
 export default Main;

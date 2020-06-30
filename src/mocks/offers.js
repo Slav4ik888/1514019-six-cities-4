@@ -9,7 +9,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
-      coordinates: [52.3509553943508, 4.97309666406198],
+      coordinates: [48.856663, 2.351556],
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export const offers = {
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
-      coordinates: [52.3609553943508, 4.95309666406198],
+      coordinates: [48.876663, 2.381556],
     },
   ],
   Cologne: [
@@ -33,7 +33,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
-      coordinates: [52.3509553943508, 4.97309666406198],
+      coordinates: [50.930779, 6.938399],
     },
     {
       id: 2,
@@ -44,7 +44,8 @@ export const offers = {
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
-      coordinates: [52.3609553943508, 4.95309666406198],
+      coordinates: [50.960779, 6.948399],
+
     },
   ],
 
@@ -58,7 +59,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
-      coordinates: [52.3509553943508, 4.97309666406198],
+      coordinates: [50.851309, 4.351718],
     },
     {
       id: 2,
@@ -69,7 +70,7 @@ export const offers = {
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
-      coordinates: [52.3609553943508, 4.95309666406198],
+      coordinates: [50.861309, 4.371718],
     },
     {
       id: 3,
@@ -80,7 +81,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
-      coordinates: [52.3709553943508, 4.78309666406198],
+      coordinates: [50.871309, 4.331718],
     },
     {
       id: 4,
@@ -91,7 +92,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Private room`,
-      coordinates: [52.3809553943508, 4.90309666406198],
+      coordinates: [50.881309, 4.361718],
     },
   ],
 
@@ -163,7 +164,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
-      coordinates: [52.3509553943508, 4.97309666406198],
+      coordinates: [53.552645, 9.366287],
     },
     {
       id: 2,
@@ -174,7 +175,7 @@ export const offers = {
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
-      coordinates: [52.3609553943508, 4.95309666406198],
+      coordinates: [53.562645, 9.926287],
     },
     {
       id: 3,
@@ -185,7 +186,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
-      coordinates: [52.3709553943508, 4.78309666406198],
+      coordinates: [53.572645, 9.996287],
     },
     {
       id: 4,
@@ -196,7 +197,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Private room`,
-      coordinates: [52.3809553943508, 4.90309666406198],
+      coordinates: [53.582645, 9.956287],
     },
     {
       id: 5,
@@ -207,7 +208,7 @@ export const offers = {
       rating: 4,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Hotel`,
-      coordinates: [52.3909553943508, 4.75309666406198],
+      coordinates: [53.542645, 9.926287],
     },
     {
       id: 6,
@@ -218,7 +219,7 @@ export const offers = {
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `House`,
-      coordinates: [52.4009553943508, 4.95309666406198],
+      coordinates: [53.532645, 9.916287],
     },
     {
       id: 7,
@@ -229,7 +230,7 @@ export const offers = {
       rating: 4,
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
-      coordinates: [52.4109553943508, 4.87309666406198],
+      coordinates: [53.522645, 9.996287],
     },
   ],
 
@@ -243,7 +244,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
-      coordinates: [52.3509553943508, 4.97309666406198],
+      coordinates: [51.200569, 6.787428],
     },
     {
       id: 2,
@@ -254,7 +255,7 @@ export const offers = {
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
-      coordinates: [52.3609553943508, 4.95309666406198],
+      coordinates: [51.230569, 6.787428],
     },
     {
       id: 3,
@@ -265,7 +266,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
-      coordinates: [52.3709553943508, 4.78309666406198],
+      coordinates: [51.210569, 6.787428],
     },
     {
       id: 4,
@@ -276,7 +277,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Private room`,
-      coordinates: [52.3809553943508, 4.90309666406198],
+      coordinates: [51.220569, 6.787428],
     },
     {
       id: 5,
@@ -287,7 +288,7 @@ export const offers = {
       rating: 4,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Hotel`,
-      coordinates: [52.3909553943508, 4.75309666406198],
+      coordinates: [51.270569, 6.787428],
     },
     {
       id: 6,
@@ -298,7 +299,7 @@ export const offers = {
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `House`,
-      coordinates: [52.4009553943508, 4.95309666406198],
+      coordinates: [51.260569, 6.787428],
     },
     {
       id: 7,
@@ -309,7 +310,7 @@ export const offers = {
       rating: 4,
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
-      coordinates: [52.4109553943508, 4.87309666406198],
+      coordinates: [51.250569, 6.787428],
     },
     {
       id: 8,
@@ -320,7 +321,7 @@ export const offers = {
       rating: 4,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Private room`,
-      coordinates: [52.4309553943508, 4.86309666406198],
+      coordinates: [51.240569, 6.787428],
     },
   ],
 };

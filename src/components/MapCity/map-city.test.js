@@ -9,7 +9,9 @@ it(`check render MapCity`, () => {
       <MapCity
         offers={testOffers}
       />, {
-        createNodeMock: () => {}
+        createNodeMock: () => {
+          return document.createElement(`div`);
+        }
       }
   ).toJSON();
 
