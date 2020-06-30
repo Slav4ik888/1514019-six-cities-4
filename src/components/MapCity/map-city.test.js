@@ -8,6 +8,7 @@ it(`check render MapCity`, () => {
   const component = renderer.create(
       <MapCity
         offers={testOffers}
+        activeCoords={[51.200569, 6.787428]}
       />, {
         createNodeMock: () => {
           return document.createElement(`div`);
