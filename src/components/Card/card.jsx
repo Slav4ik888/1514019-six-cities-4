@@ -6,17 +6,17 @@ import {getRating} from '../../utils/random.js';
 const Card = (props) => {
   const {offer: {isPremium, isFavourite, previewImage, price, rating, cardTitle, offerType},
     onCardTitleClick,
-    handleCardFocusEnter,
-    handleCardFocusLeave} = props;
+    onCardFocusEnter,
+    onCardFocusLeave} = props;
 
   const favClass = isFavourite ? `place-card__bookmark-button--active` : null;
 
   const handlePointerEnter = () => {
-    handleCardFocusEnter(props.offer);
+    onCardFocusEnter(props.offer);
   };
 
   const handlePointerLeave = () => {
-    handleCardFocusLeave();
+    onCardFocusLeave();
   };
 
   return (
@@ -66,8 +66,8 @@ const Card = (props) => {
 
 Card.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
-  handleCardFocusEnter: PropTypes.func.isRequired,
-  handleCardFocusLeave: PropTypes.func.isRequired,
+  onCardFocusEnter: PropTypes.func.isRequired,
+  onCardFocusLeave: PropTypes.func.isRequired,
   offer: PropTypes.shape(offerPropTypes).isRequired,
 };
 

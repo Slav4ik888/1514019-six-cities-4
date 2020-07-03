@@ -5,7 +5,9 @@ import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import MapCity from '../MapCity/map-city.jsx';
 import CitiesList from '../CitiesList/cities-list.jsx';
 import {cities, coordsCities} from '../../utils/const.js';
+import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 
+const CardListWrapped = withFocusCard(CardList);
 
 const Main = (props) => {
 
@@ -77,7 +79,8 @@ const Main = (props) => {
                 </form>
 
                 <div className="cities__places-list places__list tabs__content">
-                  <CardList offers={offers}
+                  <CardListWrapped
+                    offers={offers}
                     onCardTitleClick={onCardTitleClick}
                   />;
                 </div>

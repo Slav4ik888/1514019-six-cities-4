@@ -11,8 +11,8 @@ describe(`Snapshot of <Card>`, () => {
           <Card
             offer={testOffer}
             onCardTitleClick={() => {}}
-            handleCardFocusEnter = {() => {}}
-            handleCardFocusLeave = {() => {}}
+            onCardFocusEnter = {() => {}}
+            onCardFocusLeave = {() => {}}
           />)
       .toJSON();
     expect(tree).toMatchSnapshot();

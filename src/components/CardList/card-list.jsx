@@ -5,24 +5,11 @@ import {offerPropTypes} from '../../utils/offer-prop-types.js';
 
 
 class CardList extends PureComponent {
-  constructor(props) {
-    super(props);
-    this._handleCardFocusEnter = this._handleCardFocusEnter.bind(this);
-    this._handleCardFocusLeave = this._handleCardFocusLeave.bind(this);
-
-    this.state = {focusCard: null};
-  }
-
-  _handleCardFocusEnter(offer) {
-    this.setState({focusCard: offer});
-  }
-
-  _handleCardFocusLeave() {
-    this.setState({focusCard: null});
-  }
 
   render() {
-    const {offers, onCardTitleClick} = this.props;
+    const {offers, onCardTitleClick, focusCard,
+      onCardFocusEnter, onCardFocusLeave,
+    } = this.props;
 
     return (
       <>
@@ -31,8 +18,9 @@ class CardList extends PureComponent {
             key={offer.id}
             offer={offer}
             onCardTitleClick={onCardTitleClick}
-            handleCardFocusEnter={this._handleCardFocusEnter}
-            handleCardFocusLeave={this._handleCardFocusLeave}
+            focusCard={focusCard}
+            onCardFocusEnter={onCardFocusEnter}
+            onCardFocusLeave={onCardFocusLeave}
           />;
         })}
       </>
@@ -46,6 +34,9 @@ CardList.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
+  onCardFocusEnter: PropTypes.func.isRequired,
+  onCardFocusLeave: PropTypes.func.isRequired,
+  focusCard: PropTypes.shape(offerPropTypes),
 };
 
 export default CardList;

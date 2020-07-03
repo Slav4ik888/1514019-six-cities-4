@@ -15,15 +15,15 @@ describe(`<Card> tests`, () => {
   });
 
   const onCardTitleClick = jest.fn();
-  const handleCardFocusEnter = jest.fn();
-  const handleCardFocusLeave = jest.fn();
+  const onCardFocusEnter = jest.fn();
+  const onCardFocusLeave = jest.fn();
 
   const renderComponent = (props = {}) => {
     return shallow(
         <Card offer={testOffer}
           onCardTitleClick={onCardTitleClick}
-          handleCardFocusEnter = {handleCardFocusEnter}
-          handleCardFocusLeave = {handleCardFocusLeave}
+          onCardFocusEnter = {onCardFocusEnter}
+          onCardFocusLeave = {onCardFocusLeave}
           {...props}
         />);
   };
@@ -41,8 +41,7 @@ describe(`<Card> tests`, () => {
     const card = component.find(`article.place-card`);
 
     card.simulate(`pointerenter`);
-    expect(handleCardFocusEnter).toHaveBeenCalledTimes(1);
-    expect(handleCardFocusEnter).toHaveBeenCalledWith(testOffer);
+    expect(onCardFocusEnter).toHaveBeenCalledTimes(1);
   });
 
   it(`Убрали мышку с карточки`, () => {
@@ -50,7 +49,7 @@ describe(`<Card> tests`, () => {
     const card = component.find(`article.place-card`);
 
     card.simulate(`pointerleave`);
-    expect(handleCardFocusLeave).toHaveBeenCalledTimes(1);
+    expect(onCardFocusLeave).toHaveBeenCalledTimes(1);
   });
 
 });

@@ -33,7 +33,7 @@ const App = (props) => {
             {_renderApp()}
           </Route>
           <Route exact path="/offer">
-            <OfferDetails offer={offers[1]}/>
+            <OfferDetails offer={offers[0]}/>
           </Route>
         </Switch>
       </BrowserRouter>

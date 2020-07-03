@@ -5,6 +5,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-03.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -16,6 +34,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
@@ -29,6 +65,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-03.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -40,6 +94,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
@@ -55,6 +127,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-03.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -66,6 +156,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
@@ -77,6 +185,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-02.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 10,
       rating: 5,
       cardTitle: `Wood and stone place`,
@@ -88,6 +214,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -100,10 +244,29 @@ export const offers = {
     {
       id: 2,
       isPremium: true,
-      isFavourite: false,
+      isFavourite: true,
       previewImage: `img/apartment-01.jpg`,
-      price: 180,
-      rating: 3,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`, `Washing machine`, `Towels`, `Baby seat`],
+      bedrooms: 5,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Regina Jonson`,
+        super: true
+      },
+      price: 210,
+      rating: 3.7,
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
       coordinates: [52.3609553943508, 4.95309666406198],
@@ -113,6 +276,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-02.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 10,
       rating: 5,
       cardTitle: `Wood and stone place`,
@@ -124,6 +305,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -135,6 +334,24 @@ export const offers = {
       isPremium: false,
       isFavourite: true,
       previewImage: `img/apartment-03.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 480,
       rating: 4,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -146,6 +363,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 680,
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
@@ -160,6 +395,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-03.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -171,6 +424,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
@@ -182,6 +453,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-02.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 10,
       rating: 5,
       cardTitle: `Wood and stone place`,
@@ -193,6 +482,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -204,6 +511,24 @@ export const offers = {
       isPremium: false,
       isFavourite: true,
       previewImage: `img/apartment-03.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 480,
       rating: 4,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -215,6 +540,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 680,
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
@@ -226,6 +569,24 @@ export const offers = {
       isPremium: false,
       isFavourite: true,
       previewImage: `img/apartment-02.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 4,
       cardTitle: `Wood and stone place`,
@@ -240,6 +601,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-03.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -251,6 +630,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
@@ -262,6 +659,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-02.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 10,
       rating: 5,
       cardTitle: `Wood and stone place`,
@@ -273,6 +688,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -284,6 +717,24 @@ export const offers = {
       isPremium: false,
       isFavourite: true,
       previewImage: `img/apartment-03.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 480,
       rating: 4,
       cardTitle: `Beautiful & luxurious apartment at great location`,
@@ -295,6 +746,24 @@ export const offers = {
       isPremium: false,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 680,
       rating: 3,
       cardTitle: `Nice, cozy, warm big bed apartment`,
@@ -306,6 +775,24 @@ export const offers = {
       isPremium: false,
       isFavourite: true,
       previewImage: `img/apartment-02.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 4,
       cardTitle: `Wood and stone place`,
@@ -317,6 +804,24 @@ export const offers = {
       isPremium: true,
       isFavourite: false,
       previewImage: `img/apartment-01.jpg`,
+      pictures: [
+        `img/apartment-01.jpg`,
+        `img/apartment-02.jpg`,
+        `img/apartment-03.jpg`,
+        `img/room.jpg`,
+        `img/studio-01.jpg`,
+        `img/studio-photos.jpg`],
+      amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
+      bedrooms: 4,
+      maxGuestsNumber: `Max 4 adults`,
+      description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
+      Please note that this apartment is on the sixth floor and there is no lift (elevator).
+      The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
+      host: {
+        photo: `img/avatar-angelina.jpg`,
+        name: `Angelina Jonson`,
+        super: true
+      },
       price: 180,
       rating: 4,
       cardTitle: `Beautiful & luxurious apartment at great location`,

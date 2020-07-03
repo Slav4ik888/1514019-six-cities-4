@@ -10,6 +10,9 @@ describe(`Snapshot of <CardList>`, () => {
           <CardList
             offers={testOffers}
             onCardTitleClick={() => {}}
+            focusCard={testOffers[0]}
+            onCardFocusEnter={() => {}}
+            onCardFocusLeave={() => {}}
           />)
       .toJSON();
     expect(tree).toMatchSnapshot();

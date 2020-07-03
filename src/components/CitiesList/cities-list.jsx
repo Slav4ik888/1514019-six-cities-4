@@ -15,14 +15,16 @@ const CitiesList = (props) => {
           <ul className="locations__list tabs__list">
 
             {cities.map((item, i) => {
-              return (<li key={item} className="locations__item"
-                onClick={() => (onChangeCity(i, item))}
-              >
-                <a className={`locations__item-link tabs__item
-                ${(activeCity === i) && isActive}`} href="#">
-                  <span>{item}</span>
-                </a>
-              </li>);
+              return (
+                <li key={item} className="locations__item"
+                  onClick={() => (onChangeCity(i, item))}
+                >
+                  <a className={`locations__item-link tabs__item
+                  ${(activeCity === i) && isActive}`} href="#">
+                    <span>{item}</span>
+                  </a>
+                </li>
+              );
             })}
 
           </ul>

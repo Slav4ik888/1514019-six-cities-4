@@ -4,8 +4,8 @@ import {cities} from '../utils/const.js';
 
 
 const initialState = {
-  activeCity: 0,
-  offers: offers[cities[0]],
+  activeCity: 3,
+  offers: offers[cities[3]],
 };
 
 const ActionType = {
