@@ -26,11 +26,3 @@ export const getRandomBoolean = () => {
   return Boolean(getRandomNumber(0, 1));
 };
 
-/**
- * Перевод рейтинга из оценки от 0 до 5 в проценты
- * @param {Number} rating - Оценка (от 0 до 5, может быть дробным)
- * @return {String} Рейтинг в процентах (от 0 до 100%)
- */
-export const getRating = (rating) => {
-  return `${rating * 20}%`;
-};

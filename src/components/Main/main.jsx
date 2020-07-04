@@ -6,8 +6,10 @@ import MapCity from '../MapCity/map-city.jsx';
 import CitiesList from '../CitiesList/cities-list.jsx';
 import {cities, coordsCities} from '../../utils/const.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
+import withMap from '../../hocs/with-map/with-map.js';
 
 const CardListWrapped = withFocusCard(CardList);
+const MapCityWrapped = withMap(MapCity);
 
 const Main = (props) => {
 
@@ -87,7 +89,7 @@ const Main = (props) => {
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <MapCity offers={offers} activeCoords={coordsCities[activeCity]}/>
+                  <MapCityWrapped offers={offers} activeCoords={coordsCities[activeCity]}/>
                 </section>
               </div>
             </div>

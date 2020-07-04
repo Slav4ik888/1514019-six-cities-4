@@ -11,10 +11,12 @@ const withFocusCard = (Component) => {
     }
 
     _handleCardFocusEnter(offer) {
+      // console.log(`FOCUS`, offer);
       this.setState({focusCard: offer});
     }
 
     _handleCardFocusLeave() {
+      // console.log(`NOT FOCUS`);
       this.setState({focusCard: null});
     }
 

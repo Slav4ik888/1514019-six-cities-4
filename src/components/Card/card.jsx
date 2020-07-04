@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
-import {getRating} from '../../utils/random.js';
+import {getRating} from '../../utils/utils.js';
 
 const Card = (props) => {
   const {offer: {isPremium, isFavourite, previewImage, price, rating, cardTitle, offerType},
@@ -10,6 +10,11 @@ const Card = (props) => {
     onCardFocusLeave} = props;
 
   const favClass = isFavourite ? `place-card__bookmark-button--active` : null;
+
+  const handleTitleClick = () => {
+    console.log('handleTitleClick: ', props.offer);
+    onCardTitleClick(props.offer);
+  };
 
   const handlePointerEnter = () => {
     onCardFocusEnter(props.offer);
@@ -55,7 +60,7 @@ const Card = (props) => {
         </div>
         <h2 className="place-card__name">
           <a className="place-card__name_href" href="#"
-            onClick={onCardTitleClick}
+            onClick={handleTitleClick}
           >{cardTitle}</a>
         </h2>
         <p className="place-card__type">{offerType}</p>

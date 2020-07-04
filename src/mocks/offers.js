@@ -28,7 +28,30 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
       coordinates: [48.856663, 2.351556],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
+
     {
       id: 2,
       isPremium: true,
@@ -57,8 +80,31 @@ export const offers = {
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
       coordinates: [48.876663, 2.381556],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
   ],
+
   Cologne: [
     {
       id: 1,
@@ -88,7 +134,30 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
       coordinates: [50.930779, 6.938399],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
+
     {
       id: 2,
       isPremium: true,
@@ -117,7 +186,28 @@ export const offers = {
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
       coordinates: [50.960779, 6.948399],
-
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
   ],
 
@@ -150,7 +240,30 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
       coordinates: [50.851309, 4.351718],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
+
     {
       id: 2,
       isPremium: true,
@@ -179,6 +292,28 @@ export const offers = {
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
       coordinates: [50.861309, 4.371718],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 3,
@@ -208,6 +343,28 @@ export const offers = {
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
       coordinates: [50.871309, 4.331718],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 4,
@@ -237,6 +394,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Private room`,
       coordinates: [50.881309, 4.361718],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
   ],
 
@@ -263,13 +442,35 @@ export const offers = {
       host: {
         photo: `img/avatar-angelina.jpg`,
         name: `Regina Jonson`,
-        super: true
+        super: false
       },
       price: 210,
       rating: 3.7,
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
       coordinates: [52.3609553943508, 4.95309666406198],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 15930105936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 3,
@@ -299,6 +500,28 @@ export const offers = {
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
       coordinates: [52.3709553943508, 4.78309666406198],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 4,
@@ -328,6 +551,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Private room`,
       coordinates: [52.3809553943508, 4.90309666406198],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 5,
@@ -357,6 +602,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Hotel`,
       coordinates: [52.3909553943508, 4.75309666406198],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 6,
@@ -386,6 +653,28 @@ export const offers = {
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `House`,
       coordinates: [52.4009553943508, 4.95309666406198],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
   ],
 
@@ -418,6 +707,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
       coordinates: [53.552645, 9.366287],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 2,
@@ -447,6 +758,28 @@ export const offers = {
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
       coordinates: [53.562645, 9.926287],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 3,
@@ -476,6 +809,28 @@ export const offers = {
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
       coordinates: [53.572645, 9.996287],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 4,
@@ -505,6 +860,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Private room`,
       coordinates: [53.582645, 9.956287],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 5,
@@ -534,6 +911,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Hotel`,
       coordinates: [53.542645, 9.926287],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 6,
@@ -563,6 +962,28 @@ export const offers = {
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `House`,
       coordinates: [53.532645, 9.916287],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 7,
@@ -592,6 +1013,28 @@ export const offers = {
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
       coordinates: [53.522645, 9.996287],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
   ],
 
@@ -624,6 +1067,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
       coordinates: [51.200569, 6.787428],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 2,
@@ -653,6 +1118,28 @@ export const offers = {
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
       coordinates: [51.230569, 6.787428],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 3,
@@ -682,6 +1169,28 @@ export const offers = {
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
       coordinates: [51.210569, 6.787428],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 4,
@@ -711,6 +1220,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Private room`,
       coordinates: [51.220569, 6.787428],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 5,
@@ -740,6 +1271,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Hotel`,
       coordinates: [51.270569, 6.787428],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 6,
@@ -769,6 +1322,28 @@ export const offers = {
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `House`,
       coordinates: [51.260569, 6.787428],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 7,
@@ -798,6 +1373,28 @@ export const offers = {
       cardTitle: `Wood and stone place`,
       offerType: `Apartment`,
       coordinates: [51.250569, 6.787428],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
     {
       id: 8,
@@ -827,6 +1424,28 @@ export const offers = {
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `Private room`,
       coordinates: [51.240569, 6.787428],
+      reviews: [
+        {
+          id: 1,
+          author: {
+            photo: `img/avatar-angelina.jpg`,
+            name: `Strange jober`
+          },
+          description: `small dining area and two bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095836000,
+          rating: 3
+        },
+        {
+          id: 2,
+          author: {
+            photo: ``,
+            name: `Slava`
+          },
+          description: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
+          date: 1593095936000,
+          rating: 4.7
+        },
+      ],
     },
   ],
 };
