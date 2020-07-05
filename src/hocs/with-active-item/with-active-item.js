@@ -11,10 +11,10 @@ const withActiveItem = (Component) => {
       };
     }
 
-    _handleItemClick(id) {
-      if (this.state.activItemId !== id) {
+    _handleItemClick(selectedItem) {
+      if (this.state.activItemId !== selectedItem) {
         this.setState({
-          activItemId: id,
+          activItemId: selectedItem,
         });
       }
     }

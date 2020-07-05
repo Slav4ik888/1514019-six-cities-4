@@ -706,7 +706,7 @@ export const offers = {
       rating: 5,
       cardTitle: `Beautiful & luxurious apartment at great location`,
       offerType: `House`,
-      coordinates: [53.552645, 9.366287],
+      coordinates: [53.552645, 9.956287],
       reviews: [
         {
           id: 1,

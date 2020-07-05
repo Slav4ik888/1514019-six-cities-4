@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
-import {getRating} from '../../utils/utils.js';
+import {getRating, getNearbyOffers} from '../../utils/utils.js';
 import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
 import withMap from '../../hocs/with-map/with-map.js';
 import MapCity from '../MapCity/map-city.jsx';
@@ -12,8 +12,8 @@ const MapCityWrapped = withMap(MapCity);
 export const OfferDetails = (props) => {
   const {offer: {
     isPremium,
-    isFavourite,
-    previewImage,
+    // isFavourite,
+    // previewImage,
     pictures,
     amenities,
     bedrooms,
@@ -24,9 +24,13 @@ export const OfferDetails = (props) => {
     rating,
     cardTitle,
     offerType,
+    coordinates,
     reviews
   },
   offers, activeCity} = props;
+
+  // Выводим города поблизости
+  const nearbyOffers = getNearbyOffers(offers, 3, coordinates, false);
 
   return (
     <div className="page">
@@ -142,9 +146,11 @@ export const OfferDetails = (props) => {
 
             </div>
           </div>
+
           <section className="property__map map">
-            <MapCityWrapped offers={offers} activeCoords={coordsCities[activeCity]}/>
+            <MapCityWrapped offers={nearbyOffers} activeCoords={coordsCities[activeCity]}/>
           </section>
+
         </section>
         <div className="container">
           <section className="near-places places">

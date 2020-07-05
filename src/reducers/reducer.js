@@ -4,14 +4,14 @@ import {cities} from '../utils/const.js';
 
 
 const initialState = {
-  activeCity: 3,
-  offers: offers[cities[3]],
+  activeCity: 4,
+  offers: offers[cities[4]],
   activeOffer: null,
 };
 
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
-  GET_OFFERS: `GET_OFFERS`,
+  SET_OFFERS: `SET_OFFERS`,
   SET_ACTIVE_ID: `SET_ACTIVE_ID`,
 };
 
@@ -21,8 +21,8 @@ const ActionCreator = {
     payload: id,
   }),
 
-  getOffers: (city) => ({
-    type: ActionType.GET_OFFERS,
+  setOffers: (city) => ({
+    type: ActionType.SET_OFFERS,
     payload: city,
   }),
 
@@ -39,7 +39,7 @@ const reducer = (state = initialState, action) => {
         activeCity: action.payload,
       });
 
-    case ActionType.GET_OFFERS:
+    case ActionType.SET_OFFERS:
       return extend(state, {
         offers: offers[action.payload],
       });

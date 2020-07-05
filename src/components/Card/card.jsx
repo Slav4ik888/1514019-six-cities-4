@@ -12,7 +12,7 @@ const Card = (props) => {
   const favClass = isFavourite ? `place-card__bookmark-button--active` : null;
 
   const handleTitleClick = () => {
-    console.log('handleTitleClick: ', props.offer);
+    // console.log('handleTitleClick: ', props.offer);
     onCardTitleClick(props.offer);
   };
 
