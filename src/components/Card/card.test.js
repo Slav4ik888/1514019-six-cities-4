@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Card from './card.jsx';
 
-import {testOffer} from "../../mocks/test-mocks.js";
+import {testOffer} from '../../mocks/test-offer.js';
 
 describe(`Snapshot of <Card>`, () => {
   it(`Render <Card>`, () => {
@@ -11,8 +11,9 @@ describe(`Snapshot of <Card>`, () => {
           <Card
             offer={testOffer}
             onCardTitleClick={() => {}}
-            handleCardFocusEnter = {() => {}}
-            handleCardFocusLeave = {() => {}}
+            focusCard={{}}
+            onCardFocusEnter = {() => {}}
+            onCardFocusLeave = {() => {}}
           />)
       .toJSON();
     expect(tree).toMatchSnapshot();

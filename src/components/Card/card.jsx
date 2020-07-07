@@ -1,22 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
-import {getRating} from '../../utils/random.js';
+import {getRating} from '../../utils/utils.js';
 
 const Card = (props) => {
   const {offer: {isPremium, isFavourite, previewImage, price, rating, cardTitle, offerType},
     onCardTitleClick,
-    handleCardFocusEnter,
-    handleCardFocusLeave} = props;
+    onCardFocusEnter,
+    onCardFocusLeave} = props;
 
   const favClass = isFavourite ? `place-card__bookmark-button--active` : null;
 
+  const handleTitleClick = () => {
+    // console.log('handleTitleClick: ', props.offer);
+    onCardTitleClick(props.offer);
+  };
+
   const handlePointerEnter = () => {
-    handleCardFocusEnter(props.offer);
+    onCardFocusEnter(props.offer);
   };
 
   const handlePointerLeave = () => {
-    handleCardFocusLeave();
+    onCardFocusLeave();
   };
 
   return (
@@ -55,7 +60,7 @@ const Card = (props) => {
         </div>
         <h2 className="place-card__name">
           <a className="place-card__name_href" href="#"
-            onClick={onCardTitleClick}
+            onClick={handleTitleClick}
           >{cardTitle}</a>
         </h2>
         <p className="place-card__type">{offerType}</p>
@@ -66,8 +71,8 @@ const Card = (props) => {
 
 Card.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
-  handleCardFocusEnter: PropTypes.func.isRequired,
-  handleCardFocusLeave: PropTypes.func.isRequired,
+  onCardFocusEnter: PropTypes.func.isRequired,
+  onCardFocusLeave: PropTypes.func.isRequired,
   offer: PropTypes.shape(offerPropTypes).isRequired,
 };
 

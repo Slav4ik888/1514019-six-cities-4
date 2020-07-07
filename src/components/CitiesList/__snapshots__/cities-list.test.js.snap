@@ -22,7 +22,7 @@ Array [
         >
           <a
             className="locations__item-link tabs__item
-                tabs__item--active"
+                  tabs__item--active"
             href="#"
           >
             <span>
@@ -36,7 +36,7 @@ Array [
         >
           <a
             className="locations__item-link tabs__item
-                false"
+                  false"
             href="#"
           >
             <span>
@@ -50,7 +50,7 @@ Array [
         >
           <a
             className="locations__item-link tabs__item
-                false"
+                  false"
             href="#"
           >
             <span>
@@ -64,7 +64,7 @@ Array [
         >
           <a
             className="locations__item-link tabs__item
-                false"
+                  false"
             href="#"
           >
             <span>
@@ -78,7 +78,7 @@ Array [
         >
           <a
             className="locations__item-link tabs__item
-                false"
+                  false"
             href="#"
           >
             <span>
@@ -92,7 +92,7 @@ Array [
         >
           <a
             className="locations__item-link tabs__item
-                false"
+                  false"
             href="#"
           >
             <span>

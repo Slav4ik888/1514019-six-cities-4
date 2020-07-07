@@ -6,11 +6,13 @@ import {cities} from '../utils/const.js';
 const initialState = {
   activeCity: 0,
   offers: offers[cities[0]],
+  activeOffer: null,
 };
 
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
-  GET_OFFERS: `GET_OFFERS`,
+  SET_OFFERS: `SET_OFFERS`,
+  SET_ACTIVE_ID: `SET_ACTIVE_ID`,
 };
 
 const ActionCreator = {
@@ -19,10 +21,15 @@ const ActionCreator = {
     payload: id,
   }),
 
-  getOffers: (city) => ({
-    type: ActionType.GET_OFFERS,
-    payload: city,
-  })
+  setOffers: (cityID) => ({
+    type: ActionType.SET_OFFERS,
+    payload: cityID,
+  }),
+
+  setActiveOffer: (offer) => ({
+    type: ActionType.SET_ACTIVE_ID,
+    payload: offer,
+  }),
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,9 +39,14 @@ const reducer = (state = initialState, action) => {
         activeCity: action.payload,
       });
 
-    case ActionType.GET_OFFERS:
+    case ActionType.SET_OFFERS:
       return extend(state, {
-        offers: offers[action.payload],
+        offers: offers[cities[action.payload]],
+      });
+
+    case ActionType.SET_ACTIVE_ID:
+      return extend(state, {
+        activeOffer: action.payload,
       });
   }
 

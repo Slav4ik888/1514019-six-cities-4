@@ -23,7 +23,7 @@ exports[`Snapshot of <Card> Render <Card> 1`] = `
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/apartment-01.jpg"
+        src="img/apartment-03.jpg"
         width="260"
       />
     </a>
@@ -41,7 +41,7 @@ exports[`Snapshot of <Card> Render <Card> 1`] = `
           className="place-card__price-value"
         >
           €
-          55
+          180
         </b>
         <span
           className="place-card__price-text"
@@ -50,7 +50,7 @@ exports[`Snapshot of <Card> Render <Card> 1`] = `
         </span>
       </div>
       <button
-        className="place-card__bookmark-button button place-card__bookmark-button--active"
+        className="place-card__bookmark-button button null"
         type="button"
       >
         <svg
@@ -78,7 +78,7 @@ exports[`Snapshot of <Card> Render <Card> 1`] = `
         <span
           style={
             Object {
-              "width": "96%",
+              "width": "100%",
             }
           }
         />
@@ -97,13 +97,13 @@ exports[`Snapshot of <Card> Render <Card> 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Test name-1
+        Beautiful & luxurious apartment at great location
       </a>
     </h2>
     <p
       className="place-card__type"
     >
-      Private room
+      House
     </p>
   </div>
 </article>

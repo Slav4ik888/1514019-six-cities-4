@@ -8,32 +8,40 @@ import {OfferDetails} from '../OfferDetails/offer-details.jsx';
 import {ActionCreator} from '../../reducers/reducer.js';
 
 
-const handleCardTitleClick = () => {};
-
 const App = (props) => {
-  const {offers, activeCity, handleChangeCity} = props;
-
-  const _renderApp = () => {
-
-    return (
-      <Main
-        offers={offers}
-        onCardTitleClick={handleCardTitleClick}
-        activeCity={activeCity}
-        onChangeCity={handleChangeCity}
-      />
-    );
-  };
+  const {
+    offers,
+    activeCity,
+    handleChangeCity,
+    activeOffer,
+    handleCardTitleClick,
+  } = props;
 
   return (
     <>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            {_renderApp()}
+            {activeOffer ?
+              <OfferDetails
+                offer={activeOffer}
+                offers={offers}
+                activeCity={activeCity}
+              /> :
+
+              <Main
+                offers={offers}
+                onCardTitleClick={handleCardTitleClick}
+                activeCity={activeCity}
+                onChangeCity={handleChangeCity}
+              />}
           </Route>
           <Route exact path="/offer">
-            <OfferDetails offer={offers[1]}/>
+            <OfferDetails
+              offer={offers[0]}
+              offers={offers}
+              activeCity={activeCity}
+            />
           </Route>
         </Switch>
       </BrowserRouter>
@@ -47,17 +55,24 @@ App.propTypes = {
   ).isRequired,
   activeCity: PropTypes.number.isRequired,
   handleChangeCity: PropTypes.func.isRequired,
+  activeOffer: PropTypes.object,
+  handleCardTitleClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   activeCity: state.activeCity,
   offers: state.offers,
+  activeOffer: state.activeOffer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleChangeCity(id, city) {
+  handleChangeCity(id) {
     dispatch(ActionCreator.changeCity(id));
-    dispatch(ActionCreator.getOffers(city));
+    dispatch(ActionCreator.setOffers(id));
+  },
+
+  handleCardTitleClick(offer) {
+    dispatch(ActionCreator.setActiveOffer(offer));
   },
 });
 
