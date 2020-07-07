@@ -66,9 +66,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleChangeCity(id, city) {
+  handleChangeCity(id) {
     dispatch(ActionCreator.changeCity(id));
-    dispatch(ActionCreator.setOffers(city));
+    dispatch(ActionCreator.setOffers(id));
   },
 
   handleCardTitleClick(offer) {

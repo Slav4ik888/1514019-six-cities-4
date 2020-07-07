@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import pt from 'prop-types';
 
 const withActiveItem = (Component) => {
   class WithActiveItem extends PureComponent {
@@ -7,28 +8,34 @@ const withActiveItem = (Component) => {
       this._handleItemClick = this._handleItemClick.bind(this);
 
       this.state = {
-        activItemId: null,
+        activeItemId: null,
       };
     }
 
     _handleItemClick(selectedItem) {
-      if (this.state.activItemId !== selectedItem) {
+      // console.log('selectedItem: ', selectedItem);
+      if (this.state.activeItemId !== selectedItem) {
         this.setState({
-          activItemId: selectedItem,
+          activeItemId: selectedItem,
         });
+        // if (this.props.onItemClick) {
+        this.props.onItemClick(selectedItem);
+        // }
       }
     }
 
     render() {
       return <Component
         {...this.props}
-        activItem={this.state.activItemId}
+        activeItemId={this.state.activeItemId}
         onItemClick={this._handleItemClick}
       />;
     }
   }
 
-  WithActiveItem.propTypes = {};
+  WithActiveItem.propTypes = {
+    onItemClick: pt.func.isRequired,
+  };
 
   return WithActiveItem;
 };

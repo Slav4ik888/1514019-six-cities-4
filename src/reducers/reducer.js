@@ -4,8 +4,8 @@ import {cities} from '../utils/const.js';
 
 
 const initialState = {
-  activeCity: 4,
-  offers: offers[cities[4]],
+  activeCity: 0,
+  offers: offers[cities[0]],
   activeOffer: null,
 };
 
@@ -21,9 +21,9 @@ const ActionCreator = {
     payload: id,
   }),
 
-  setOffers: (city) => ({
+  setOffers: (cityID) => ({
     type: ActionType.SET_OFFERS,
-    payload: city,
+    payload: cityID,
   }),
 
   setActiveOffer: (offer) => ({
@@ -41,7 +41,7 @@ const reducer = (state = initialState, action) => {
 
     case ActionType.SET_OFFERS:
       return extend(state, {
-        offers: offers[action.payload],
+        offers: offers[cities[action.payload]],
       });
 
     case ActionType.SET_ACTIVE_ID:

@@ -7,8 +7,10 @@ import CitiesList from '../CitiesList/cities-list.jsx';
 import {cities, coordsCities} from '../../utils/const.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 import withMap from '../../hocs/with-map/with-map.js';
+import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
 
-const CardListWrapped = withFocusCard(CardList);
+const CitiesListWrapped = withActiveItem(CitiesList);
+const CardListWrapped = withFocusCard(withActiveItem(CardList));
 const MapCityWrapped = withMap(MapCity);
 
 const Main = (props) => {
@@ -43,9 +45,9 @@ const Main = (props) => {
 
 
         <main className="page__main page__main--index">
-          <CitiesList
+          <CitiesListWrapped
             activeCity={activeCity}
-            onChangeCity={onChangeCity}
+            onItemClick={onChangeCity}
           />
 
           <div className="cities">
@@ -83,7 +85,7 @@ const Main = (props) => {
                 <div className="cities__places-list places__list tabs__content">
                   <CardListWrapped
                     offers={offers}
-                    onCardTitleClick={onCardTitleClick}
+                    onItemClick={onCardTitleClick}
                   />;
                 </div>
               </section>

@@ -7,7 +7,9 @@ import {offerPropTypes} from '../../utils/offer-prop-types.js';
 class CardList extends PureComponent {
 
   render() {
-    const {offers, onCardTitleClick, focusCard,
+    const {offers,
+      onItemClick,
+      focusCard,
       onCardFocusEnter, onCardFocusLeave,
     } = this.props;
 
@@ -17,7 +19,7 @@ class CardList extends PureComponent {
           return <Card
             key={offer.id}
             offer={offer}
-            onCardTitleClick={onCardTitleClick}
+            onCardTitleClick={onItemClick}
             focusCard={focusCard}
             onCardFocusEnter={onCardFocusEnter}
             onCardFocusLeave={onCardFocusLeave}
@@ -30,7 +32,7 @@ class CardList extends PureComponent {
 
 
 CardList.propTypes = {
-  onCardTitleClick: PropTypes.func.isRequired,
+  onItemClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,

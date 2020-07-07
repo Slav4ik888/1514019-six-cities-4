@@ -10,10 +10,7 @@ const MapCity = ({children}) => {
 };
 
 MapCity.propTypes = {
-  children: pt.oneOfType([
-    pt.arrayOf(pt.node),
-    pt.node
-  ]).isRequired,
+  children: pt.node.isRequired,
 };
 
 export default MapCity;

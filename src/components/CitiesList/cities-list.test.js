@@ -9,7 +9,7 @@ describe(`Snapshot of <CitiesList>`, () => {
       .create(
           <CitiesList
             activeCity={0}
-            onChangeCity={() =>{}}
+            onItemClick={() =>{}}
           />)
       .toJSON();
     expect(tree).toMatchSnapshot();

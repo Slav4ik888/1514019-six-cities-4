@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {cities} from '../../utils/const.js';
 
 const CitiesList = (props) => {
-  const {activeCity, onChangeCity} = props;
+  const {activeCity, onItemClick} = props;
 
   const isActive = `tabs__item--active`;
 
@@ -17,7 +17,7 @@ const CitiesList = (props) => {
             {cities.map((item, i) => {
               return (
                 <li key={item} className="locations__item"
-                  onClick={() => (onChangeCity(i, item))}
+                  onClick={() => (onItemClick(i))}
                 >
                   <a className={`locations__item-link tabs__item
                   ${(activeCity === i) && isActive}`} href="#">
@@ -36,7 +36,7 @@ const CitiesList = (props) => {
 
 CitiesList.propTypes = {
   activeCity: PropTypes.number.isRequired,
-  onChangeCity: PropTypes.func.isRequired,
+  onItemClick: PropTypes.func.isRequired,
 };
 
 
