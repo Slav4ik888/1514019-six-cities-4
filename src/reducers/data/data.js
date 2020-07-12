@@ -1,8 +1,8 @@
 import {extend} from '../../utils/utils.js';
-import {adapterCity} from '../../utils/adapter.js';
+import {adapterCitiesData} from '../../utils/adapter.js';
 
 const initialState = {
-  offers: [],
+  allOffers: {},
 };
 
 const ActionType = {
@@ -10,10 +10,10 @@ const ActionType = {
 };
 
 const ActionCreator = {
-  loadOffers: (offers) => {
+  loadOffers: (allOffers) => {
     return {
       type: ActionType.LOAD_OFFERS,
-      payload: offers,
+      payload: allOffers,
     };
   }
 };
@@ -23,8 +23,8 @@ const Operation = {
   loadOffers: () => (dispatch, getState, api) => {
     return api.get(`/hotels`)
       .then((res) => {
-        // console.log(`res: `, res.data);
-        dispatch(ActionCreator.loadOffers(adapterCity(res.data)));
+        // console.log(`res.data: `, res.data);
+        dispatch(ActionCreator.loadOffers(adapterCitiesData(res.data)));
       });
   },
 };
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.LOAD_OFFERS:
       return extend(state, {
-        offers: action.payload,
+        allOffers: action.payload,
       });
   }
   return state;

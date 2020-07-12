@@ -5,17 +5,21 @@ import PropTypes from 'prop-types';
 import Main from '../Main/main.jsx';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import {OfferDetails} from '../OfferDetails/offer-details.jsx';
-import {ActionCreator} from '../../reducers/reducer.js';
-
+import {ActionCreator} from '../../reducers/travel/travel.js';
+import {getAllOffers} from '../../reducers/data/selectors.js';
+import {getActiveCity, getOffers, getActiveOffer} from '../../reducers/travel/selectors.js';
+import {cities} from '../../utils/const.js';
 
 const App = (props) => {
   const {
+    allOffers,
     offers,
     activeCity,
     handleChangeCity,
     activeOffer,
     handleCardTitleClick,
   } = props;
+  console.log('APP Offers: ', allOffers[cities[activeCity]]);
 
   return (
     <>
@@ -24,25 +28,26 @@ const App = (props) => {
           <Route exact path="/">
             {activeOffer ?
               <OfferDetails
-                offer={activeOffer}
-                offers={offers}
+                offer={activeOffer || {}}
+                offers={allOffers[cities[activeCity]] || []}
                 activeCity={activeCity}
               /> :
 
               <Main
-                offers={offers}
+                offers={allOffers[cities[activeCity]] || []}
                 onCardTitleClick={handleCardTitleClick}
                 activeCity={activeCity}
                 onChangeCity={handleChangeCity}
               />}
           </Route>
-          <Route exact path="/offer">
+
+          {/* <Route exact path="/dev_offer">
             <OfferDetails
-              offer={offers[0]}
-              offers={offers}
+              offer={allOffers[cities[0]] || {}}
+              offers={allOffers[cities[activeCity]] || []}
               activeCity={activeCity}
             />
-          </Route>
+          </Route> */}
         </Switch>
       </BrowserRouter>
     </>
@@ -50,9 +55,10 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  offers: PropTypes.arrayOf(
-      PropTypes.shape(offerPropTypes).isRequired
-  ).isRequired,
+  allOffers: PropTypes.object.isRequired,
+  // offers: PropTypes.arrayOf(
+  //     PropTypes.shape(offerPropTypes).isRequired
+  // ).isRequired,
   activeCity: PropTypes.number.isRequired,
   handleChangeCity: PropTypes.func.isRequired,
   activeOffer: PropTypes.object,
@@ -60,15 +66,16 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  activeCity: state.activeCity,
-  offers: state.offers,
-  activeOffer: state.activeOffer,
+  allOffers: getAllOffers(state),
+  activeCity: getActiveCity(state),
+  offers: getOffers(state),
+  activeOffer: getActiveOffer(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   handleChangeCity(id) {
     dispatch(ActionCreator.changeCity(id));
-    dispatch(ActionCreator.setOffers(id));
+    // dispatch(ActionCreator.setOffers(id));
   },
 
   handleCardTitleClick(offer) {

@@ -102,7 +102,7 @@ export const OfferDetails = (props) => {
                   {bedrooms}
                 </li>
                 <li className="property__feature property__feature--adults">
-                  {maxGuestsNumber}
+                  {`Max ${maxGuestsNumber} adults`}
                 </li>
               </ul>
               <div className="property__price">
@@ -142,7 +142,7 @@ export const OfferDetails = (props) => {
                 </div>
               </div>
 
-              <ReviewsList reviews={reviews}/>
+              {/* <ReviewsList reviews={reviews}/> */}
 
             </div>
           </div>

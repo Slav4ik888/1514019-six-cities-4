@@ -4,7 +4,7 @@
  * @returns {object} offers - объект в нужном формате
  */
 
-export const adapterCity = (data) => {
+export const adapterCitiesData = (data) => {
   let offers = {};
   let offer = {};
 
@@ -36,13 +36,15 @@ export const adapterCity = (data) => {
     offer.coordinates = [data[i].location.latitude, data[i].location.longitude];
     offer.city = {};
     offer.city.zoom = data[i].city.location.zoom;
+    offer.city.coordinates = [data[i].city.location.latitude, data[i].city.location.longitude];
     offer.location = {};
     offer.location.zoom = data[i].location.zoom;
 
     // пушим их в созданные города
     offers[data[i].city.name].push(offer);
+    offer = {};
   }
-  // console.log(offers);
+  console.log(offers);
   // Проверка на корректность
   // console.log(checkRightLength(data, offers));
 
