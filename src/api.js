@@ -20,8 +20,8 @@ export const createAPI = (onUnauthorized) => {
 
   // при ошибке
   const onFail = (err) => {
-    const {res} = err;
-    if (res.status === Error.UNAUTORIZED) { // Если не авторизован
+    const {response} = err;
+    if (response.status === Error.UNAUTORIZED) { // Если не авторизован
       onUnauthorized(); // Нужен, чтобы изменить данные в сторе
 
       // Бросаем ошибку, потому что нам важно прервать цепочку промисов после запроса авторизации.

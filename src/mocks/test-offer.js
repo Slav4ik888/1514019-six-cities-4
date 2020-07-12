@@ -12,7 +12,7 @@ export const testOffer = {
     `img/studio-photos.jpg`],
   amenities: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
   bedrooms: 4,
-  maxGuestsNumber: `Max 4 adults`,
+  maxGuestsNumber: 5,
   description: `This cozy and complete apartment in the heart of New York is a typical, traditional and authentic feel for how New Yorkers live. I welcome all guests to stay at this place during their stay and visit of New York. 
   Please note that this apartment is on the sixth floor and there is no lift (elevator).
   The apartment is convenient for all guests, fitted with a kitchen, small dining area and two bedrooms – couples and groups of friends will find this accommodation most optimal.`,
@@ -26,6 +26,13 @@ export const testOffer = {
   cardTitle: `Beautiful & luxurious apartment at great location`,
   offerType: `House`,
   coordinates: [48.856663, 2.351556],
+  city: {
+    zoom: 8,
+    coordinates: [48.856663, 2.351556],
+  },
+  location: {
+    zoom: 8,
+  },
   reviews: [
     {
       id: 1,

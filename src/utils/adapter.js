@@ -44,7 +44,7 @@ export const adapterCitiesData = (data) => {
     offers[data[i].city.name].push(offer);
     offer = {};
   }
-  console.log(offers);
+  // console.log(offers);
   // Проверка на корректность
   // console.log(checkRightLength(data, offers));
 

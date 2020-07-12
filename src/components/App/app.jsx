@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Main from '../Main/main.jsx';
-import {offerPropTypes} from '../../utils/offer-prop-types.js';
+// import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import {OfferDetails} from '../OfferDetails/offer-details.jsx';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getAllOffers} from '../../reducers/data/selectors.js';
@@ -13,13 +13,13 @@ import {cities} from '../../utils/const.js';
 const App = (props) => {
   const {
     allOffers,
-    offers,
+    // offers,
     activeCity,
     handleChangeCity,
     activeOffer,
     handleCardTitleClick,
   } = props;
-  console.log('APP Offers: ', allOffers[cities[activeCity]]);
+  // console.log('APP Offers: ', allOffers[cities[activeCity]]);
 
   return (
     <>

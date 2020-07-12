@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import {getRating, getNearbyOffers} from '../../utils/utils.js';
-import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
+// import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
 import withMap from '../../hocs/with-map/with-map.js';
 import MapCity from '../MapCity/map-city.jsx';
 import {coordsCities} from '../../utils/const.js';
@@ -25,7 +25,7 @@ export const OfferDetails = (props) => {
     cardTitle,
     offerType,
     coordinates,
-    reviews
+    // reviews
   },
   offers, activeCity} = props;
 
