@@ -7,7 +7,7 @@ import Main from '../Main/main.jsx';
 import {OfferDetails} from '../OfferDetails/offer-details.jsx';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getAllOffers} from '../../reducers/data/selectors.js';
-import {getActiveCity, getOffers, getActiveOffer} from '../../reducers/travel/selectors.js';
+import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
 import {cities} from '../../utils/const.js';
 
 const App = (props) => {
@@ -68,7 +68,7 @@ App.propTypes = {
 const mapStateToProps = (state) => ({
   allOffers: getAllOffers(state),
   activeCity: getActiveCity(state),
-  offers: getOffers(state),
+  // offers: getOffers(state),
   activeOffer: getActiveOffer(state),
 });
 

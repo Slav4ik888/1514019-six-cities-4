@@ -87,6 +87,13 @@ export const offers = {
       cardTitle: `Nice, cozy, warm big bed apartment`,
       offerType: `Hotel`,
       coordinates: [48.876663, 2.381556],
+      city: {
+        zoom: 8,
+        coordinates: [48.856663, 2.351556],
+      },
+      location: {
+        zoom: 8,
+      },
       reviews: [
         {
           id: 1,

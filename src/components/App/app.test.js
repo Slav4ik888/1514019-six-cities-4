@@ -9,7 +9,7 @@ describe(`Render <App /> `, () => {
   it(`Render <App /> без оффера`, () => {
     const tree = renderer
       .create(<App
-        allOffers={offers.Paris}
+        allOffers={offers}
         activeCity={0}
         handleChangeCity={() => {}}
         activeOffer={null}
@@ -22,7 +22,7 @@ describe(`Render <App /> `, () => {
   it(`Render <App /> с оффером`, () => {
     const tree = renderer
       .create(<App
-        allOffers={offers.Paris}
+        allOffers={offers}
         activeCity={0}
         handleChangeCity={() => {}}
         activeOffer={offers.Paris[0]}
