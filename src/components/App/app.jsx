@@ -9,6 +9,7 @@ import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getAllOffers} from '../../reducers/data/selectors.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
 import {cities} from '../../utils/const.js';
+import {SignIn} from '../SignIn/sign-in.jsx';
 
 const App = (props) => {
   const {
@@ -48,6 +49,11 @@ const App = (props) => {
               activeCity={activeCity}
             />
           </Route> */}
+          <Route exact path="/dev_sign-in">
+            <SignIn
+              activeCity={activeCity}
+            />
+          </Route>
         </Switch>
       </BrowserRouter>
     </>

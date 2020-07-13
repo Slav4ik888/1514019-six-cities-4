@@ -25,6 +25,7 @@ const Operation = {
     return api.get(`/login`)
       .then(() => {
         dispatch(ActionCreator.requireAutorization(AuthorizationStatus.AUTH));
+        console.log('USER/login: ');
       })
       .catch((err) => {
         throw err;

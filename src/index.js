@@ -6,12 +6,13 @@ import {Provider} from 'react-redux';
 import App from './components/App/app.jsx';
 import reducer from './reducers/reducer.js';
 import {createAPI} from './api.js';
-import {ActionCreator, AuthorizationStatus} from './reducers/user/user.js';
+import {Operation as UserOperation, ActionCreator, AuthorizationStatus} from './reducers/user/user.js';
 import {Operation as DataOperation} from './reducers/data/data.js';
 
 // Выносим код в отдельную функцию, чтобы развязать циклическую зависимость:
 // `store` зависит от `api`, а `api` зависит от `store`.
 const onUnauthorized = () => { // Если будет поймана ошибка 401 "нет авторизации", то будет вызвана эта функция
+  console.log('INDEX onUnauthorized');
   store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
 };
 
@@ -28,7 +29,7 @@ const store = createStore(
 );
 
 store.dispatch(DataOperation.loadOffers());
-// store.dispatch(UserOperation.checkAuth());
+store.dispatch(UserOperation.checkAuth());
 
 
 ReactDOM.render(
