@@ -16,8 +16,8 @@ const MapCityWrapped = withMap(MapCity);
 const Main = (props) => {
 
   const {authInfo, userStatus, onChangePage, offers, onCardTitleClick, activeCity, onChangeCity} = props;
-  console.log('MAIN userStatus: ', userStatus);
-  console.log('MAIN authInfo: ', authInfo);
+  // console.log('MAIN userStatus: ', userStatus);
+  // console.log('MAIN authInfo: ', authInfo);
 
   const isLogin = userStatus === `AUTH` ? true : false;
 

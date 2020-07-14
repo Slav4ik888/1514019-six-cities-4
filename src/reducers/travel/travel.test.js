@@ -1,7 +1,7 @@
 import {reducer, ActionType, ActionCreator} from './travel.js';
 import {testOffer} from '../../mocks/test-offer.js';
 // import {cities} from '../utils/const.js';
-import {pages} from '../utils/const.js';
+import {pages} from '../../utils/const.js';
 
 
 describe(`Тестим TRAVEL Reducer`, () => {
@@ -10,6 +10,7 @@ describe(`Тестим TRAVEL Reducer`, () => {
     expect(reducer(void 0, {})).toEqual({
       activeCity: 0,
       activeOffer: null,
+      activePage: pages.MAIN,
     });
   });
 

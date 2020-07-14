@@ -10,7 +10,9 @@ export const adapterCitiesData = (data) => {
 
   // Присваиваем города
   for (let item of data) {
-    offers[item.city.name] = [];
+    if (item.city.name) {
+      offers[item.city.name] = [];
+    }
   }
 
   // Создаём offer ы

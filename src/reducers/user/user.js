@@ -14,7 +14,7 @@ const ActionType = {
 };
 
 const ActionCreator = {
-  requireAutorization: (status) => {
+  requireAuthorization: (status) => {
     return {
       type: ActionType.REQUIRED_AUTHORIZATION,
       payload: status,
@@ -32,9 +32,9 @@ const Operation = {
   checkAuth: () => (dispatch, getState, api) => {
     return api.get(`/login`)
       .then((res) => {
-        dispatch(ActionCreator.requireAutorization(AuthorizationStatus.AUTH));
+        dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
         dispatch(ActionCreator.setActiveAuth(res.data));
-        console.log('USER  get /login: ', res.data);
+        // console.log('USER  get /login: ', res.data);
       })
       .catch((err) => {
         throw err;
@@ -47,13 +47,13 @@ const Operation = {
       password: authData.password,
     })
       .then((res) => {
-        dispatch(ActionCreator.requireAutorization(AuthorizationStatus.AUTH));
+        dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
         dispatch(ActionCreator.setActiveAuth(res.data));
-        console.log('USER  post /login: ', res.data);
+        // console.log('USER  post /login: ', res.data);
       })
       .catch((err) => {
-        console.log('err: ', err);
-        // throw err; // Заблокировал выброс ошибке, чтобы обработать самостоятельно
+        // console.log('err: ', err);
+        throw err;
       });
   },
 };

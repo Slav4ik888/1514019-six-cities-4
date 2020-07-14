@@ -9,10 +9,13 @@ describe(`Snapshot of <Main>`, () => {
     const tree = renderer
       .create(
           <Main
+            userStatus={`NO_AUTH`}
+            authInfo={{}}
             offers={offers.Paris}
             onCardTitleClick={() => {}}
             activeCity={0}
             onChangeCity={() => {}}
+            onChangePage={() => {}}
           />)
       .toJSON();
     expect(tree).toMatchSnapshot();

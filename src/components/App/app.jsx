@@ -34,11 +34,12 @@ const App = (props) => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            {activeOffer ?
+            {activePage === pages.OFFER_DETAILS ?
               <OfferDetails
                 offer={activeOffer || {}}
                 offers={allOffers[cities[activeCity]] || []}
                 activeCity={activeCity}
+                onChangePage={handleChangePage}
               /> : null}
             {activePage === pages.MAIN ?
               <Main
@@ -111,11 +112,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleChangeCity(id) {
     dispatch(ActionCreator.changeCity(id));
-    // dispatch(ActionCreator.setOffers(id));
   },
-
   handleCardTitleClick(offer) {
     dispatch(ActionCreator.setActiveOffer(offer));
+    dispatch(ActionCreator.setActivePage(`OFFER_DETAILS`));
   },
 });
 
