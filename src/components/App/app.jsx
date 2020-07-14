@@ -7,12 +7,19 @@ import Main from '../Main/main.jsx';
 import {OfferDetails} from '../OfferDetails/offer-details.jsx';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getAllOffers} from '../../reducers/data/selectors.js';
-import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
-import {cities} from '../../utils/const.js';
+import {getActiveCity, getActiveOffer, getActivePage} from '../../reducers/travel/selectors.js';
+import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
+import {cities, pages} from '../../utils/const.js';
 import {SignIn} from '../SignIn/sign-in.jsx';
+import {Operation as UserOperation} from '../../reducers/user/user.js';
 
 const App = (props) => {
   const {
+    userStatus,
+    authInfo,
+    login,
+    activePage,
+    handleChangePage,
     allOffers,
     // offers,
     activeCity,
@@ -21,7 +28,8 @@ const App = (props) => {
     handleCardTitleClick,
   } = props;
   // console.log('APP Offers: ', allOffers[cities[activeCity]]);
-
+  console.log('APP userStatus: ', userStatus);
+  console.log('APP authInfo: ', authInfo);
   return (
     <>
       <BrowserRouter>
@@ -32,14 +40,22 @@ const App = (props) => {
                 offer={activeOffer || {}}
                 offers={allOffers[cities[activeCity]] || []}
                 activeCity={activeCity}
-              /> :
-
+              /> : null}
+            {activePage === `MAIN` ?
               <Main
+                userStatus={userStatus}
+                authInfo={authInfo}
                 offers={allOffers[cities[activeCity]] || []}
                 onCardTitleClick={handleCardTitleClick}
                 activeCity={activeCity}
                 onChangeCity={handleChangeCity}
-              />}
+                onChangePage={handleChangePage}
+              /> : null}
+            {activePage === `SIGN_IN` ?
+              <SignIn
+                activeCity={activeCity}
+                onSubmit={login}
+              /> : null}
           </Route>
 
           {/* <Route exact path="/dev_offer">
@@ -52,6 +68,7 @@ const App = (props) => {
           <Route exact path="/dev_sign-in">
             <SignIn
               activeCity={activeCity}
+              onSubmit={login}
             />
           </Route>
         </Switch>
@@ -61,6 +78,11 @@ const App = (props) => {
 };
 
 App.propTypes = {
+  userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
+  authInfo: PropTypes.object,
+  login: PropTypes.func.isRequired,
+  activePage: PropTypes.oneOf([`MAIN`, `OFFER_DETAILS`, `SIGN_IN`]).isRequired,
+  handleChangePage: PropTypes.func.isRequired,
   allOffers: PropTypes.object.isRequired,
   // offers: PropTypes.arrayOf(
   //     PropTypes.shape(offerPropTypes).isRequired
@@ -72,6 +94,9 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  userStatus: getUserStatus(state),
+  authInfo: getAuthInfo(state),
+  activePage: getActivePage(state),
   allOffers: getAllOffers(state),
   activeCity: getActiveCity(state),
   // offers: getOffers(state),
@@ -79,6 +104,13 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  login(authData) {
+    dispatch(UserOperation.login(authData));
+    dispatch(ActionCreator.setActivePage(`MAIN`));
+  },
+  handleChangePage(page) {
+    dispatch(ActionCreator.setActivePage(page));
+  },
   handleChangeCity(id) {
     dispatch(ActionCreator.changeCity(id));
     // dispatch(ActionCreator.setOffers(id));

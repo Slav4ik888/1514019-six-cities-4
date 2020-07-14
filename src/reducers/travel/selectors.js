@@ -6,6 +6,11 @@ export const getActiveCity = (state) => {
   return state[NAME_SPACE].activeCity;
 };
 
+
 export const getActiveOffer = (state) => {
   return state[NAME_SPACE].activeOffer;
+};
+
+export const getActivePage = (state) => {
+  return state[NAME_SPACE].activePage;
 };

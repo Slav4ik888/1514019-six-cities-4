@@ -1,6 +1,7 @@
 // import {offers} from '../mocks/offers.js';
 import {extend} from '../../utils/utils.js';
 // import {cities} from '../utils/const.js';
+import {pages} from '../../utils/const.js';
 
 
 const initialState = {
@@ -8,12 +9,14 @@ const initialState = {
   // offers: [], // Офферы для активного города
   activeOffer: null, // Один Offer
   // offers: offers[cities[0]],
+  activePage: pages.SIGN_IN,
 };
 
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   // SET_OFFERS: `SET_OFFERS`,
   SET_ACTIVE_ID: `SET_ACTIVE_ID`,
+  SET_ACTIVE_PAGE: `SET_ACTIVE_PAGE`,
 };
 
 const ActionCreator = {
@@ -30,6 +33,11 @@ const ActionCreator = {
   setActiveOffer: (offer) => ({
     type: ActionType.SET_ACTIVE_ID,
     payload: offer,
+  }),
+
+  setActivePage: (page) => ({
+    type: ActionType.SET_ACTIVE_PAGE,
+    payload: page,
   }),
 };
 
@@ -51,6 +59,11 @@ const reducer = (state = initialState, action) => {
     case ActionType.SET_ACTIVE_ID:
       return extend(state, {
         activeOffer: action.payload,
+      });
+
+    case ActionType.SET_ACTIVE_PAGE:
+      return extend(state, {
+        activePage: action.payload,
       });
   }
 

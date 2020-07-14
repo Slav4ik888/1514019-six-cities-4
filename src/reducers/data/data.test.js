@@ -37,7 +37,7 @@ describe(`DATA Operation work correctly`, () => {
     const offersLoader = Operation.loadOffers();
 
     apiMock
-      .onGet(`/hotel`) // Чтобы мок на запрос `/hotel`
+      .onGet(`/hotels`) // Чтобы мок на запрос `/hotels`
       .reply(200, [{fake: true}]); // вернул ответ 200 и массив таких данных [{fake: true}]
 
     return offersLoader(dispatch, () => {}, api)

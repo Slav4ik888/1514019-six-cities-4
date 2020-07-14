@@ -33,7 +33,7 @@ export const createAPI = (onUnauthorized) => {
     throw err;
   };
 
-  // Перехватчик
+  // Перехватчик ошибки, чтобы смогли её обработать
   api.interceptors.response.use(onSucces, onFail);
 
   return api;
