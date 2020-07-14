@@ -11,12 +11,20 @@ import {Operation as DataOperation} from './reducers/data/data.js';
 
 // Выносим код в отдельную функцию, чтобы развязать циклическую зависимость:
 // `store` зависит от `api`, а `api` зависит от `store`.
-const onUnauthorized = () => { // Если будет поймана ошибка 401 "нет авторизации", то будет вызвана эта функция
-  console.log('INDEX onUnauthorized');
-  store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
+const onError = (err) => { // Если будет поймана ошибка 401 "нет авторизации", то будет вызвана эта функция
+
+  if (err === 400) {
+    console.log('INDEX 400 Bad request');
+    store.dispatch(ActionCreator.requireAutorization(AuthorizationStatus.NO_AUTH));
+    store.dispatch(ActionCreator.setActiveAuth({}));
+  }
+  if (err === 401) {
+    // console.log('INDEX onUnauthorized');
+    store.dispatch(ActionCreator.requireAutorization(AuthorizationStatus.NO_AUTH));
+  }
 };
 
-const api = createAPI(onUnauthorized);
+const api = createAPI(onError);
 
 const store = createStore(
     reducer,

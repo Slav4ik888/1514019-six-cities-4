@@ -1,6 +1,7 @@
 import {reducer, ActionType, ActionCreator} from './travel.js';
 import {testOffer} from '../../mocks/test-offer.js';
 // import {cities} from '../utils/const.js';
+import {pages} from '../utils/const.js';
 
 
 describe(`Тестим TRAVEL Reducer`, () => {
@@ -23,29 +24,27 @@ describe(`Тестим TRAVEL Reducer`, () => {
     });
   });
 
-  // it(`Reducer SET_OFFERS by a given new offer`, () => {
-  //   expect(reducer({
-  //     activeCity: 0,
-  //     offers: offers.Paris,
-  //   }, {
-  //     type: ActionType.SET_OFFERS,
-  //     payload: 2,
-  //   })).toEqual({
-  //     activeCity: 0,
-  //     offers: offers.Brussels,
-  //   });
-  // });
-
-  it(`Reducer SET_ACTIVE_ID by a given new offer`, () => {
+  it(`Reducer SET_ACTIVE_OFFER by a given new offer`, () => {
     expect(reducer({
       activeCity: 0,
       activeOffer: null,
     }, {
-      type: ActionType.SET_ACTIVE_ID,
+      type: ActionType.SET_ACTIVE_OFFER,
       payload: testOffer,
     })).toEqual({
       activeCity: 0,
       activeOffer: testOffer,
+    });
+  });
+
+  it(`Reducer SET_ACTIVE_PAGE by a given new page`, () => {
+    expect(reducer({
+      activePage: pages.MAIN,
+    }, {
+      type: ActionType.SET_ACTIVE_PAGE,
+      payload: pages.SIGN_IN,
+    })).toEqual({
+      activePage: pages.SIGN_IN,
     });
   });
 
@@ -60,18 +59,19 @@ describe(`Тестим TRAVEL ActionCreator`, () => {
     });
   });
 
-  // it(`ActionCreator for setOffers`, () => {
-  //   expect(ActionCreator.setOffers(3)).toEqual({
-  //     type: ActionType.SET_OFFERS,
-  //     payload: 3,
-  //   });
-  // });
-
   it(`ActionCreator for setActiveOffer`, () => {
     expect(ActionCreator.setActiveOffer(testOffer)).toEqual({
-      type: ActionType.SET_ACTIVE_ID,
+      type: ActionType.SET_ACTIVE_OFFER,
       payload: testOffer,
     });
   });
+
+  it(`ActionCreator for setOffers`, () => {
+    expect(ActionCreator.setActivePage(pages.SIGN_IN)).toEqual({
+      type: ActionType.SET_ACTIVE_PAGE,
+      payload: `SIGN_IN`,
+    });
+  });
+
 
 });

@@ -2,13 +2,14 @@ import axios from "axios";
 
 // Перечень ошибок, которые мы будем обрабатывать
 const Error = {
+  BAD_REQUEST: 400,
   UNAUTHORIZED: 401,
 };
 
 // Вызов createAPI будет возвращать новый инстас
 // Принимает перехватчик onUnauthorized неавторизоованного состояния
 
-export const createAPI = (onUnauthorized) => {
+export const createAPI = (onError) => {
   const api = axios.create({
     baseURL: `https://4.react.pages.academy/six-cities`,
     timeout: 1000 * 5,
@@ -21,15 +22,22 @@ export const createAPI = (onUnauthorized) => {
   // при ошибке
   const onFail = (err) => {
     const {response} = err;
-    if (response.status === Error.UNAUTHORIZED) { // Если не авторизован
-      console.log(`API onUnauthorized`);
-      onUnauthorized(); // Нужен, чтобы изменить данные в сторе
+    switch (response.status) {
+      case Error.UNAUTHORIZED:
+        // console.log(`API onUnauthorized 401`);
+        onError(401); // Нужен, чтобы изменить данные в сторе
 
-      // Бросаем ошибку, потому что нам важно прервать цепочку промисов после запроса авторизации.
-      // Запрос авторизации - это особый случай и важно дать понять приложению, что запрос был неудачным.
-      throw err;
+        // Бросаем ошибку, потому что нам важно прервать цепочку промисов после запроса авторизации.
+        // Запрос авторизации - это особый случай и важно дать понять приложению, что запрос был неудачным.
+        throw err;
+
+      case Error.BAD_REQUEST:
+        onError(400);
+        // console.log(`API Bad request 400`);
+        throw err;
     }
 
+    // console.log(`api error необработанная`);
     throw err;
   };
 

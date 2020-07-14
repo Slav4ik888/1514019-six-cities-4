@@ -21,15 +21,14 @@ const App = (props) => {
     activePage,
     handleChangePage,
     allOffers,
-    // offers,
     activeCity,
     handleChangeCity,
     activeOffer,
     handleCardTitleClick,
   } = props;
   // console.log('APP Offers: ', allOffers[cities[activeCity]]);
-  console.log('APP userStatus: ', userStatus);
-  console.log('APP authInfo: ', authInfo);
+  // console.log('APP userStatus: ', userStatus);
+  // console.log('APP authInfo: ', authInfo);
   return (
     <>
       <BrowserRouter>
@@ -41,7 +40,7 @@ const App = (props) => {
                 offers={allOffers[cities[activeCity]] || []}
                 activeCity={activeCity}
               /> : null}
-            {activePage === `MAIN` ?
+            {activePage === pages.MAIN ?
               <Main
                 userStatus={userStatus}
                 authInfo={authInfo}
@@ -51,7 +50,7 @@ const App = (props) => {
                 onChangeCity={handleChangeCity}
                 onChangePage={handleChangePage}
               /> : null}
-            {activePage === `SIGN_IN` ?
+            {activePage === pages.SIGN_IN ?
               <SignIn
                 activeCity={activeCity}
                 onSubmit={login}
@@ -65,12 +64,12 @@ const App = (props) => {
               activeCity={activeCity}
             />
           </Route> */}
-          <Route exact path="/dev_sign-in">
+          {/* <Route exact path="/dev_sign-in">
             <SignIn
               activeCity={activeCity}
               onSubmit={login}
             />
-          </Route>
+          </Route> */}
         </Switch>
       </BrowserRouter>
     </>
@@ -84,13 +83,13 @@ App.propTypes = {
   activePage: PropTypes.oneOf([`MAIN`, `OFFER_DETAILS`, `SIGN_IN`]).isRequired,
   handleChangePage: PropTypes.func.isRequired,
   allOffers: PropTypes.object.isRequired,
-  // offers: PropTypes.arrayOf(
-  //     PropTypes.shape(offerPropTypes).isRequired
-  // ).isRequired,
   activeCity: PropTypes.number.isRequired,
   handleChangeCity: PropTypes.func.isRequired,
   activeOffer: PropTypes.object,
   handleCardTitleClick: PropTypes.func.isRequired,
+  // offers: PropTypes.arrayOf(
+  //     PropTypes.shape(offerPropTypes).isRequired
+  // ).isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -99,7 +98,6 @@ const mapStateToProps = (state) => ({
   activePage: getActivePage(state),
   allOffers: getAllOffers(state),
   activeCity: getActiveCity(state),
-  // offers: getOffers(state),
   activeOffer: getActiveOffer(state),
 });
 

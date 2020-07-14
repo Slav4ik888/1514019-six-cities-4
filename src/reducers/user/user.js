@@ -50,6 +50,10 @@ const Operation = {
         dispatch(ActionCreator.requireAutorization(AuthorizationStatus.AUTH));
         dispatch(ActionCreator.setActiveAuth(res.data));
         console.log('USER  post /login: ', res.data);
+      })
+      .catch((err) => {
+        console.log('err: ', err);
+        // throw err; // Заблокировал выброс ошибке, чтобы обработать самостоятельно
       });
   },
 };
