@@ -23,8 +23,10 @@ export const coordsCities = [
   [51.230569, 6.787428],
 ];
 
-export const pages = {
-  MAIN: `MAIN`,
-  OFFER_DETAILS: `OFFER_DETAILS`,
-  SIGN_IN: `SIGN_IN`,
+
+export const AppRoute = {
+  LOGIN: `/login`,
+  ROOT: `/`,
+  OFFER: `/offer`,
+  FAVORITES: `/favorites`,
 };

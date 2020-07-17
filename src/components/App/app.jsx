@@ -1,5 +1,7 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Router, Route, Switch,
+  // BrowserRouter
+} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Main from '../Main/main.jsx';
@@ -7,19 +9,20 @@ import Main from '../Main/main.jsx';
 import {OfferDetails} from '../OfferDetails/offer-details.jsx';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getAllOffers} from '../../reducers/data/selectors.js';
-import {getActiveCity, getActiveOffer, getActivePage} from '../../reducers/travel/selectors.js';
+import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
 import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
-import {cities, pages} from '../../utils/const.js';
+import {cities} from '../../utils/const.js';
 import {SignIn} from '../SignIn/sign-in.jsx';
 import {Operation as UserOperation} from '../../reducers/user/user.js';
+import {history} from '../../history.js';
+import {AppRoute} from '../../utils/const.js';
+
 
 const App = (props) => {
   const {
     userStatus,
     authInfo,
     login,
-    activePage,
-    handleChangePage,
     allOffers,
     activeCity,
     handleChangeCity,
@@ -29,50 +32,42 @@ const App = (props) => {
   // console.log('APP Offers: ', allOffers[cities[activeCity]]);
   // console.log('APP userStatus: ', userStatus);
   // console.log('APP authInfo: ', authInfo);
+
   return (
     <>
-      <BrowserRouter>
+      <Router history={history}>
+        {/* <BrowserRouter> */}
         <Switch>
-          <Route exact path="/">
-            {activePage === pages.OFFER_DETAILS ?
-              <OfferDetails
-                offer={activeOffer || {}}
-                offers={allOffers[cities[activeCity]] || []}
-                activeCity={activeCity}
-                onChangePage={handleChangePage}
-              /> : null}
-            {activePage === pages.MAIN ?
-              <Main
-                userStatus={userStatus}
-                authInfo={authInfo}
-                offers={allOffers[cities[activeCity]] || []}
-                onCardTitleClick={handleCardTitleClick}
-                activeCity={activeCity}
-                onChangeCity={handleChangeCity}
-                onChangePage={handleChangePage}
-              /> : null}
-            {activePage === pages.SIGN_IN ?
-              <SignIn
-                activeCity={activeCity}
-                onSubmit={login}
-              /> : null}
+
+          <Route exact path={AppRoute.ROOT}>
+            <Main
+              userStatus={userStatus}
+              authInfo={authInfo}
+              offers={allOffers[cities[activeCity]] || []}
+              onCardTitleClick={handleCardTitleClick}
+              activeCity={activeCity}
+              onChangeCity={handleChangeCity}
+            />
           </Route>
 
-          {/* <Route exact path="/dev_offer">
-            <OfferDetails
-              offer={allOffers[cities[0]] || {}}
-              offers={allOffers[cities[activeCity]] || []}
-              activeCity={activeCity}
-            />
-          </Route> */}
-          {/* <Route exact path="/dev_sign-in">
+          <Route exact path={AppRoute.LOGIN}>
             <SignIn
               activeCity={activeCity}
               onSubmit={login}
             />
-          </Route> */}
+          </Route>
+
+          <Route exact path={AppRoute.OFFER}>
+            {activeOffer && <OfferDetails
+              offer={activeOffer || {}}
+              offers={allOffers[cities[activeCity]] || []}
+              activeCity={activeCity}
+            />}
+          </Route>
+
         </Switch>
-      </BrowserRouter>
+        {/* </BrowserRouter> */}
+      </Router>
     </>
   );
 };
@@ -81,8 +76,7 @@ App.propTypes = {
   userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
   authInfo: PropTypes.object,
   login: PropTypes.func.isRequired,
-  activePage: PropTypes.oneOf([`MAIN`, `OFFER_DETAILS`, `SIGN_IN`]).isRequired,
-  handleChangePage: PropTypes.func.isRequired,
+  // activePage: PropTypes.oneOf([`MAIN`, `OFFER_DETAILS`, `SIGN_IN`]).isRequired,
   allOffers: PropTypes.object.isRequired,
   activeCity: PropTypes.number.isRequired,
   handleChangeCity: PropTypes.func.isRequired,
@@ -96,7 +90,6 @@ App.propTypes = {
 const mapStateToProps = (state) => ({
   userStatus: getUserStatus(state),
   authInfo: getAuthInfo(state),
-  activePage: getActivePage(state),
   allOffers: getAllOffers(state),
   activeCity: getActiveCity(state),
   activeOffer: getActiveOffer(state),
@@ -105,17 +98,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   login(authData) {
     dispatch(UserOperation.login(authData));
-    dispatch(ActionCreator.setActivePage(`MAIN`));
-  },
-  handleChangePage(page) {
-    dispatch(ActionCreator.setActivePage(page));
   },
   handleChangeCity(id) {
     dispatch(ActionCreator.changeCity(id));
   },
   handleCardTitleClick(offer) {
     dispatch(ActionCreator.setActiveOffer(offer));
-    dispatch(ActionCreator.setActivePage(`OFFER_DETAILS`));
   },
 });
 

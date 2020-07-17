@@ -27,7 +27,7 @@ export const OfferDetails = (props) => {
     coordinates,
     // reviews
   },
-  offers, activeCity, onChangePage} = props;
+  offers, activeCity} = props;
 
   // Выводим города поблизости
   const nearbyOffers = getNearbyOffers(offers, 3, coordinates, false);
@@ -39,7 +39,7 @@ export const OfferDetails = (props) => {
           <div className="header__wrapper">
             <div className="header__left">
               <a className="header__logo-link" href="#"
-                onClick={() => onChangePage(`MAIN`)}
+                // onClick={() => onChangePage(`MAIN`)}
               >
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
               </a>
@@ -267,5 +267,4 @@ OfferDetails.propTypes = {
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
   activeCity: PropTypes.number.isRequired,
-  onChangePage: PropTypes.func.isRequired,
 };
