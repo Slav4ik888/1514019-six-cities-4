@@ -1,49 +1,57 @@
-import {reducer, Operation, ActionCreator, ActionType, AuthorizationStatus} from './user.js';
+import {reducer, Operation, ActionCreator, ActionType, AuthStatus} from './user.js';
 import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../api.js';
 
+// const userInfo = {
+//   avatarUrl: `/static/avatar/7.jpg`,
+//   email: `korzan.va@mail.ru`,
+//   id: 1,
+//   isPro: false,
+//   name: `Vyacheslav`,
+// };
+
 it(`USER Reducer without additional parameters should be return initiaState`, () => {
   expect(reducer(void 0, {})).toEqual({
-    authorizationStatus: AuthorizationStatus.NO_AUTH,
+    authorizationStatus: AuthStatus.NO_AUTH,
     authInfo: {},
   });
 });
 
 it(`Reducer should change authorizationStatus by a given value`, () => {
   expect(reducer({
-    authorizationStatus: AuthorizationStatus.NO_AUTH,
+    authorizationStatus: AuthStatus.NO_AUTH,
   }, {
     type: ActionType.REQUIRED_AUTHORIZATION,
-    payload: AuthorizationStatus.AUTH,
+    payload: AuthStatus.AUTH,
   })).toEqual({
-    authorizationStatus: AuthorizationStatus.AUTH,
+    authorizationStatus: AuthStatus.AUTH,
   });
 
   expect(reducer({
-    authorizationStatus: AuthorizationStatus.AUTH,
+    authorizationStatus: AuthStatus.AUTH,
   }, {
     type: ActionType.REQUIRED_AUTHORIZATION,
-    payload: AuthorizationStatus.NO_AUTH,
+    payload: AuthStatus.NO_AUTH,
   })).toEqual({
-    authorizationStatus: AuthorizationStatus.NO_AUTH,
+    authorizationStatus: AuthStatus.NO_AUTH,
   });
 
   expect(reducer({
-    authorizationStatus: AuthorizationStatus.AUTH,
+    authorizationStatus: AuthStatus.AUTH,
   }, {
     type: ActionType.REQUIRED_AUTHORIZATION,
-    payload: AuthorizationStatus.AUTH,
+    payload: AuthStatus.AUTH,
   })).toEqual({
-    authorizationStatus: AuthorizationStatus.AUTH,
+    authorizationStatus: AuthStatus.AUTH,
   });
 
   expect(reducer({
-    authorizationStatus: AuthorizationStatus.NO_AUTH,
+    authorizationStatus: AuthStatus.NO_AUTH,
   }, {
     type: ActionType.REQUIRED_AUTHORIZATION,
-    payload: AuthorizationStatus.NO_AUTH,
+    payload: AuthStatus.NO_AUTH,
   })).toEqual({
-    authorizationStatus: AuthorizationStatus.NO_AUTH,
+    authorizationStatus: AuthStatus.NO_AUTH,
   });
 });
 
@@ -78,14 +86,14 @@ it(`Reducer should change authInfo by a given value`, () => {
 
 describe(`Action creators work correctly`, () => {
   it(`Action creator for require authorization returns correct action`, () => {
-    expect(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH)).toEqual({
+    expect(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH)).toEqual({
       type: ActionType.REQUIRED_AUTHORIZATION,
-      payload: AuthorizationStatus.NO_AUTH,
+      payload: AuthStatus.NO_AUTH,
     });
 
-    expect(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH)).toEqual({
+    expect(ActionCreator.requireAuthorization(AuthStatus.AUTH)).toEqual({
       type: ActionType.REQUIRED_AUTHORIZATION,
-      payload: AuthorizationStatus.AUTH,
+      payload: AuthStatus.AUTH,
     });
   });
 

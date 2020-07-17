@@ -1,10 +1,10 @@
-const AuthorizationStatus = {
+const AuthStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`,
 };
 
 const initialState = {
-  authorizationStatus: AuthorizationStatus.NO_AUTH,
+  authorizationStatus: AuthStatus.NO_AUTH,
   authInfo: {},
 };
 
@@ -32,7 +32,7 @@ const Operation = {
   checkAuth: () => (dispatch, getState, api) => {
     return api.get(`/login`)
       .then((res) => {
-        dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+        dispatch(ActionCreator.requireAuthorization(AuthStatus.AUTH));
         dispatch(ActionCreator.setActiveAuth(res.data));
         // console.log('USER  get /login: ', res.data);
       })
@@ -47,7 +47,7 @@ const Operation = {
       password: authData.password,
     })
       .then((res) => {
-        dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+        dispatch(ActionCreator.requireAuthorization(AuthStatus.AUTH));
         dispatch(ActionCreator.setActiveAuth(res.data));
         // console.log('USER  post /login: ', res.data);
       })
@@ -75,7 +75,7 @@ const reducer = (state = initialState, action) => {
 
 export {
   ActionCreator,
-  AuthorizationStatus,
+  AuthStatus,
   ActionType,
   Operation,
   reducer,

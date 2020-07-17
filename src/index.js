@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import App from './components/App/app.jsx';
 import reducer from './reducers/reducer.js';
 import {createAPI} from './api.js';
-import {Operation as UserOperation, ActionCreator, AuthorizationStatus} from './reducers/user/user.js';
+import {Operation as UserOperation, ActionCreator, AuthStatus} from './reducers/user/user.js';
 import {Operation as DataOperation} from './reducers/data/data.js';
 
 // Выносим код в отдельную функцию, чтобы развязать циклическую зависимость:
@@ -15,12 +15,12 @@ const onError = (err) => { // Если будет поймана ошибка 40
 
   if (err === 400) {
     // console.log('INDEX 400 Bad request');
-    store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
+    store.dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
     store.dispatch(ActionCreator.setActiveAuth({}));
   }
   if (err === 401) {
     // console.log('INDEX onUnauthorized');
-    store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
+    store.dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
   }
 };
 
