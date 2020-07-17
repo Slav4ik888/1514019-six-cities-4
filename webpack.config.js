@@ -11,7 +11,7 @@ module.exports = {
     // eslint-disable-next-line no-undef
     contentBase: path.join(__dirname, `public`),
     open: false,
-    port: 3010,
+    port: 1337,
     historyApiFallback: true,
   },
   module: {
