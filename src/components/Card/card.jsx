@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import {getRating} from '../../utils/utils.js';
@@ -9,20 +9,19 @@ import {getUserStatus} from '../../reducers/user/selectors.js';
 
 
 const Card = (props) => {
-  const {offer: {isPremium, isFavourite, previewImage, price, rating, cardTitle, offerType},
-    onCardTitleClick,
-    onCardFocusEnter,
-    onCardFocusLeave,
-    // userStatus,
-    onFavClick,
-    isFav,
+  const {offer: {isPremium,
+    // isFavourite,
+    previewImage, price, rating, cardTitle, offerType},
+  onCardTitleClick,
+  onCardFocusEnter,
+  onCardFocusLeave,
+  onFavClick,
+  isFav,
   } = props;
 
   const favClass = isFav ? `place-card__bookmark-button--active` : null;
 
-
   const handleTitleClick = () => {
-    // console.log('handleTitleClick: ', props.offer);
     onCardTitleClick(props.offer);
   };
 
@@ -34,12 +33,9 @@ const Card = (props) => {
     onCardFocusLeave();
   };
 
-  // const handleFavClick = () => {
-  //   if (userStatus === `AUTH`) {
-  //     // console.log(userStatus);
-  //     return <Redirect to={AppRoute.LOGIN} />;
-  //   }
-  // };
+  const handleFavClick = () => {
+    onFavClick(props.offer);
+  };
 
   return (
     <article className="cities__place-card place-card"
@@ -63,7 +59,7 @@ const Card = (props) => {
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className={`place-card__bookmark-button button ${favClass}`} type="button"
-            onClick={onFavClick}
+            onClick={handleFavClick}
           >
             {/* {userStatus === `AUTH` ? <Redirect to={AppRoute.LOGIN} /> : null} */}
             <svg className="place-card__bookmark-icon" width="18" height="19">

@@ -1,32 +1,25 @@
 import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../reducers/data/data.js';
 import pt from 'prop-types';
 
 const withFavorite = (Component) => {
+
   class WithFavorite extends PureComponent {
     constructor(props) {
       super(props);
       this._handleFavClick = this._handleFavClick.bind(this);
 
       this.state = {
-        isFav: props.offer.isFavorite || false,
+        isFav: props.offer.isFavorite,
       };
     }
 
-    // handleButtonBookClick() {
-    //   const {toggleFavorite, offer} = this.props;
-    //   toggleFavorite({
-    //     hotelId: offer.id,
-    //     status: !offer.isFavorite
-    //   });
-    // }
-
-
-    _handleFavClick() {
-
+    _handleFavClick(offer) {
+      this.props.onToggleFav(offer);
       this.setState((state) => ({
         isFav: !state.isFav,
       }));
-      console.log('isFav: ', this.state.isFav);
     }
 
     render() {
@@ -39,11 +32,19 @@ const withFavorite = (Component) => {
   }
 
   WithFavorite.propTypes = {
-    onFavClick: pt.func.isRequired,
+    onToggleFav: pt.func.isRequired,
     offer: pt.object.isRequired,
   };
 
-  return WithFavorite;
+  const mapDispatchToProps = (dispatch) => ({
+    onToggleFav(offer) {
+      dispatch(ActionCreator.toggleFavorite(offer));
+    },
+  });
+
+  return connect(undefined, mapDispatchToProps)(WithFavorite);
 };
 
+
 export default withFavorite;
+

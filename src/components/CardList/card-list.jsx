@@ -32,7 +32,6 @@ class CardList extends PureComponent {
   }
 }
 
-
 CardList.propTypes = {
   onItemClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
@@ -42,5 +41,6 @@ CardList.propTypes = {
   onCardFocusLeave: PropTypes.func.isRequired,
   focusCard: PropTypes.shape(offerPropTypes),
 };
+
 
 export default CardList;

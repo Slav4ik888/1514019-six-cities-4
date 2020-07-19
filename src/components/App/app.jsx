@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  Router,
+  // Router,
   Route, Switch,
-  // BrowserRouter,
+  BrowserRouter,
   Redirect,
 } from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -17,11 +17,11 @@ import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
 import {cities, AppRoute} from '../../utils/const.js';
 import {SignIn} from '../SignIn/sign-in.jsx';
 import {Operation as UserOperation} from '../../reducers/user/user.js';
-import {Favorites} from '../Favorites/favorites.jsx';
-import {PrivateRoute} from '../PrivateRoute/private-route.jsx';
-import {getFavorites} from '../../reducers/favorites/selectors.js';
-import {Operation as FavOperation} from '../../reducers/favorites/favorites.js';
-import {history} from '../../history.js';
+import Favorites from '../Favorites/favorites.jsx';
+import PrivateRoute from '../PrivateRoute/private-route.jsx';
+// import {getFavorites} from '../../reducers/favorites/selectors.js';
+// import {Operation as FavOperation} from '../../reducers/favorites/favorites.js';
+// import {history} from '../../history.js';
 
 
 const App = (props) => {
@@ -34,19 +34,19 @@ const App = (props) => {
     handleChangeCity,
     activeOffer,
     handleCardTitleClick,
-    favorites,
-    loadFavorites,
+    // favorites,
+    // loadFavorites,
   } = props;
   // console.log('APP Offers: ', allOffers[cities[activeCity]]);
-  console.log('APP userStatus: ', userStatus);
-  console.log('APP authInfo: ', authInfo);
-  console.log('favorites: ', favorites);
+  // console.log('APP userStatus: ', userStatus);
+  // console.log('APP authInfo: ', authInfo);
+  // console.log('favorites: ', favorites);
   // loadFavorites();
 
   return (
     <>
-      <Router history={history}>
-        {/* <BrowserRouter> */}
+      {/* <Router history={history}> */}
+      <BrowserRouter>
         <Switch>
 
           <Route exact path={AppRoute.ROOT}>
@@ -101,8 +101,8 @@ const App = (props) => {
           />
 
         </Switch>
-        {/* </BrowserRouter> */}
-      </Router>
+      </BrowserRouter>
+      {/* </Router> */}
     </>
   );
 };
@@ -111,14 +111,13 @@ App.propTypes = {
   userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
   authInfo: PropTypes.object,
   login: PropTypes.func.isRequired,
-  // activePage: PropTypes.oneOf([`MAIN`, `OFFER_DETAILS`, `SIGN_IN`]).isRequired,
   allOffers: PropTypes.object.isRequired,
   activeCity: PropTypes.number.isRequired,
   handleChangeCity: PropTypes.func.isRequired,
   activeOffer: PropTypes.object,
   handleCardTitleClick: PropTypes.func.isRequired,
-  favorites: PropTypes.array.isRequired,
-  loadFavorites: PropTypes.func.isRequired,
+  // favorites: PropTypes.array.isRequired,
+  // loadFavorites: PropTypes.func.isRequired,
   // offers: PropTypes.arrayOf(
   //     PropTypes.shape(offerPropTypes).isRequired
   // ).isRequired,
@@ -130,16 +129,16 @@ const mapStateToProps = (state) => ({
   allOffers: getAllOffers(state),
   activeCity: getActiveCity(state),
   activeOffer: getActiveOffer(state),
-  favorites: getFavorites(state),
+  // favorites: getFavorites(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   login(authData) {
     dispatch(UserOperation.login(authData));
   },
-  loadFavorites() {
-    dispatch(FavOperation.loadFavorites());
-  },
+  // loadFavorites() {
+  //   dispatch(FavOperation.loadFavorites());
+  // },
   handleChangeCity(id) {
     dispatch(ActionCreator.changeCity(id));
   },

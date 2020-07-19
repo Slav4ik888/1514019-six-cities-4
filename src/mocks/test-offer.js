@@ -1,7 +1,7 @@
 export const testOffer = {
   id: 1,
   isPremium: true,
-  isFavourite: false,
+  isFavorite: false,
   previewImage: `img/apartment-03.jpg`,
   pictures: [
     `img/apartment-01.jpg`,

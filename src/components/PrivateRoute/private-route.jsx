@@ -8,7 +8,7 @@ import pt from 'prop-types';
 
 const PrivateRoute = (props) => {
   const {exact, path, render, userStatus} = props;
-  console.log('userStatus: ', userStatus);
+  // console.log('PRIV userStatus: ', userStatus);
 
   return (
     <Route
@@ -16,7 +16,7 @@ const PrivateRoute = (props) => {
       path={path}
       render={() => {
         return (
-          userStatus !== AuthStatus.AUTH
+          userStatus === AuthStatus.AUTH
             ? render()
             : <Redirect to={AppRoute.LOGIN}/>
         );

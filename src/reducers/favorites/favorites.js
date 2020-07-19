@@ -44,7 +44,7 @@ const Operation = {
     return api.get(`/favorite`)
       .then((res) => {
         dispatch(ActionCreator.getFavorites(res.data));
-        console.log('res.data: ', res.data);
+        // console.log('res.data: ', res.data);
       })
       .catch((err) => {
 

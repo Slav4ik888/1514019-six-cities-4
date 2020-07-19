@@ -2,10 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../utils/const.js';
+import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
+import pt from 'prop-types';
 
-// import IconBookmark from '../../Icons/icon-bookmark.svg';
 
-const Favorites = () => {
+const Favorites = (props) => {
+  const {userStatus, authInfo} = props;
+
   return (
     <>
       <div style={{display: `none`}}>
@@ -38,9 +41,11 @@ const Favorites = () => {
                       className="header__nav-link header__nav-link--profile"
                       to={{}}
                     >
-                      <div className="header__avatar-wrapper user__avatar-wrapper">
-                      </div>
-                      <span className="header__login">Sign in</span>
+                      <div className="header__avatar-wrapper user__avatar-wrapper"></div>
+                      {userStatus === `AUTH` ?
+                        <span className="header__user-name user__name">{authInfo.email}</span>
+                        : <span className="header__login">Sign in</span>
+                      }
                     </Link>
                   </li>
                 </ul>
@@ -185,5 +190,16 @@ const Favorites = () => {
   );
 };
 
+Favorites.propTypes = {
+  userStatus: pt.string.isRequired,
+  authInfo: pt.object,
+};
+
+
+const mapStateToProps = (state) => ({
+  userStatus: getUserStatus(state),
+  authInfo: getAuthInfo(state),
+});
+
 export {Favorites};
-export default connect()(Favorites);
+export default connect(mapStateToProps)(Favorites);

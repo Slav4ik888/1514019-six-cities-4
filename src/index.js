@@ -17,12 +17,12 @@ import {AppRoute} from './utils/const.js';
 const onError = (err) => { // Если будет поймана ошибка 401 "нет авторизации", то будет вызвана эта функция
 
   if (err === 400) {
-    console.log('INDEX 400 Bad request');
+    // console.log('INDEX 400 Bad request');
     store.dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
     store.dispatch(ActionCreator.setActiveAuth({}));
   }
   if (err === 401) {
-    console.log('INDEX onUnauthorized');
+    // console.log('INDEX onUnauthorized');
     store.dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
     history.push(AppRoute.LOGIN);
   }
