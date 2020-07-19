@@ -28,9 +28,7 @@
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.11.0"
   },
-  "engines": {
-    "node": "10"
-  },
+ 
   "dependencies": {
     "axios": "0.19.2",
     "history": "5.0.0",

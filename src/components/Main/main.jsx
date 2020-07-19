@@ -17,10 +17,8 @@ const MapCityWrapped = withMap(MapCity);
 const Main = (props) => {
 
   const {authInfo, userStatus, offers, onCardTitleClick, activeCity, onChangeCity} = props;
-  // console.log('MAIN userStatus: ', userStatus);
-  // console.log('MAIN authInfo: ', authInfo);
-
-  const isLogin = userStatus === `AUTH` ? true : false;
+  console.log('MAIN userStatus: ', userStatus);
+  console.log('MAIN authInfo: ', authInfo);
 
   return (
     <>
@@ -38,11 +36,10 @@ const Main = (props) => {
                   <li className="header__nav-item user">
                     <Link
                       className="header__nav-link header__nav-link--profile"
-                      to={isLogin ? AppRoute.LOGIN : AppRoute.LOGIN}
+                      to={userStatus === `AUTH` ? AppRoute.FAVORITES : AppRoute.LOGIN}
                     >
-                      <div className="header__avatar-wrapper user__avatar-wrapper">
-                      </div>
-                      {isLogin ?
+                      <div className="header__avatar-wrapper user__avatar-wrapper"></div>
+                      {userStatus === `AUTH` ?
                         <span className="header__user-name user__name">{authInfo.email}</span>
                         : <span className="header__login">Sign in</span>
                       }

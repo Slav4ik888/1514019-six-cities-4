@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import {AppRoute} from '../../utils/const.js';
 import PropTypes from 'prop-types';
 import {cities} from '../../utils/const.js';
 
@@ -19,10 +21,11 @@ const CitiesList = (props) => {
                 <li key={item} className="locations__item"
                   onClick={() => (onItemClick(i))}
                 >
-                  <a className={`locations__item-link tabs__item
-                  ${(activeCity === i) && isActive}`} href="#">
+                  <Link className={`locations__item-link tabs__item
+                  ${(activeCity === i) && isActive}`}
+                  to={AppRoute.ROOT}>
                     <span>{item}</span>
-                  </a>
+                  </Link>
                 </li>
               );
             })}

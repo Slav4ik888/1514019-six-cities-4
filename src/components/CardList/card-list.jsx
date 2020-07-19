@@ -2,7 +2,9 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import Card from '../Card/card.jsx';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
+import withFavorite from '../../hocs/with-favorite/with-favorite.js';
 
+const CardWrapped = withFavorite(Card);
 
 class CardList extends PureComponent {
 
@@ -16,7 +18,7 @@ class CardList extends PureComponent {
     return (
       <>
         {offers.map((offer) => {
-          return <Card
+          return <CardWrapped
             key={offer.id}
             offer={offer}
             onCardTitleClick={onItemClick}
