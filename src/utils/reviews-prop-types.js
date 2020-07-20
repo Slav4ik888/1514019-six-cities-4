@@ -2,11 +2,13 @@ import pt from 'prop-types';
 
 export const reviewsPropTypes = {
   id: pt.number.isRequired,
-  author: pt.shape({
-    photo: pt.string,
+  user: pt.shape({
+    avatarUrl: pt.string,
+    id: pt.number,
+    isPro: pt.bool,
     name: pt.string,
   }).isRequired,
-  description: pt.string.isRequired,
-  date: pt.number.isRequired,
+  comment: pt.string.isRequired,
+  date: pt.string.isRequired,
   rating: pt.number.isRequired,
 };

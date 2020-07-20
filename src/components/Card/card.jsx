@@ -6,12 +6,14 @@ import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import {getRating} from '../../utils/utils.js';
 import {AppRoute} from '../../utils/const.js';
 import {getUserStatus} from '../../reducers/user/selectors.js';
+import {Operation as DataOperation} from '../../reducers/data/data.js';
 
 
 const Card = (props) => {
   const {offer: {isPremium,
     // isFavourite,
     previewImage, price, rating, cardTitle, offerType},
+  loadReviews, loadNearbies,
   onCardTitleClick,
   onCardFocusEnter,
   onCardFocusLeave,
@@ -22,6 +24,8 @@ const Card = (props) => {
   const favClass = isFav ? `place-card__bookmark-button--active` : null;
 
   const handleTitleClick = () => {
+    loadReviews(props.offer.id);
+    loadNearbies(props.offer.id);
     onCardTitleClick(props.offer);
   };
 
@@ -96,12 +100,23 @@ Card.propTypes = {
   offer: PropTypes.shape(offerPropTypes).isRequired,
   isFav: PropTypes.bool.isRequired,
   onFavClick: PropTypes.func.isRequired,
+  loadReviews: PropTypes.func.isRequired,
+  loadNearbies: PropTypes.func.isRequired,
+
 };
 
 const mapStateToProps = (state) => ({
   userStatus: getUserStatus(state),
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  loadReviews(id) {
+    dispatch(DataOperation.loadComments(id));
+  },
+  loadNearbies(id) {
+    dispatch(DataOperation.loadNearbyOffers(id));
+  },
+});
 
 export {Card};
-export default connect(mapStateToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

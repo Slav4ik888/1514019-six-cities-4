@@ -1,12 +1,16 @@
 import {extend} from '../../utils/utils.js';
-import {adapterCitiesData} from '../../utils/adapter.js';
+import {adapterCitiesData, adapterCommentsData, adapterNearbyData} from '../../utils/adapters.js';
 
 const initialState = {
   allOffers: {},
+  comments: [],
+  nearbyOffers: [],
 };
 
 const ActionType = {
   LOAD_OFFERS: `LOAD_OFFERS`,
+  LOAD_COMMENTS: `LOAD_COMMENTS`,
+  LOAD_NEARBY: `LOAD_NEARBY`,
   TOGGLE_FAV: `TOGGLE_FAV`,
 };
 
@@ -17,12 +21,24 @@ const ActionCreator = {
       payload: allOffers,
     };
   },
+  loadComments: (reviews) => {
+    return {
+      type: ActionType.LOAD_COMMENTS,
+      payload: reviews,
+    };
+  },
+  loadNearbyOffers: (nearbyOffers) => {
+    return {
+      type: ActionType.LOAD_NEARBY,
+      payload: nearbyOffers,
+    };
+  },
   toggleFavorite: (offer) => {
     return {
       type: ActionType.TOGGLE_FAV,
       payload: offer,
     };
-  }
+  },
 };
 
 // Operation это асинхронный ActionCreator
@@ -30,8 +46,23 @@ const Operation = {
   loadOffers: () => (dispatch, getState, api) => {
     return api.get(`/hotels`)
       .then((res) => {
-        // console.log(`res.data: `, res.data);
         dispatch(ActionCreator.loadOffers(adapterCitiesData(res.data)));
+      });
+  },
+  loadComments: (id) => (dispatch, getState, api) => {
+    return api.get(`/comments/${id}`)
+      .then((res) => {
+        // console.log(`COMMENTS res.data: `, res.data);
+        // console.log('adapterComments: ', adapterCommentsData(res.data));
+        dispatch(ActionCreator.loadComments(adapterCommentsData(res.data)));
+      });
+  },
+  loadNearbyOffers: (id) => (dispatch, getState, api) => {
+    return api.get(`/hotels/${id}/nearby`)
+      .then((res) => {
+        // console.log(`NEARBY res.data: `, res.data);
+        // console.log('adapterNearby: ', adapterNearbyData(res.data));
+        dispatch(ActionCreator.loadNearbyOffers(adapterNearbyData(res.data)));
       });
   },
 };
@@ -41,6 +72,16 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_OFFERS:
       return extend(state, {
         allOffers: action.payload,
+      });
+
+    case ActionType.LOAD_COMMENTS:
+      return extend(state, {
+        comments: action.payload,
+      });
+
+    case ActionType.LOAD_NEARBY:
+      return extend(state, {
+        nearbyOffers: action.payload,
       });
 
     case ActionType.TOGGLE_FAV:

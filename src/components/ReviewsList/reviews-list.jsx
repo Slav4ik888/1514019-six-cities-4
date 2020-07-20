@@ -12,7 +12,7 @@ export const ReviewsList = (props) => {
       <ul className="reviews__list">
         {reviews.map((review) => (
           <ReviewsItem
-            key={review.date}
+            key={review.id}
             review={review}
           />
         ))}

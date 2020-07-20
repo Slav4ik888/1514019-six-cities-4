@@ -81,16 +81,18 @@ const withMap = (Component) => {
         .addTo(this._map);
 
       // Выводим маркеры на карту
-      offers.forEach((offer) => {
-        let marker = L.marker(offer.coordinates, {icon});
-        this._markers.push(marker); // Сохраняем маркер, чтобы потом удалить его
-        this._map.addLayer(marker);
+      if (offers) {
+        offers.forEach((offer) => {
+          let marker = L.marker(offer.coordinates, {icon});
+          this._markers.push(marker); // Сохраняем маркер, чтобы потом удалить его
+          this._map.addLayer(marker);
 
-        // return (L
-        //   .marker(offer.coordinates, {icon})
-        //   .addTo(this._map)
-        // );
-      });
+          // return (L
+          //   .marker(offer.coordinates, {icon})
+          //   .addTo(this._map)
+          // );
+        });
+      }
     }
     render() {
       return <Component

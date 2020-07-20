@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Main from '../Main/main.jsx';
 // import {offerPropTypes} from '../../utils/offer-prop-types.js';
-import {OfferDetails} from '../OfferDetails/offer-details.jsx';
+import OfferDetails from '../OfferDetails/offer-details.jsx';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getAllOffers} from '../../reducers/data/selectors.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
@@ -73,11 +73,11 @@ const App = (props) => {
           <Route exact path={AppRoute.OFFER}>
             {activeOffer &&
               <OfferDetails
-                userStatus={userStatus}
-                authInfo={authInfo}
-                offer={activeOffer || {}}
-                offers={allOffers[cities[activeCity]] || []}
-                activeCity={activeCity}
+                // userStatus={userStatus}
+                // authInfo={authInfo}
+                // offer={activeOffer || {}}
+                // offers={allOffers[cities[activeCity]] || []}
+                // activeCity={activeCity}
               />}
           </Route>
 

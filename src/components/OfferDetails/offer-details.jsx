@@ -1,39 +1,32 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
-import {getRating, getNearbyOffers} from '../../utils/utils.js';
-// import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
+import {getRating} from '../../utils/utils.js';
+import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
+import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
+import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
+import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
 import withMap from '../../hocs/with-map/with-map.js';
 import MapCity from '../MapCity/map-city.jsx';
 import {coordsCities, AppRoute} from '../../utils/const.js';
 
 const MapCityWrapped = withMap(MapCity);
 
-export const OfferDetails = (props) => {
-  const {offer: {
-    isPremium,
-    // isFavourite,
-    // previewImage,
-    pictures,
-    amenities,
-    bedrooms,
-    maxGuestsNumber,
-    description,
-    host,
-    price,
-    rating,
-    cardTitle,
-    offerType,
-    coordinates,
-    // reviews
+const OfferDetails = (props) => {
+  const {activeOffer: {isPremium, // isFavourite, previewImage,
+    pictures, amenities, bedrooms, maxGuestsNumber, description, host,
+    price, rating, cardTitle, offerType,
   },
-  offers, activeCity,
-  authInfo, userStatus} = props;
+  reviews,
+  activeCity,
+  authInfo, userStatus,
+  nearbyOffers,
+  } = props;
 
   // Выводим города поблизости
-  const nearbyOffers = getNearbyOffers(offers, 3, coordinates, false);
+  // const nearbyOffers = getNearbyOffers(allOffers[cities[activeCity]], 3, coordinates, false);
 
   return (
     <div className="page">
@@ -150,7 +143,7 @@ export const OfferDetails = (props) => {
                 </div>
               </div>
 
-              {/* <ReviewsList reviews={reviews}/> */}
+              <ReviewsList reviews={reviews}/>
 
             </div>
           </div>
@@ -268,11 +261,25 @@ export const OfferDetails = (props) => {
 };
 
 OfferDetails.propTypes = {
-  offer: PropTypes.shape(offerPropTypes).isRequired,
-  offers: PropTypes.arrayOf(
+  activeOffer: PropTypes.shape(offerPropTypes).isRequired,
+  nearbyOffers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
   activeCity: PropTypes.number.isRequired,
   userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
   authInfo: PropTypes.object,
+  reviews: PropTypes.array,
 };
+
+const mapStateToProps = (state) => ({
+  userStatus: getUserStatus(state),
+  authInfo: getAuthInfo(state),
+  activeCity: getActiveCity(state),
+  activeOffer: getActiveOffer(state),
+  reviews: getComments(state),
+  nearbyOffers: getNearbyOffers(state),
+});
+
+
+export {OfferDetails};
+export default connect(mapStateToProps)(OfferDetails);
