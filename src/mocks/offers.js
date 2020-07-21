@@ -3,7 +3,7 @@ export const offers = {
     {
       id: 1,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-03.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -62,7 +62,7 @@ export const offers = {
     {
       id: 2,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -123,7 +123,7 @@ export const offers = {
     {
       id: 1,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-03.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -175,7 +175,7 @@ export const offers = {
     {
       id: 2,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -229,7 +229,7 @@ export const offers = {
     {
       id: 1,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-03.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -281,7 +281,7 @@ export const offers = {
     {
       id: 2,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -332,7 +332,7 @@ export const offers = {
     {
       id: 3,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-02.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -383,7 +383,7 @@ export const offers = {
     {
       id: 4,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -437,7 +437,7 @@ export const offers = {
     {
       id: 2,
       isPremium: true,
-      isFavourite: true,
+      isFavorite: true,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -489,7 +489,7 @@ export const offers = {
     {
       id: 3,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-02.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -540,7 +540,7 @@ export const offers = {
     {
       id: 4,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -591,7 +591,7 @@ export const offers = {
     {
       id: 5,
       isPremium: false,
-      isFavourite: true,
+      isFavorite: true,
       previewImage: `img/apartment-03.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -642,7 +642,7 @@ export const offers = {
     {
       id: 6,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -696,7 +696,7 @@ export const offers = {
     {
       id: 1,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-03.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -747,7 +747,7 @@ export const offers = {
     {
       id: 2,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -798,7 +798,7 @@ export const offers = {
     {
       id: 3,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-02.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -849,7 +849,7 @@ export const offers = {
     {
       id: 4,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -900,7 +900,7 @@ export const offers = {
     {
       id: 5,
       isPremium: false,
-      isFavourite: true,
+      isFavorite: true,
       previewImage: `img/apartment-03.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -951,7 +951,7 @@ export const offers = {
     {
       id: 6,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -1002,7 +1002,7 @@ export const offers = {
     {
       id: 7,
       isPremium: false,
-      isFavourite: true,
+      isFavorite: true,
       previewImage: `img/apartment-02.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -1056,7 +1056,7 @@ export const offers = {
     {
       id: 1,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-03.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -1107,7 +1107,7 @@ export const offers = {
     {
       id: 2,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -1158,7 +1158,7 @@ export const offers = {
     {
       id: 3,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-02.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -1209,7 +1209,7 @@ export const offers = {
     {
       id: 4,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -1260,7 +1260,7 @@ export const offers = {
     {
       id: 5,
       isPremium: false,
-      isFavourite: true,
+      isFavorite: true,
       previewImage: `img/apartment-03.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -1311,7 +1311,7 @@ export const offers = {
     {
       id: 6,
       isPremium: false,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -1362,7 +1362,7 @@ export const offers = {
     {
       id: 7,
       isPremium: false,
-      isFavourite: true,
+      isFavorite: true,
       previewImage: `img/apartment-02.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -1413,7 +1413,7 @@ export const offers = {
     {
       id: 8,
       isPremium: true,
-      isFavourite: false,
+      isFavorite: false,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,

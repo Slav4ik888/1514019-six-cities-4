@@ -8,6 +8,9 @@ import reducer from './reducers/reducer.js';
 import {createAPI} from './api.js';
 import {Operation as UserOperation, ActionCreator, AuthStatus} from './reducers/user/user.js';
 import {Operation as DataOperation} from './reducers/data/data.js';
+import {history} from './history.js';
+import {AppRoute} from './utils/const.js';
+
 
 // Выносим код в отдельную функцию, чтобы развязать циклическую зависимость:
 // `store` зависит от `api`, а `api` зависит от `store`.
@@ -21,6 +24,7 @@ const onError = (err) => { // Если будет поймана ошибка 40
   if (err === 401) {
     // console.log('INDEX onUnauthorized');
     store.dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
+    history.push(AppRoute.LOGIN);
   }
 };
 

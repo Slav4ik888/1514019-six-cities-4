@@ -1,7 +1,6 @@
 import {reducer, ActionType, ActionCreator} from './travel.js';
 import {testOffer} from '../../mocks/test-offer.js';
 // import {cities} from '../utils/const.js';
-import {pages} from '../../utils/const.js';
 
 
 describe(`Тестим TRAVEL Reducer`, () => {
@@ -10,7 +9,6 @@ describe(`Тестим TRAVEL Reducer`, () => {
     expect(reducer(void 0, {})).toEqual({
       activeCity: 0,
       activeOffer: null,
-      activePage: pages.MAIN,
     });
   });
 
@@ -38,17 +36,6 @@ describe(`Тестим TRAVEL Reducer`, () => {
     });
   });
 
-  it(`Reducer SET_ACTIVE_PAGE by a given new page`, () => {
-    expect(reducer({
-      activePage: pages.MAIN,
-    }, {
-      type: ActionType.SET_ACTIVE_PAGE,
-      payload: pages.SIGN_IN,
-    })).toEqual({
-      activePage: pages.SIGN_IN,
-    });
-  });
-
 });
 
 describe(`Тестим TRAVEL ActionCreator`, () => {
@@ -66,13 +53,5 @@ describe(`Тестим TRAVEL ActionCreator`, () => {
       payload: testOffer,
     });
   });
-
-  it(`ActionCreator for setOffers`, () => {
-    expect(ActionCreator.setActivePage(pages.SIGN_IN)).toEqual({
-      type: ActionType.SET_ACTIVE_PAGE,
-      payload: `SIGN_IN`,
-    });
-  });
-
 
 });

@@ -19,7 +19,7 @@ export const adapterCitiesData = (data) => {
   for (let i = 0; i < data.length; i++) {
     offer.id = data[i].id;
     offer.isPremium = data[i].is_premium;
-    offer.isFavourite = data[i].is_favorite;
+    offer.isFavorite = data[i].is_favorite;
     offer.previewImage = data[i].preview_image;
     offer.pictures = data[i].images;
     offer.amenities = data[i].goods;
@@ -37,6 +37,7 @@ export const adapterCitiesData = (data) => {
     offer.offerType = data[i].type;
     offer.coordinates = [data[i].location.latitude, data[i].location.longitude];
     offer.city = {};
+    offer.city.name = data[i].city.name;
     offer.city.zoom = data[i].city.location.zoom;
     offer.city.coordinates = [data[i].city.location.latitude, data[i].city.location.longitude];
     offer.location = {};

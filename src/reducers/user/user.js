@@ -4,7 +4,7 @@ const AuthStatus = {
 };
 
 const initialState = {
-  authorizationStatus: AuthStatus.NO_AUTH,
+  userStatus: AuthStatus.NO_AUTH,
   authInfo: {},
 };
 
@@ -62,7 +62,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.REQUIRED_AUTHORIZATION:
       return Object.assign({}, state, {
-        authorizationStatus: action.payload,
+        userStatus: action.payload,
       });
     case ActionType.AUTH_INFO:
       return Object.assign({}, state, {

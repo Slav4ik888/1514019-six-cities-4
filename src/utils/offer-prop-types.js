@@ -6,7 +6,7 @@ import pt, {arrayOf} from 'prop-types';
 export const offerPropTypes = {
   id: pt.number.isRequired,
   isPremium: pt.bool.isRequired,
-  isFavourite: pt.bool.isRequired,
+  isFavorite: pt.bool.isRequired,
   previewImage: pt.string.isRequired,
   pictures: arrayOf(pt.string),
   amenities: arrayOf(pt.string),

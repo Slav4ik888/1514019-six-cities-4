@@ -3,6 +3,12 @@ import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Card from "./card.jsx";
 import {testOffer} from "../../mocks/test-offer.js";
+import configureStore from 'redux-mock-store';
+import {NameSpace} from '../../reducers/name-space.js';
+import {Provider} from 'react-redux';
+
+
+const mockStore = configureStore([]);
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -17,15 +23,27 @@ describe(`<Card> tests`, () => {
   const onCardTitleClick = jest.fn();
   const onCardFocusEnter = jest.fn();
   const onCardFocusLeave = jest.fn();
+  const onFavClick = jest.fn();
+  const isFav = false;
 
   const renderComponent = (props = {}) => {
+    const store = mockStore({
+      [NameSpace.USER]: {
+        userStatus: `AUTH`,
+      },
+    });
     return shallow(
-        <Card offer={testOffer}
-          onCardTitleClick={onCardTitleClick}
-          onCardFocusEnter = {onCardFocusEnter}
-          onCardFocusLeave = {onCardFocusLeave}
-          {...props}
-        />);
+        <Provider store={store}>
+          <Card offer = {testOffer}
+            onCardTitleClick = {onCardTitleClick}
+            onCardFocusEnter = {onCardFocusEnter}
+            onCardFocusLeave = {onCardFocusLeave}
+            onFavClick = {onFavClick}
+            isFav = {isFav}
+            {...props}
+          />
+        </Provider>
+    );
   };
 
   it(`Клик по title`, () => {
@@ -50,6 +68,14 @@ describe(`<Card> tests`, () => {
 
     card.simulate(`pointerleave`);
     expect(onCardFocusLeave).toHaveBeenCalledTimes(1);
+  });
+
+  it(`Кликнули по флажку в избранное`, () => {
+    const component = renderComponent();
+    const card = component.find(`place-card__bookmark-button`);
+
+    card.simulate(`click`);
+    expect(onFavClick).toHaveBeenCalledTimes(1);
   });
 
 });

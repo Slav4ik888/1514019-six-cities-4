@@ -10,7 +10,3 @@ export const getActiveCity = (state) => {
 export const getActiveOffer = (state) => {
   return state[NAME_SPACE].activeOffer;
 };
-
-export const getActivePage = (state) => {
-  return state[NAME_SPACE].activePage;
-};
