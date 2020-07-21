@@ -1,3 +1,11 @@
+/**
+ * Возвращает объект объединив 2 принятых объекта
+ * @param {Object} a
+ * @param {Object} b
+ *
+ * @return {Object} - дата в нужном формате
+ */
+
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
@@ -20,6 +28,7 @@ export const showDate = (timestamp, format) => {
 
   const formatType = {
     monthYYYY: `Month YYYY`,
+    monthDDсYYYY: `Month DD, YYYY`,
     yyyymmdd: `YYYY-MM-DD`,
     ddmmyyyy: `DD-MM-YYYY`,
   };
@@ -27,6 +36,10 @@ export const showDate = (timestamp, format) => {
   switch (format) {
     case formatType.monthYYYY:
       return `${monthName[newDate.getMonth()]} ${newDate.getFullYear()}`;
+
+    case formatType.monthDDсYYYY:
+      day = (`0` + newDate.getDate()).slice(-2);
+      return `${monthName[newDate.getMonth()]} ${day}, ${newDate.getFullYear()}`;
 
     case formatType.yyyymmdd:
       month = (`0` + (newDate.getMonth() + 1)).slice(-2);
@@ -57,6 +70,7 @@ export const getRating = (rating) => {
 
 /**
  * Возвращаем массив предложений поблизости
+ *
  * @param {Array} arr - массив из объектов
  * @param {Number} quantity - количество предложений которое нужно вернуть
  * @param {Array} pattern - массив шаблон координат по отношению к которому производим проверку

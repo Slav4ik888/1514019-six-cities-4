@@ -5,7 +5,7 @@ import CardList from '../CardList/card-list.jsx';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import MapCity from '../MapCity/map-city.jsx';
 import CitiesList from '../CitiesList/cities-list.jsx';
-import {cities, coordsCities, AppRoute} from '../../utils/const.js';
+import {cities, coordsCities, AppRoute, placesType} from '../../utils/const.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 import withMap from '../../hocs/with-map/with-map.js';
 import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
@@ -16,7 +16,9 @@ const MapCityWrapped = withMap(MapCity);
 
 const Main = (props) => {
 
-  const {authInfo, userStatus, offers, onCardTitleClick, activeCity, onChangeCity} = props;
+  const {authInfo, userStatus,
+    offers, onCardTitleClick,
+    activeCity, onChangeCity} = props;
   // console.log('MAIN userStatus: ', userStatus);
   // console.log('MAIN authInfo: ', authInfo);
 
@@ -92,6 +94,7 @@ const Main = (props) => {
 
                 <div className="cities__places-list places__list tabs__content">
                   <CardListWrapped
+                    type={placesType.CITY}
                     offers={offers}
                     onItemClick={onCardTitleClick}
                   />;
@@ -99,7 +102,10 @@ const Main = (props) => {
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <MapCityWrapped offers={offers} activeCoords={coordsCities[activeCity]}/>
+                  <MapCityWrapped
+                    offers={offers}
+                    activeCoords={coordsCities[activeCity]}
+                  />
                 </section>
               </div>
             </div>

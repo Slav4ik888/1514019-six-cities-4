@@ -8,7 +8,8 @@ const withMap = (Component) => {
     constructor(props) {
       super(props);
       this._mapRef = createRef();
-      this._renderMap = this._renderMap.bind(this);
+      this._renderMarker = this._renderMarker.bind(this);
+      this._clearMap = this._clearMap.bind(this);
       this._map = null;
 
       this._zoom = 12;
@@ -16,50 +17,11 @@ const withMap = (Component) => {
     }
 
     componentDidMount() {
-      this._renderMap();
-    }
-
-    componentWillUnmount() {
-      this.map = null;
-    }
-
-    componentDidUpdate() {
-      const {offers, activeCoords} = this.props;
-      const icon = L.icon({
-        iconUrl: `img/pin.svg`,
-        iconSize: [30, 30]
-      });
-
-      if (this._markers) {
-        this._markers.forEach((item) => {
-          this._map.removeLayer(item);
-        });
-
-        this._markers = [];
-      }
-
-      const city = activeCoords;
-
-      this._map.setView(city, this._zoom);
-
-      offers.forEach((offer) => {
-        let marker = L.marker(offer.coordinates, {icon});
-        this._markers.push(marker);
-        this._map.addLayer(marker);
-      });
-    }
-
-    _renderMap() {
-      const {offers, activeCoords} = this.props;
+      const {activeCoords} = this.props;
 
       if (!this._mapRef.current) {
         return;
       }
-
-      const icon = L.icon({
-        iconUrl: `img/pin.svg`,
-        iconSize: [30, 30]
-      });
 
       const city = activeCoords;
 
@@ -80,7 +42,46 @@ const withMap = (Component) => {
         })
         .addTo(this._map);
 
-      // Выводим маркеры на карту
+      this._renderMarker();
+    }
+
+
+    componentWillUnmount() {
+      this.map = null;
+    }
+
+
+    componentDidUpdate() {
+      this._clearMap();
+      const {activeCoords} = this.props;
+
+      const city = activeCoords;
+
+      this._map.setView(city, this._zoom);
+
+      this._renderMarker();
+    }
+
+
+    _clearMap() {
+      // Чистим карту если есть старые маркеры
+      if (this._markers) {
+        this._markers.forEach((item) => {
+          this._map.removeLayer(item);
+        });
+
+        this._markers = [];
+      }
+    }
+
+    _renderMarker() {
+      const {offers, activeOffer} = this.props;
+
+      const icon = L.icon({
+        iconUrl: `img/pin.svg`,
+        iconSize: [30, 30]
+      });
+      // Выводим маркеры offers на карту
       if (offers) {
         offers.forEach((offer) => {
           let marker = L.marker(offer.coordinates, {icon});
@@ -93,7 +94,19 @@ const withMap = (Component) => {
           // );
         });
       }
+      // Маркер активного activeOffer
+      if (activeOffer) {
+        const activeIcon = L.icon({
+          iconUrl: `img/pin-active.svg`,
+          iconSize: [30, 30],
+        });
+        let marker = L.marker(activeOffer.coordinates, {icon: activeIcon});
+        this._markers.push(marker);
+        this._map.addLayer(marker);
+      }
     }
+
+
     render() {
       return <Component
         {...this.props}
@@ -110,6 +123,7 @@ const withMap = (Component) => {
         PropTypes.shape(offerPropTypes).isRequired
     ).isRequired,
     activeCoords: PropTypes.array.isRequired,
+    activeOffer: PropTypes.shape(offerPropTypes),
   };
 
   return WithMap;

@@ -30,3 +30,10 @@ export const AppRoute = {
   OFFER: `/offer`,
   FAVORITES: `/favorites`,
 };
+
+export const placesType = {
+  NEAR: `NEAR`,
+  CITY: `CITY`,
+};
+
+export const MAX_REVIEW_COUNT = 10;

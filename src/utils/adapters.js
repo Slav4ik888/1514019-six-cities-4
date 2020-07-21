@@ -74,7 +74,7 @@ export const adapterCommentsData = (data) => {
     comment.user.isPro = data[i].user.is_pro;
     comment.user.name = data[i].user.name;
     comment.comment = data[i].comment;
-    comment.date = data[i].date;
+    comment.date = new Date(data[i].date).getTime();
     comment.rating = data[i].rating;
 
     // пушим их в созданные города

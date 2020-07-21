@@ -9,6 +9,6 @@ export const reviewsPropTypes = {
     name: pt.string,
   }).isRequired,
   comment: pt.string.isRequired,
-  date: pt.string.isRequired,
+  date: pt.number.isRequired,
   rating: pt.number.isRequired,
 };

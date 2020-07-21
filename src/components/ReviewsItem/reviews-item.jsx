@@ -15,7 +15,6 @@ export const ReviewsItem = (props) => {
   }
   } = props;
 
-
   return (
     <li className="reviews__item">
       <div className="reviews__user user">
@@ -36,7 +35,7 @@ export const ReviewsItem = (props) => {
         <p className="reviews__text">
           {comment}
         </p>
-        <time className="reviews__time" dateTime={showDate(date, `YYYY-MM-DD`)}>{showDate(date, `Month YYYY`)}</time>
+        <time className="reviews__time" dateTime={showDate(date, `YYYY-MM-DD`)}>{showDate(date, `Month DD, YYYY`)}</time>
       </div>
     </li>
   );

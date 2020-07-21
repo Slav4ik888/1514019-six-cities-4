@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Card from '../Card/card.jsx';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import withFavorite from '../../hocs/with-favorite/with-favorite.js';
+import {placesType} from '../../utils/const.js';
 
 const CardWrapped = withFavorite(Card);
 
@@ -13,6 +14,7 @@ class CardList extends PureComponent {
       onItemClick,
       focusCard,
       onCardFocusEnter, onCardFocusLeave,
+      type,
     } = this.props;
 
     return (
@@ -20,6 +22,7 @@ class CardList extends PureComponent {
         {offers.map((offer) => {
           return <CardWrapped
             key={offer.id}
+            type={type}
             offer={offer}
             onCardTitleClick={onItemClick}
             focusCard={focusCard}
@@ -40,6 +43,7 @@ CardList.propTypes = {
   onCardFocusEnter: PropTypes.func.isRequired,
   onCardFocusLeave: PropTypes.func.isRequired,
   focusCard: PropTypes.shape(offerPropTypes),
+  type: PropTypes.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
 };
 
 

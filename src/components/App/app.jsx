@@ -15,6 +15,7 @@ import {getAllOffers} from '../../reducers/data/selectors.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
 import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
 import {cities, AppRoute} from '../../utils/const.js';
+
 import {SignIn} from '../SignIn/sign-in.jsx';
 import {Operation as UserOperation} from '../../reducers/user/user.js';
 import Favorites from '../Favorites/favorites.jsx';
@@ -42,6 +43,7 @@ const App = (props) => {
   // console.log('APP authInfo: ', authInfo);
   // console.log('favorites: ', favorites);
   // loadFavorites();
+
 
   return (
     <>
@@ -72,13 +74,7 @@ const App = (props) => {
 
           <Route exact path={AppRoute.OFFER}>
             {activeOffer &&
-              <OfferDetails
-                // userStatus={userStatus}
-                // authInfo={authInfo}
-                // offer={activeOffer || {}}
-                // offers={allOffers[cities[activeCity]] || []}
-                // activeCity={activeCity}
-              />}
+              <OfferDetails/>}
           </Route>
 
           <PrivateRoute exact path={AppRoute.FAVORITES}

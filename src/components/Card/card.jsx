@@ -7,18 +7,18 @@ import {getRating} from '../../utils/utils.js';
 import {AppRoute} from '../../utils/const.js';
 import {getUserStatus} from '../../reducers/user/selectors.js';
 import {Operation as DataOperation} from '../../reducers/data/data.js';
+import {placesType} from '../../utils/const.js';
 
 
 const Card = (props) => {
-  const {offer: {isPremium,
-    // isFavourite,
-    previewImage, price, rating, cardTitle, offerType},
-  loadReviews, loadNearbies,
-  onCardTitleClick,
-  onCardFocusEnter,
-  onCardFocusLeave,
-  onFavClick,
-  isFav,
+  const {offer: {isPremium, previewImage, price, rating, cardTitle, offerType},
+    loadReviews, loadNearbies,
+    onCardTitleClick,
+    onCardFocusEnter,
+    onCardFocusLeave,
+    onFavClick,
+    isFav,
+    type,
   } = props;
 
   const favClass = isFav ? `place-card__bookmark-button--active` : null;
@@ -42,7 +42,8 @@ const Card = (props) => {
   };
 
   return (
-    <article className="cities__place-card place-card"
+    <article
+      className={type === placesType.CITY ? `cities__place-card place-card` : `near-places__card place-card`}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
     >
@@ -51,7 +52,7 @@ const Card = (props) => {
           <span>Premium</span>
         </div>}
 
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={type === placesType.CITY ? `cities__image-wrapper` : `near-places__image-wrapper` + `place-card__image-wrapper`} >
         <a href="#">
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image" />
         </a>
@@ -102,6 +103,7 @@ Card.propTypes = {
   onFavClick: PropTypes.func.isRequired,
   loadReviews: PropTypes.func.isRequired,
   loadNearbies: PropTypes.func.isRequired,
+  type: PropTypes.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
 
 };
 
