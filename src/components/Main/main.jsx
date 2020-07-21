@@ -15,7 +15,11 @@ const MapCityWrapped = withMap(MapCity);
 
 const Main = (props) => {
 
-  const {offers, onCardTitleClick, activeCity, onChangeCity} = props;
+  const {authInfo, userStatus, onChangePage, offers, onCardTitleClick, activeCity, onChangeCity} = props;
+  // console.log('MAIN userStatus: ', userStatus);
+  // console.log('MAIN authInfo: ', authInfo);
+
+  const isLogin = userStatus === `AUTH` ? true : false;
 
   return (
     <>
@@ -31,10 +35,15 @@ const Main = (props) => {
               <nav className="header__nav">
                 <ul className="header__nav-list">
                   <li className="header__nav-item user">
-                    <a className="header__nav-link header__nav-link--profile" href="#">
+                    <a className="header__nav-link header__nav-link--profile" href="#"
+                      onClick={() => onChangePage(`SIGN_IN`)}
+                    >
                       <div className="header__avatar-wrapper user__avatar-wrapper">
                       </div>
-                      <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
+                      {isLogin ?
+                        <span className="header__user-name user__name">{authInfo.email}</span>
+                        : <span className="header__login">Sign in</span>
+                      }
                     </a>
                   </li>
                 </ul>
@@ -104,12 +113,15 @@ const Main = (props) => {
 
 
 Main.propTypes = {
+  userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
+  authInfo: PropTypes.object,
   onCardTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
   activeCity: PropTypes.number.isRequired,
   onChangeCity: PropTypes.func.isRequired,
+  onChangePage: PropTypes.func.isRequired,
 };
 
 export default Main;

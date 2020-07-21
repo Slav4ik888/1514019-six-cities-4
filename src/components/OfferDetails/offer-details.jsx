@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import {getRating, getNearbyOffers} from '../../utils/utils.js';
-import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
+// import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
 import withMap from '../../hocs/with-map/with-map.js';
 import MapCity from '../MapCity/map-city.jsx';
 import {coordsCities} from '../../utils/const.js';
@@ -25,9 +25,9 @@ export const OfferDetails = (props) => {
     cardTitle,
     offerType,
     coordinates,
-    reviews
+    // reviews
   },
-  offers, activeCity} = props;
+  offers, activeCity, onChangePage} = props;
 
   // Выводим города поблизости
   const nearbyOffers = getNearbyOffers(offers, 3, coordinates, false);
@@ -38,7 +38,9 @@ export const OfferDetails = (props) => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="main.html">
+              <a className="header__logo-link" href="#"
+                onClick={() => onChangePage(`MAIN`)}
+              >
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
               </a>
             </div>
@@ -102,7 +104,7 @@ export const OfferDetails = (props) => {
                   {bedrooms}
                 </li>
                 <li className="property__feature property__feature--adults">
-                  {maxGuestsNumber}
+                  {`Max ${maxGuestsNumber} adults`}
                 </li>
               </ul>
               <div className="property__price">
@@ -142,7 +144,7 @@ export const OfferDetails = (props) => {
                 </div>
               </div>
 
-              <ReviewsList reviews={reviews}/>
+              {/* <ReviewsList reviews={reviews}/> */}
 
             </div>
           </div>
@@ -265,4 +267,5 @@ OfferDetails.propTypes = {
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
   activeCity: PropTypes.number.isRequired,
+  onChangePage: PropTypes.func.isRequired,
 };

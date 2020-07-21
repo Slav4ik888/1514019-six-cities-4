@@ -1,5 +1,5 @@
 import pt, {arrayOf} from 'prop-types';
-import {offerTypes} from './const.js';
+// import {offerTypes} from './const.js';
 // import {reviewsPropTypes} from './reviews-prop-types.js';
 
 
@@ -11,13 +11,15 @@ export const offerPropTypes = {
   pictures: arrayOf(pt.string),
   amenities: arrayOf(pt.string),
   bedrooms: pt.number.isRequired,
-  maxGuestsNumber: pt.string.isRequired,
+  maxGuestsNumber: pt.number.isRequired,
   description: pt.string.isRequired,
   host: pt.object.isRequired,
   price: pt.number.isRequired,
   rating: pt.number.isRequired,
   cardTitle: pt.string.isRequired,
-  offerType: pt.oneOf([offerTypes.apartment, offerTypes.room, offerTypes.house, offerTypes.hotel]).isRequired,
+  offerType: pt.string.isRequired,
   coordinates: pt.array.isRequired,
-  reviews: pt.array.isRequired,
+  // reviews: pt.array.isRequired,
+  city: pt.object.isRequired,
+  location: pt.object.isRequired,
 };
