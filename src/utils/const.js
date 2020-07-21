@@ -37,3 +37,10 @@ export const placesType = {
 };
 
 export const MAX_REVIEW_COUNT = 10;
+
+export const sortType = {
+  POPULAR: `popular`,
+  LOW_HIGH: `low-high`,
+  HIGH_LOW: `high-low`,
+  RATING: `rating`,
+};

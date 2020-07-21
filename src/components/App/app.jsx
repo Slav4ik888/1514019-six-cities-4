@@ -8,13 +8,15 @@ import {
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Main from '../Main/main.jsx';
-// import {offerPropTypes} from '../../utils/offer-prop-types.js';
+import {offerPropTypes} from '../../utils/offer-prop-types.js';
 import OfferDetails from '../OfferDetails/offer-details.jsx';
 import {ActionCreator} from '../../reducers/travel/travel.js';
-import {getAllOffers} from '../../reducers/data/selectors.js';
-import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
+// import {getAllOffers} from '../../reducers/data/selectors.js';
+import {getActiveCity, getActiveOffer, getSortedOffers} from '../../reducers/travel/selectors.js';
 import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
-import {cities, AppRoute} from '../../utils/const.js';
+import {
+  // cities,
+  AppRoute} from '../../utils/const.js';
 
 import {SignIn} from '../SignIn/sign-in.jsx';
 import {Operation as UserOperation} from '../../reducers/user/user.js';
@@ -30,7 +32,8 @@ const App = (props) => {
     userStatus,
     authInfo,
     login,
-    allOffers,
+    // allOffers,
+    offers,
     activeCity,
     handleChangeCity,
     activeOffer,
@@ -55,7 +58,7 @@ const App = (props) => {
             <Main
               userStatus={userStatus}
               authInfo={authInfo}
-              offers={allOffers[cities[activeCity]] || []}
+              offers={offers || []}
               onCardTitleClick={handleCardTitleClick}
               activeCity={activeCity}
               onChangeCity={handleChangeCity}
@@ -107,22 +110,23 @@ App.propTypes = {
   userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
   authInfo: PropTypes.object,
   login: PropTypes.func.isRequired,
-  allOffers: PropTypes.object.isRequired,
+  // allOffers: PropTypes.object.isRequired,
   activeCity: PropTypes.number.isRequired,
   handleChangeCity: PropTypes.func.isRequired,
   activeOffer: PropTypes.object,
   handleCardTitleClick: PropTypes.func.isRequired,
   // favorites: PropTypes.array.isRequired,
   // loadFavorites: PropTypes.func.isRequired,
-  // offers: PropTypes.arrayOf(
-  //     PropTypes.shape(offerPropTypes).isRequired
-  // ).isRequired,
+  offers: PropTypes.arrayOf(
+      PropTypes.shape(offerPropTypes)
+  ),
 };
 
 const mapStateToProps = (state) => ({
   userStatus: getUserStatus(state),
   authInfo: getAuthInfo(state),
-  allOffers: getAllOffers(state),
+  // allOffers: getAllOffers(state),
+  offers: getSortedOffers(state),
   activeCity: getActiveCity(state),
   activeOffer: getActiveOffer(state),
   // favorites: getFavorites(state),
