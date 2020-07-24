@@ -1,27 +1,31 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import {offerPropTypes} from '../../utils/offer-prop-types.js';
+
+import pt from 'prop-types';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
+
 import {getRating} from '../../utils/utils.js';
-import {AppRoute} from '../../utils/const.js';
-import {getUserStatus} from '../../reducers/user/selectors.js';
+import {AppRoute, placesType} from '../../utils/const.js';
+import {Operation as DataOperation} from '../../reducers/data/data.js';
 
 
 const Card = (props) => {
-  const {offer: {isPremium,
-    // isFavourite,
-    previewImage, price, rating, cardTitle, offerType},
-  onCardTitleClick,
-  onCardFocusEnter,
-  onCardFocusLeave,
-  onFavClick,
-  isFav,
+  const {offer: {isPremium, previewImage, price, rating, cardTitle, offerType},
+    loadReviews, loadNearbies,
+    onCardTitleClick,
+    onCardFocusEnter,
+    onCardFocusLeave,
+    onFavClick,
+    isFav,
+    type,
   } = props;
 
   const favClass = isFav ? `place-card__bookmark-button--active` : null;
 
   const handleTitleClick = () => {
+    loadReviews(props.offer.id);
+    loadNearbies(props.offer.id);
     onCardTitleClick(props.offer);
   };
 
@@ -38,7 +42,8 @@ const Card = (props) => {
   };
 
   return (
-    <article className="cities__place-card place-card"
+    <article
+      className={type === placesType.CITY ? `cities__place-card place-card` : `near-places__card place-card`}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
     >
@@ -47,7 +52,7 @@ const Card = (props) => {
           <span>Premium</span>
         </div>}
 
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={type === placesType.CITY ? `cities__image-wrapper` : `near-places__image-wrapper` + `place-card__image-wrapper`} >
         <a href="#">
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image" />
         </a>
@@ -89,19 +94,27 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-  userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
-  onCardTitleClick: PropTypes.func.isRequired,
-  onCardFocusEnter: PropTypes.func.isRequired,
-  onCardFocusLeave: PropTypes.func.isRequired,
-  offer: PropTypes.shape(offerPropTypes).isRequired,
-  isFav: PropTypes.bool.isRequired,
-  onFavClick: PropTypes.func.isRequired,
+  onCardTitleClick: pt.func.isRequired,
+  onCardFocusEnter: pt.func.isRequired,
+  onCardFocusLeave: pt.func.isRequired,
+  offer: pt.shape(offerPropTypes).isRequired,
+  isFav: pt.bool.isRequired,
+  onFavClick: pt.func.isRequired,
+  loadReviews: pt.func.isRequired,
+  loadNearbies: pt.func.isRequired,
+  type: pt.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
+
 };
 
-const mapStateToProps = (state) => ({
-  userStatus: getUserStatus(state),
+
+const mapDispatchToProps = (dispatch) => ({
+  loadReviews(id) {
+    dispatch(DataOperation.loadComments(id));
+  },
+  loadNearbies(id) {
+    dispatch(DataOperation.loadNearbyOffers(id));
+  },
 });
 
-
 export {Card};
-export default connect(mapStateToProps)(Card);
+export default connect(undefined, mapDispatchToProps)(Card);

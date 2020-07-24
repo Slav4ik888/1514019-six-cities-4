@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`withFocusCard is rendered correctly 1`] = `<div />`;
+exports[`Render withFocusCard correctly Render withFocusCard correctly with focus 1`] = `<div />`;
+
+exports[`Render withFocusCard correctly Render withFocusCard correctly without focus 1`] = `<div />`;

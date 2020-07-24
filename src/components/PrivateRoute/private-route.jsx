@@ -1,13 +1,16 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Route, Redirect} from 'react-router-dom';
-import {AuthStatus} from '../../reducers/user/user.js';
-import {AppRoute} from '../../utils/const.js';
-import {getUserStatus} from '../../reducers/user/selectors.js';
 import pt from 'prop-types';
 
-const PrivateRoute = (props) => {
-  const {exact, path, render, userStatus} = props;
+import {connect} from 'react-redux';
+import {Route, Redirect} from 'react-router-dom';
+
+import {AuthStatus} from '../../reducers/user/user.js';
+import {getUserStatus} from '../../reducers/user/selectors.js';
+
+import {AppRoute} from '../../utils/const.js';
+
+
+const PrivateRoute = ({exact, path, render, userStatus}) => {
   // console.log('PRIV userStatus: ', userStatus);
 
   return (

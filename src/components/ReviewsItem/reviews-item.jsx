@@ -1,28 +1,27 @@
 import React from 'react';
 import pt from 'prop-types';
-import {reviewsPropTypes} from '../../utils/reviews-prop-types.js';
+import {reviewsPropTypes} from '../../utils/prop-types-templates.js';
 import {getRating} from '../../utils/utils.js';
 import {showDate} from '../../utils/utils.js';
 
 
 export const ReviewsItem = (props) => {
   const {review: {
-    author: {photo, name},
-    description,
+    user,
+    comment,
     date,
     rating,
   }
   } = props;
 
-
   return (
     <li className="reviews__item">
       <div className="reviews__user user">
         <div className="reviews__avatar-wrapper user__avatar-wrapper">
-          <img className="reviews__avatar user__avatar" src={photo ? photo : `img/avatar.svg`} width="54" height="54" alt={name} />
+          <img className="reviews__avatar user__avatar" src={user.avatarUrl ? user.avatarUrl : `img/avatar.svg`} width="54" height="54" alt={user.name} />
         </div>
         <span className="reviews__user-name">
-          {name}
+          {user.name}
         </span>
       </div>
       <div className="reviews__info">
@@ -33,9 +32,9 @@ export const ReviewsItem = (props) => {
           </div>
         </div>
         <p className="reviews__text">
-          {description}
+          {comment}
         </p>
-        <time className="reviews__time" dateTime={showDate(date, `YYYY-MM-DD`)}>{showDate(date, `Month YYYY`)}</time>
+        <time className="reviews__time" dateTime={showDate(date, `YYYY-MM-DD`)}>{showDate(date, `Month DD, YYYY`)}</time>
       </div>
     </li>
   );

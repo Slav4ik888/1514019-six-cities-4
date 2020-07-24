@@ -1,6 +1,5 @@
 import pt, {arrayOf} from 'prop-types';
 // import {offerTypes} from './const.js';
-// import {reviewsPropTypes} from './reviews-prop-types.js';
 
 
 export const offerPropTypes = {
@@ -19,7 +18,19 @@ export const offerPropTypes = {
   cardTitle: pt.string.isRequired,
   offerType: pt.string.isRequired,
   coordinates: pt.array.isRequired,
-  // reviews: pt.array.isRequired,
   city: pt.object.isRequired,
   location: pt.object.isRequired,
+};
+
+export const reviewsPropTypes = {
+  id: pt.number.isRequired,
+  user: pt.shape({
+    avatarUrl: pt.string,
+    id: pt.number,
+    isPro: pt.bool,
+    name: pt.string,
+  }).isRequired,
+  comment: pt.string.isRequired,
+  date: pt.number.isRequired,
+  rating: pt.number.isRequired,
 };

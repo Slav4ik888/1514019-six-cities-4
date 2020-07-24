@@ -1,79 +1,53 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
-import {offerPropTypes} from '../../utils/offer-prop-types.js';
-import {getRating, getNearbyOffers} from '../../utils/utils.js';
-// import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
-import withMap from '../../hocs/with-map/with-map.js';
+import PropTypes from 'prop-types';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
+
+import Page from '../Page/page.jsx';
+import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
 import MapCity from '../MapCity/map-city.jsx';
-import {coordsCities, AppRoute} from '../../utils/const.js';
+import CardList from '../CardList/card-list.jsx';
+
+import {getRating} from '../../utils/utils.js';
+import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
+import {ActionCreator} from '../../reducers/travel/travel.js';
+import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
+
+import withMap from '../../hocs/with-map/with-map.js';
+import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
+import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
+
+import {coordsCities, placesType, pageType} from '../../utils/const.js';
+
 
 const MapCityWrapped = withMap(MapCity);
+const CardListWrapped = withFocusCard(withActiveItem(CardList));
 
-export const OfferDetails = (props) => {
-  const {offer: {
-    isPremium,
-    // isFavourite,
-    // previewImage,
-    pictures,
-    amenities,
-    bedrooms,
-    maxGuestsNumber,
-    description,
-    host,
-    price,
-    rating,
-    cardTitle,
-    offerType,
-    coordinates,
-    // reviews
-  },
-  offers, activeCity,
-  authInfo, userStatus} = props;
+
+const OfferDetails = ({activeOffer, reviews, activeCity,
+  nearbyOffers, handleCardTitleClick}) => {
+
+  const {isPremium, pictures, amenities, bedrooms, maxGuestsNumber,
+    description, host, price, rating, cardTitle, offerType,
+  } = activeOffer;
 
   // Выводим города поблизости
-  const nearbyOffers = getNearbyOffers(offers, 3, coordinates, false);
+  // const nearbyOffers = getNearbyOffers(allOffers[cities[activeCity]], 3, coordinates, false);
 
   return (
-    <div className="page">
-      <header className="header">
-        <div className="container">
-          <div className="header__wrapper">
-            <div className="header__left">
-              <Link className="header__logo-link" to={AppRoute.ROOT}>
-                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-              </Link>
-            </div>
-            <nav className="header__nav">
-              <ul className="header__nav-list">
-                <li className="header__nav-item user">
-                  <Link
-                    className="header__nav-link header__nav-link--profile"
-                    to={userStatus === `AUTH` ? AppRoute.LOGIN : AppRoute.LOGIN}
-                  >
-                    <div className="header__avatar-wrapper user__avatar-wrapper"></div>
-                    {userStatus === `AUTH` ?
-                      <span className="header__user-name user__name">{authInfo.email}</span>
-                      : <span className="header__login">Sign in</span>
-                    }
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
+    <Page type={pageType.OFFER}>
 
       <main className="page__main page__main--property">
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
 
-              {pictures.map((img, i) => (
-                (i <= 5) ? <div key={`${img}+${i}`} className="property__image-wrapper">
+              {pictures
+                .slice(0, 6)
+                .map((img, i) => <div key={`${img}+${i}`} className="property__image-wrapper">
                   <img className="property__image" src={img} alt={cardTitle} />
-                </div> : null))}
+                </div>)}
 
             </div>
           </div>
@@ -150,13 +124,17 @@ export const OfferDetails = (props) => {
                 </div>
               </div>
 
-              {/* <ReviewsList reviews={reviews}/> */}
+              <ReviewsList reviews={reviews}/>
 
             </div>
           </div>
 
           <section className="property__map map">
-            <MapCityWrapped offers={nearbyOffers} activeCoords={coordsCities[activeCity]}/>
+            <MapCityWrapped
+              offers={nearbyOffers}
+              activeCoords={coordsCities[activeCity]}
+              activeOffer={activeOffer}
+            />
           </section>
 
         </section>
@@ -164,115 +142,43 @@ export const OfferDetails = (props) => {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              <article className="near-places__card place-card">
-                <div className="near-places__image-wrapper place-card__image-wrapper">
-                  <a href="#">
-                    <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image" />
-                  </a>
-                </div>
-                <div className="place-card__info">
-                  <div className="place-card__price-wrapper">
-                    <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;80</b>
-                      <span className="place-card__price-text">&#47;&nbsp;night</span>
-                    </div>
-                    <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
-                      <svg className="place-card__bookmark-icon" width="18" height="19">
-                        <use xlinkHref="#icon-bookmark"></use>
-                      </svg>
-                      <span className="visually-hidden">In bookmarks</span>
-                    </button>
-                  </div>
-                  <div className="place-card__rating rating">
-                    <div className="place-card__stars rating__stars">
-                      <span style={{width: `80%`}}></span>
-                      <span className="visually-hidden">Rating</span>
-                    </div>
-                  </div>
-                  <h2 className="place-card__name">
-                    <a href="#">Wood and stone place</a>
-                  </h2>
-                  <p className="place-card__type">Private room</p>
-                </div>
-              </article>
 
-              <article className="near-places__card place-card">
-                <div className="near-places__image-wrapper place-card__image-wrapper">
-                  <a href="#">
-                    <img className="place-card__image" src="img/apartment-02.jpg" width="260" height="200" alt="Place image" />
-                  </a>
-                </div>
-                <div className="place-card__info">
-                  <div className="place-card__price-wrapper">
-                    <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;132</b>
-                      <span className="place-card__price-text">&#47;&nbsp;night</span>
-                    </div>
-                    <button className="place-card__bookmark-button button" type="button">
-                      <svg className="place-card__bookmark-icon" width="18" height="19">
-                        <use xlinkHref="#icon-bookmark"></use>
-                      </svg>
-                      <span className="visually-hidden">To bookmarks</span>
-                    </button>
-                  </div>
-                  <div className="place-card__rating rating">
-                    <div className="place-card__stars rating__stars">
-                      <span style={{width: `80%`}}></span>
-                      <span className="visually-hidden">Rating</span>
-                    </div>
-                  </div>
-                  <h2 className="place-card__name">
-                    <a href="#">Canal View Prinsengracht</a>
-                  </h2>
-                  <p className="place-card__type">Apartment</p>
-                </div>
-              </article>
+              <CardListWrapped
+                type={placesType.CITY}
+                offers={nearbyOffers}
+                onItemClick={handleCardTitleClick}
+              />;
 
-              <article className="near-places__card place-card">
-                <div className="near-places__image-wrapper place-card__image-wrapper">
-                  <a href="#">
-                    <img className="place-card__image" src="img/apartment-03.jpg" width="260" height="200" alt="Place image" />
-                  </a>
-                </div>
-                <div className="place-card__info">
-                  <div className="place-card__price-wrapper">
-                    <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;180</b>
-                      <span className="place-card__price-text">&#47;&nbsp;night</span>
-                    </div>
-                    <button className="place-card__bookmark-button button" type="button">
-                      <svg className="place-card__bookmark-icon" width="18" height="19">
-                        <use xlinkHref="#icon-bookmark"></use>
-                      </svg>
-                      <span className="visually-hidden">To bookmarks</span>
-                    </button>
-                  </div>
-                  <div className="place-card__rating rating">
-                    <div className="place-card__stars rating__stars">
-                      <span style={{width: `80%`}}></span>
-                      <span className="visually-hidden">Rating</span>
-                    </div>
-                  </div>
-                  <h2 className="place-card__name">
-                    <a href="#">Nice, cozy, warm big bed apartment</a>
-                  </h2>
-                  <p className="place-card__type">Apartment</p>
-                </div>
-              </article>
             </div>
           </section>
         </div>
       </main>
-    </div>
+    </Page>
   );
 };
 
 OfferDetails.propTypes = {
-  offer: PropTypes.shape(offerPropTypes).isRequired,
-  offers: PropTypes.arrayOf(
+  activeOffer: PropTypes.shape(offerPropTypes).isRequired,
+  nearbyOffers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
   activeCity: PropTypes.number.isRequired,
-  userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
-  authInfo: PropTypes.object,
+  reviews: PropTypes.array,
+  handleCardTitleClick: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  activeCity: getActiveCity(state),
+  activeOffer: getActiveOffer(state),
+  reviews: getComments(state),
+  nearbyOffers: getNearbyOffers(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  handleCardTitleClick(offer) {
+    dispatch(ActionCreator.setActiveOffer(offer));
+  },
+});
+
+export {OfferDetails};
+export default connect(mapStateToProps, mapDispatchToProps)(OfferDetails);

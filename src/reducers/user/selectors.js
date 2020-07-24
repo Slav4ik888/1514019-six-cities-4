@@ -9,3 +9,7 @@ export const getUserStatus = (state) => {
 export const getAuthInfo = (state) => {
   return state[NAME_SPACE].authInfo;
 };
+
+export const getIsLoading = (state) => {
+  return state[NAME_SPACE].isLoading;
+};

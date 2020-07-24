@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot <PrivateRoute/> correctly Render <PrivateRoute/>  'AUTH' 1`] = `null`;
+
+exports[`Snapshot <PrivateRoute/> correctly Render <PrivateRoute/>  'NO_AUTH' 1`] = `null`;

@@ -1,21 +1,28 @@
 import React from 'react';
-import {ReviewsItem} from '../ReviewsItem/reviews-item.jsx';
 import pt from 'prop-types';
-import {reviewsPropTypes} from '../../utils/reviews-prop-types.js';
 
-export const ReviewsList = (props) => {
-  const {reviews} = props;
+import {ReviewsItem} from '../ReviewsItem/reviews-item.jsx';
+
+import {reviewsPropTypes} from '../../utils/prop-types-templates.js';
+import {MAX_REVIEW_COUNT} from '../../utils/const.js';
+
+export const ReviewsList = ({reviews}) => {
 
   return (
     <section className="property__reviews reviews">
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
       <ul className="reviews__list">
-        {reviews.map((review) => (
-          <ReviewsItem
-            key={review.date}
-            review={review}
-          />
-        ))}
+        {reviews.length &&
+        reviews
+          .sort((a, b) => a.date - b.date)
+          .reverse()
+          .slice(0, MAX_REVIEW_COUNT)
+          .map((review) => (
+            <ReviewsItem
+              key={review.id}
+              review={review}
+            />
+          ))}
 
       </ul>
       <form className="reviews__form form" action="#" method="post">

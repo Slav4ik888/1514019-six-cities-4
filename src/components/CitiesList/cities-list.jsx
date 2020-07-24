@@ -1,11 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {AppRoute} from '../../utils/const.js';
 import PropTypes from 'prop-types';
-import {cities} from '../../utils/const.js';
 
-const CitiesList = (props) => {
-  const {activeCity, onItemClick} = props;
+import {cities, AppRoute} from '../../utils/const.js';
+
+
+const CitiesList = ({activeCity, onItemClick}) => {
 
   const isActive = `tabs__item--active`;
 

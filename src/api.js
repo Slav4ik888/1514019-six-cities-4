@@ -22,6 +22,7 @@ export const createAPI = (onError) => {
   // при ошибке
   const onFail = (err) => {
     const {response} = err;
+    // console.log('response: ', response);
     switch (response.status) {
       case Error.UNAUTHORIZED:
         // console.log(`API onUnauthorized 401`);
@@ -37,7 +38,7 @@ export const createAPI = (onError) => {
         throw err;
     }
 
-    // console.log(`api error необработанная`);
+    // console.log(`api error необработанная`, response);
     throw err;
   };
 

@@ -25,8 +25,32 @@ export const coordsCities = [
 
 
 export const AppRoute = {
-  LOGIN: `/login`,
+  SIGN_IN: `/sign_in`,
   ROOT: `/`,
+  MAIN_EMPTY: `/main_empty`,
   OFFER: `/offer`,
+  OFFER_ID: `/offer/:id`,
   FAVORITES: `/favorites`,
+};
+
+export const placesType = {
+  NEAR: `NEAR`,
+  CITY: `CITY`,
+};
+
+export const MAX_REVIEW_COUNT = 10;
+
+export const sortType = {
+  POPULAR: `popular`,
+  LOW_HIGH: `low-high`,
+  HIGH_LOW: `high-low`,
+  RATING: `rating`,
+};
+
+export const pageType = {
+  MAIN: `MAIN`,
+  SIGN_IN: `SIGN_IN`,
+  OFFER: `OFFER`,
+  FAVORITES: `FAVORITES`,
+  FAVORITES_EMPTY: `FAVORITES_EMPTY`,
 };

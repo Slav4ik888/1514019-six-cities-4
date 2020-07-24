@@ -6,8 +6,7 @@ import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
 import pt from 'prop-types';
 
 
-const Favorites = (props) => {
-  const {userStatus, authInfo} = props;
+const Favorites = ({userStatus, authInfo}) => {
 
   return (
     <>

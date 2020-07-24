@@ -7,7 +7,7 @@ const MockComponent = () => <div/>;
 const MockComponentWrapped = withActiveItem(MockComponent);
 
 
-it(`should render withActiveItem correctly`, () => {
+it(`Render withActiveItem correctly`, () => {
   const tree = renderer.create(
       <MockComponentWrapped
         activeItemId={null}
