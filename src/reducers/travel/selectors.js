@@ -14,6 +14,11 @@ export const getActiveOffer = (state) => {
   return state[NAME_SPACE].activeOffer;
 };
 
+export const getActiveHoverOffer = (state) => {
+  return state[NAME_SPACE].activeHoverOffer;
+};
+
+
 export const getSortingType = (state) => {
   return state[NAME_SPACE].sortingType;
 };
@@ -22,6 +27,7 @@ export const getSortedOffers = createSelector(
     getSortingType,
     getAllOffers,
     getActiveCity,
+    // eslint-disable-next-line consistent-return
     (sortingType, allOffers, activeCity) => {
       const oldOffers = allOffers[cities[activeCity]];
       if (oldOffers) {

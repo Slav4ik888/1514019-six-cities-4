@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import {offerPropTypes} from '../../utils/offer-prop-types.js';
+
+import pt from 'prop-types';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
+
 import {getRating} from '../../utils/utils.js';
-import {AppRoute} from '../../utils/const.js';
-import {getUserStatus} from '../../reducers/user/selectors.js';
+import {AppRoute, placesType} from '../../utils/const.js';
 import {Operation as DataOperation} from '../../reducers/data/data.js';
-import {placesType} from '../../utils/const.js';
 
 
 const Card = (props) => {
@@ -94,22 +94,18 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-  userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
-  onCardTitleClick: PropTypes.func.isRequired,
-  onCardFocusEnter: PropTypes.func.isRequired,
-  onCardFocusLeave: PropTypes.func.isRequired,
-  offer: PropTypes.shape(offerPropTypes).isRequired,
-  isFav: PropTypes.bool.isRequired,
-  onFavClick: PropTypes.func.isRequired,
-  loadReviews: PropTypes.func.isRequired,
-  loadNearbies: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
+  onCardTitleClick: pt.func.isRequired,
+  onCardFocusEnter: pt.func.isRequired,
+  onCardFocusLeave: pt.func.isRequired,
+  offer: pt.shape(offerPropTypes).isRequired,
+  isFav: pt.bool.isRequired,
+  onFavClick: pt.func.isRequired,
+  loadReviews: pt.func.isRequired,
+  loadNearbies: pt.func.isRequired,
+  type: pt.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
 
 };
 
-const mapStateToProps = (state) => ({
-  userStatus: getUserStatus(state),
-});
 
 const mapDispatchToProps = (dispatch) => ({
   loadReviews(id) {
@@ -121,4 +117,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {Card};
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default connect(undefined, mapDispatchToProps)(Card);

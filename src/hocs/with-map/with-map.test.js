@@ -24,18 +24,20 @@ MockComponent.propTypes = {
 
 const MockComponentWrapped = withMap(MockComponent);
 
-it(`withMap is rendered correctly`, () => {
+it(`Render withMap is rendered correctly`, () => {
 
-  const tree = renderer.create(
-      <MockComponentWrapped
-        offers={offers.Paris}
-        activeCoords={coordsCities[0]}
-      />
-      , {
-        createNodeMock: () => {
-          return document.createElement(`div`);
-        }
-      }).toJSON();
+  const tree = renderer
+    .create(
+        <MockComponentWrapped
+          offers={offers.Paris}
+          activeCoords={coordsCities[0]}
+        />
+        , {
+          createNodeMock: () => {
+            return document.createElement(`div`);
+          }
+        })
+    .toJSON();
 
   expect(tree).toMatchSnapshot();
 });

@@ -15,6 +15,7 @@ import {AppRoute} from './utils/const.js';
 // Выносим код в отдельную функцию, чтобы развязать циклическую зависимость:
 // `store` зависит от `api`, а `api` зависит от `store`.
 const onError = (err) => { // Если будет поймана ошибка 401 "нет авторизации", то будет вызвана эта функция
+// console.log('INDEX err: ', err);
 
   if (err === 400) {
     // console.log('INDEX 400 Bad request');
@@ -24,7 +25,7 @@ const onError = (err) => { // Если будет поймана ошибка 40
   if (err === 401) {
     // console.log('INDEX onUnauthorized');
     store.dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
-    history.push(AppRoute.LOGIN);
+    history.push(AppRoute.SIGN_IN);
   }
 };
 

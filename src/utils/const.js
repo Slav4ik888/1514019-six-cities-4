@@ -25,9 +25,11 @@ export const coordsCities = [
 
 
 export const AppRoute = {
-  LOGIN: `/login`,
+  SIGN_IN: `/sign_in`,
   ROOT: `/`,
+  MAIN_EMPTY: `/main_empty`,
   OFFER: `/offer`,
+  OFFER_ID: `/offer/:id`,
   FAVORITES: `/favorites`,
 };
 
@@ -43,4 +45,12 @@ export const sortType = {
   LOW_HIGH: `low-high`,
   HIGH_LOW: `high-low`,
   RATING: `rating`,
+};
+
+export const pageType = {
+  MAIN: `MAIN`,
+  SIGN_IN: `SIGN_IN`,
+  OFFER: `OFFER`,
+  FAVORITES: `FAVORITES`,
+  FAVORITES_EMPTY: `FAVORITES_EMPTY`,
 };

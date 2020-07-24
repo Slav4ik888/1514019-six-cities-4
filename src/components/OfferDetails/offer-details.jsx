@@ -1,80 +1,53 @@
 import React from 'react';
 import {connect} from 'react-redux';
+
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
-import {offerPropTypes} from '../../utils/offer-prop-types.js';
-import {getRating} from '../../utils/utils.js';
-import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
-import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
-import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
-import {ActionCreator} from '../../reducers/travel/travel.js';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
+
+import Page from '../Page/page.jsx';
 import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
-import withMap from '../../hocs/with-map/with-map.js';
 import MapCity from '../MapCity/map-city.jsx';
-import {coordsCities, AppRoute, placesType} from '../../utils/const.js';
 import CardList from '../CardList/card-list.jsx';
+
+import {getRating} from '../../utils/utils.js';
+import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
+import {ActionCreator} from '../../reducers/travel/travel.js';
+import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
+
+import withMap from '../../hocs/with-map/with-map.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
+
+import {coordsCities, placesType, pageType} from '../../utils/const.js';
+
 
 const MapCityWrapped = withMap(MapCity);
 const CardListWrapped = withFocusCard(withActiveItem(CardList));
 
-const OfferDetails = (props) => {
-  const {activeOffer,
-    reviews,
-    activeCity,
-    authInfo, userStatus,
-    nearbyOffers,
-    handleCardTitleClick,
-  } = props;
 
-  const {isPremium, // isFavourite, previewImage,
-    pictures, amenities, bedrooms, maxGuestsNumber, description, host,
-    price, rating, cardTitle, offerType,
+const OfferDetails = ({activeOffer, reviews, activeCity,
+  nearbyOffers, handleCardTitleClick}) => {
+
+  const {isPremium, pictures, amenities, bedrooms, maxGuestsNumber,
+    description, host, price, rating, cardTitle, offerType,
   } = activeOffer;
 
   // Выводим города поблизости
   // const nearbyOffers = getNearbyOffers(allOffers[cities[activeCity]], 3, coordinates, false);
 
   return (
-    <div className="page">
-      <header className="header">
-        <div className="container">
-          <div className="header__wrapper">
-            <div className="header__left">
-              <Link className="header__logo-link" to={AppRoute.ROOT}>
-                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-              </Link>
-            </div>
-            <nav className="header__nav">
-              <ul className="header__nav-list">
-                <li className="header__nav-item user">
-                  <Link
-                    className="header__nav-link header__nav-link--profile"
-                    to={userStatus === `AUTH` ? AppRoute.LOGIN : AppRoute.LOGIN}
-                  >
-                    <div className="header__avatar-wrapper user__avatar-wrapper"></div>
-                    {userStatus === `AUTH` ?
-                      <span className="header__user-name user__name">{authInfo.email}</span>
-                      : <span className="header__login">Sign in</span>
-                    }
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
+    <Page type={pageType.OFFER}>
 
       <main className="page__main page__main--property">
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
 
-              {pictures.map((img, i) => (
-                (i <= 5) ? <div key={`${img}+${i}`} className="property__image-wrapper">
+              {pictures
+                .slice(0, 6)
+                .map((img, i) => <div key={`${img}+${i}`} className="property__image-wrapper">
                   <img className="property__image" src={img} alt={cardTitle} />
-                </div> : null))}
+                </div>)}
 
             </div>
           </div>
@@ -180,7 +153,7 @@ const OfferDetails = (props) => {
           </section>
         </div>
       </main>
-    </div>
+    </Page>
   );
 };
 
@@ -190,15 +163,11 @@ OfferDetails.propTypes = {
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
   activeCity: PropTypes.number.isRequired,
-  userStatus: PropTypes.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
-  authInfo: PropTypes.object,
   reviews: PropTypes.array,
   handleCardTitleClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  userStatus: getUserStatus(state),
-  authInfo: getAuthInfo(state),
   activeCity: getActiveCity(state),
   activeOffer: getActiveOffer(state),
   reviews: getComments(state),

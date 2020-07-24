@@ -1,10 +1,13 @@
 import {extend} from '../../utils/utils.js';
+// import {AppRoute} from '../../utils/const.js';
 import {adapterCitiesData, adapterCommentsData, adapterNearbyData} from '../../utils/adapters.js';
+// import {history} from '../../history.js';
 
 const initialState = {
   allOffers: {},
   comments: [],
   nearbyOffers: [],
+  isLoading: false,
 };
 
 const ActionType = {
@@ -12,6 +15,7 @@ const ActionType = {
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   LOAD_NEARBY: `LOAD_NEARBY`,
   TOGGLE_FAV: `TOGGLE_FAV`,
+  SET_IS_LOADING: `SET_IS_LOADING`
 };
 
 const ActionCreator = {
@@ -39,14 +43,28 @@ const ActionCreator = {
       payload: offer,
     };
   },
+  setIsLoading: (status) => {
+    return {
+      type: ActionType.SET_IS_LOADING,
+      payload: status,
+    };
+  },
 };
 
 // Operation это асинхронный ActionCreator
 const Operation = {
   loadOffers: () => (dispatch, getState, api) => {
+    dispatch(ActionCreator.setIsLoading(true));
+
     return api.get(`/hotels`)
       .then((res) => {
         dispatch(ActionCreator.loadOffers(adapterCitiesData(res.data)));
+        dispatch(ActionCreator.setIsLoading(false));
+      })
+      .catch(() => {
+        dispatch(ActionCreator.setIsLoading(false));
+        // console.log(`/hotels NON`);
+        // history.push(AppRoute.MAIN_EMPTY);
       });
   },
   loadComments: (id) => (dispatch, getState, api) => {
@@ -93,6 +111,11 @@ const reducer = (state = initialState, action) => {
 
       return extend(state, {
         allOffers: newAllOffers,
+      });
+
+    case ActionType.SET_IS_LOADING:
+      return Object.assign({}, state, {
+        isLoading: action.payload,
       });
   }
   return state;

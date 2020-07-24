@@ -13,3 +13,7 @@ export const getComments = (state) => {
 export const getNearbyOffers = (state) => {
   return state[NAME_SPACE].nearbyOffers;
 };
+
+export const getIsLoading = (state) => {
+  return state[NAME_SPACE].isLoading;
+};

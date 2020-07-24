@@ -1,11 +1,12 @@
 import React from 'react';
-import {ReviewsItem} from '../ReviewsItem/reviews-item.jsx';
 import pt from 'prop-types';
-import {reviewsPropTypes} from '../../utils/reviews-prop-types.js';
+
+import {ReviewsItem} from '../ReviewsItem/reviews-item.jsx';
+
+import {reviewsPropTypes} from '../../utils/prop-types-templates.js';
 import {MAX_REVIEW_COUNT} from '../../utils/const.js';
 
-export const ReviewsList = (props) => {
-  const {reviews} = props;
+export const ReviewsList = ({reviews}) => {
 
   return (
     <section className="property__reviews reviews">

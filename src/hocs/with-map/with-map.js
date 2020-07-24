@@ -1,6 +1,6 @@
 import React, {createRef, PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import {offerPropTypes} from '../../utils/offer-prop-types.js';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
 import L from 'leaflet';
 
 const withMap = (Component) => {
@@ -94,6 +94,7 @@ const withMap = (Component) => {
           // );
         });
       }
+
       // Маркер активного activeOffer
       if (activeOffer) {
         const activeIcon = L.icon({

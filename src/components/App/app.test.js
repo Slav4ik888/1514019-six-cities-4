@@ -1,85 +1,89 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {App} from './app.jsx';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
+
+import {App} from './app.jsx';
+
 import {NameSpace} from '../../reducers/name-space.js';
-import {offers} from "../../mocks/offers.js";
+import {testOffer} from '../../mocks/test-offer.js';
+import {offers} from '../../mocks/offers.js';
 
 const mockStore = configureStore([]);
 
 
-describe(`Render <App /> `, () => {
-  it(`Render <App /> без оффера`, () => {
+describe(`Snapshot <App/>`, () => {
+  it(`Render <App/> без activeOffer`, () => {
     const store = mockStore({
+      [NameSpace.TRAVEL]: {
+        activeCity: 0,
+        activeOffer: null,
+      },
       [NameSpace.USER]: {
         userStatus: `NO_AUTH`,
+        authInfo: {},
+        isLoading: false,
+      },
+      [NameSpace.DATA]: {
+        allOffers: offers,
+        comments: [],
+        nearbyOffers: [],
+        isLoading: false,
       },
     });
     const tree = renderer
       .create(
           <Provider store={store}>
             <App
-              userStatus={`NO_AUTH`}
-              authInfo={{}}
               login={() => {}}
-              allOffers={offers}
               activeCity={0}
-              handleChangeCity={() => {}}
               activeOffer={null}
-              handleCardTitleClick={() => {}}
+              isLoading={false}
             />
           </Provider>
+          // , {
+          //   createNodeMock: () => {
+          //     return {};
+          //   }
+          // }
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it(`Render <App /> с оффером`, () => {
+  it(`Render <App/> с activeOffer`, () => {
     const store = mockStore({
-      [NameSpace.USER]: {
-        userStatus: `AUTH`,
+      [NameSpace.TRAVEL]: {
+        activeCity: 0,
+        activeOffer: testOffer,
       },
-    });
-    const tree = renderer
-      .create(
-          <Provider store={store}>
-            <App
-              userStatus={`AUTH`}
-              authInfo={{}}
-              login={() => {}}
-              allOffers={offers}
-              activeCity={0}
-              handleChangeCity={() => {}}
-              activeOffer={offers.Paris[0]}
-              handleCardTitleClick={() => {}}
-            />
-          </Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it(`Render <App /> с SignIn`, () => {
-    const store = mockStore({
       [NameSpace.USER]: {
         userStatus: `NO_AUTH`,
+        authInfo: {},
+        isLoading: false,
+      },
+      [NameSpace.DATA]: {
+        allOffers: offers,
+        comments: [],
+        nearbyOffers: [],
+        isLoading: false,
       },
     });
     const tree = renderer
       .create(
           <Provider store={store}>
             <App
-              userStatus={`NO_AUTH`}
-              authInfo={{}}
               login={() => {}}
-              allOffers={offers}
               activeCity={0}
-              handleChangeCity={() => {}}
-              activeOffer={null}
-              handleCardTitleClick={() => {}}
+              activeOffer={testOffer}
+              isLoading={false}
             />
           </Provider>
+          // , {
+          //   createNodeMock: () => {
+          //     return {};
+          //   }
+          // }
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

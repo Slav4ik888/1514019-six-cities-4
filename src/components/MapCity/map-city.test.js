@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import MapCity from './map-city.jsx';
 
 
-it(`check render MapCity`, () => {
+it(`Render Snapshot <MapCity/>`, () => {
   const component = renderer.create(
       <MapCity>
         <div/>

@@ -1,39 +1,34 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+
 import Card from '../Card/card.jsx';
-import {offerPropTypes} from '../../utils/offer-prop-types.js';
-import withFavorite from '../../hocs/with-favorite/with-favorite.js';
+
 import {placesType} from '../../utils/const.js';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
+
+import withFavorite from '../../hocs/with-favorite/with-favorite.js';
 
 const CardWrapped = withFavorite(Card);
 
-class CardList extends PureComponent {
 
-  render() {
-    const {offers,
-      onItemClick,
-      focusCard,
-      onCardFocusEnter, onCardFocusLeave,
-      type,
-    } = this.props;
+const CardList = ({offers, onItemClick, onCardFocusEnter,
+  onCardFocusLeave, type}) => {
 
-    return (
-      <>
-        {offers.map((offer) => {
-          return <CardWrapped
-            key={offer.id}
-            type={type}
-            offer={offer}
-            onCardTitleClick={onItemClick}
-            focusCard={focusCard}
-            onCardFocusEnter={onCardFocusEnter}
-            onCardFocusLeave={onCardFocusLeave}
-          />;
-        })}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      {offers.map((offer) => {
+        return <CardWrapped
+          key={offer.id}
+          type={type}
+          offer={offer}
+          onCardTitleClick={onItemClick}
+          onCardFocusEnter={onCardFocusEnter}
+          onCardFocusLeave={onCardFocusLeave}
+        />;
+      })}
+    </>
+  );
+};
 
 CardList.propTypes = {
   onItemClick: PropTypes.func.isRequired,
@@ -42,9 +37,7 @@ CardList.propTypes = {
   ).isRequired,
   onCardFocusEnter: PropTypes.func.isRequired,
   onCardFocusLeave: PropTypes.func.isRequired,
-  focusCard: PropTypes.shape(offerPropTypes),
   type: PropTypes.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
 };
-
 
 export default CardList;
