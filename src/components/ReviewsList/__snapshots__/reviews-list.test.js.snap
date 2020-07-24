@@ -7,7 +7,7 @@ exports[`Snapshot <ReviewsList/> Render <ReviewsList/> 1`] = `
   <h2
     className="reviews__title"
   >
-    Reviews ·
+    Reviews · 
     <span
       className="reviews__amount"
     >
@@ -34,7 +34,8 @@ exports[`Snapshot <ReviewsList/> Render <ReviewsList/> 1`] = `
             width="54"
           />
         </div>
-        <span className="reviews__user-name"
+        <span
+          className="reviews__user-name"
         >
           Marla
         </span>
@@ -331,13 +332,13 @@ exports[`Snapshot <ReviewsList/> Render <ReviewsList/> 1`] = `
       <p
         className="reviews__help"
       >
-        To submit review please make sure to set
+        To submit review please make sure to set 
         <span
           className="reviews__star"
         >
           rating
         </span>
-         and describe your stay with at least
+         and describe your stay with at least 
         <b
           className="reviews__text-amount"
         >
