@@ -28,7 +28,7 @@ export const showDate = (timestamp, format) => {
 
   const formatType = {
     monthYYYY: `Month YYYY`,
-    monthDDсYYYY: `Month DD, YYYY`,
+    monthDDcYYYY: `Month DD, YYYY`,
     yyyymmdd: `YYYY-MM-DD`,
     ddmmyyyy: `DD-MM-YYYY`,
   };
@@ -37,7 +37,7 @@ export const showDate = (timestamp, format) => {
     case formatType.monthYYYY:
       return `${monthName[newDate.getMonth()]} ${newDate.getFullYear()}`;
 
-    case formatType.monthDDсYYYY:
+    case formatType.monthDDcYYYY:
       day = (`0` + newDate.getDate()).slice(-2);
       return `${monthName[newDate.getMonth()]} ${day}, ${newDate.getFullYear()}`;
 
