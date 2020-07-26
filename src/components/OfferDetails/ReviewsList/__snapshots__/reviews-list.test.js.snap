@@ -14,6 +14,65 @@ exports[`Snapshot <ReviewsList/> Render <ReviewsList/> 1`] = `
         className="reviews__avatar-wrapper user__avatar-wrapper"
       >
         <img
+          alt="Sergio"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar-angelina3.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Sergio
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        dining area and five bedrooms – couples and groups of friends will find this accommodation
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2020-06-24"
+      >
+        June 24, 2020
+      </time>
+    </div>
+  </li>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
           alt="Marla"
           className="reviews__avatar user__avatar"
           height="54"
@@ -57,9 +116,9 @@ exports[`Snapshot <ReviewsList/> Render <ReviewsList/> 1`] = `
       </p>
       <time
         className="reviews__time"
-        dateTime="2474-10-31"
+        dateTime="2020-06-24"
       >
-        October 31, 2474
+        June 24, 2020
       </time>
     </div>
   </li>
@@ -116,68 +175,9 @@ exports[`Snapshot <ReviewsList/> Render <ReviewsList/> 1`] = `
       </p>
       <time
         className="reviews__time"
-        dateTime="2020-06-25"
+        dateTime="2020-06-24"
       >
-        June 25, 2020
-      </time>
-    </div>
-  </li>
-  <li
-    className="reviews__item"
-  >
-    <div
-      className="reviews__user user"
-    >
-      <div
-        className="reviews__avatar-wrapper user__avatar-wrapper"
-      >
-        <img
-          alt="Sergio"
-          className="reviews__avatar user__avatar"
-          height="54"
-          src="img/avatar-angelina3.jpg"
-          width="54"
-        />
-      </div>
-      <span
-        className="reviews__user-name"
-      >
-        Sergio
-      </span>
-    </div>
-    <div
-      className="reviews__info"
-    >
-      <div
-        className="reviews__rating rating"
-      >
-        <div
-          className="reviews__stars rating__stars"
-        >
-          <span
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
-          />
-          <span
-            className="visually-hidden"
-          >
-            Rating
-          </span>
-        </div>
-      </div>
-      <p
-        className="reviews__text"
-      >
-        dining area and five bedrooms – couples and groups of friends will find this accommodation
-      </p>
-      <time
-        className="reviews__time"
-        dateTime="2020-06-25"
-      >
-        June 25, 2020
+        June 24, 2020
       </time>
     </div>
   </li>

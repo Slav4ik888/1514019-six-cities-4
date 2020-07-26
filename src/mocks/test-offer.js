@@ -46,7 +46,7 @@ export const reviews = [
       name: `Slava`,
     },
     comment: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
-    date: 1593095936000,
+    date: 1593007936010,
     rating: 4.7,
   },
   {
@@ -58,7 +58,7 @@ export const reviews = [
       name: `Marla`,
     },
     comment: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
-    date: 15930959260017,
+    date: 1593007936010,
     rating: 2.2,
   },
   {
@@ -70,7 +70,7 @@ export const reviews = [
       name: `Sergio`,
     },
     comment: `dining area and five bedrooms – couples and groups of friends will find this accommodation`,
-    date: 1593025936010,
+    date: 1593007936010,
     rating: 5,
   },
 ];
