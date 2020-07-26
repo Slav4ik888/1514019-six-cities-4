@@ -1,8 +1,8 @@
 import React from 'react';
 import pt from 'prop-types';
-import {reviewsPropTypes} from '../../utils/prop-types-templates.js';
-import {getRating} from '../../utils/utils.js';
-import {showDate} from '../../utils/utils.js';
+import {reviewsPropTypes} from '../../../../utils/prop-types-templates.js';
+import {getRating} from '../../../../utils/utils.js';
+import {showDate} from '../../../../utils/utils.js';
 
 
 export const ReviewsItem = (props) => {

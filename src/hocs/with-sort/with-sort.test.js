@@ -21,8 +21,8 @@ MockComponent.propTypes = {
 
 const MockComponentWrapped = withSort(MockComponent);
 
-describe(`Render withFocusCard correctly`, () => {
-  it(`Render withFocusCard correctly with focus`, () => {
+describe(`Render <withFocusCard>`, () => {
+  it(`Render <withFocusCard/> with focus`, () => {
     const store = mockStore({
       [NameSpace.TRAVEL]: {
         sortingType: sortType.POPULAR,

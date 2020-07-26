@@ -190,7 +190,7 @@ const Favorites = ({userStatus, authInfo}) => {
 };
 
 Favorites.propTypes = {
-  userStatus: pt.string.isRequired,
+  userStatus: pt.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
   authInfo: pt.object,
 };
 

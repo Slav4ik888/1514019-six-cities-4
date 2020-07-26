@@ -1,15 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import PropTypes from 'prop-types';
+import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Page from '../Page/page.jsx';
-import {ReviewsList} from '../ReviewsList/reviews-list.jsx';
+import {ReviewsList} from './ReviewsList/reviews-list.jsx';
 import MapCity from '../MapCity/map-city.jsx';
 import CardList from '../CardList/card-list.jsx';
+import FormReview from '../OfferDetails/FormReview/form-review.jsx';
 
 import {getRating} from '../../utils/utils.js';
+import {getUserStatus} from '../../reducers/user/selectors.js';
 import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
@@ -17,16 +19,18 @@ import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js'
 import withMap from '../../hocs/with-map/with-map.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
+import withForm from '../../hocs/with-form/with-form.js';
 
 import {coordsCities, placesType, pageType} from '../../utils/const.js';
 
 
 const MapCityWrapped = withMap(MapCity);
 const CardListWrapped = withFocusCard(withActiveItem(CardList));
+const FormReviewWrapped = withForm(FormReview);
 
 
 const OfferDetails = ({activeOffer, reviews, activeCity,
-  nearbyOffers, handleCardTitleClick}) => {
+  nearbyOffers, handleCardTitleClick, userStatus}) => {
 
   const {isPremium, pictures, amenities, bedrooms, maxGuestsNumber,
     description, host, price, rating, cardTitle, offerType,
@@ -124,10 +128,15 @@ const OfferDetails = ({activeOffer, reviews, activeCity,
                 </div>
               </div>
 
-              <ReviewsList reviews={reviews}/>
+              <section className="property__reviews reviews">
+                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
+                <ReviewsList reviews={reviews}/>
 
+                {userStatus === `AUTH` && <FormReviewWrapped/>}
+              </section>
             </div>
           </div>
+
 
           <section className="property__map map">
             <MapCityWrapped
@@ -158,16 +167,18 @@ const OfferDetails = ({activeOffer, reviews, activeCity,
 };
 
 OfferDetails.propTypes = {
-  activeOffer: PropTypes.shape(offerPropTypes).isRequired,
-  nearbyOffers: PropTypes.arrayOf(
-      PropTypes.shape(offerPropTypes).isRequired
+  userStatus: pt.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
+  activeOffer: pt.shape(offerPropTypes).isRequired,
+  nearbyOffers: pt.arrayOf(
+      pt.shape(offerPropTypes).isRequired
   ).isRequired,
-  activeCity: PropTypes.number.isRequired,
-  reviews: PropTypes.array,
-  handleCardTitleClick: PropTypes.func.isRequired,
+  activeCity: pt.number.isRequired,
+  reviews: pt.array,
+  handleCardTitleClick: pt.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
+  userStatus: getUserStatus(state),
   activeCity: getActiveCity(state),
   activeOffer: getActiveOffer(state),
   reviews: getComments(state),

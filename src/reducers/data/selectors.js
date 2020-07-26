@@ -17,3 +17,11 @@ export const getNearbyOffers = (state) => {
 export const getIsLoading = (state) => {
   return state[NAME_SPACE].isLoading;
 };
+
+export const getReview = (state) => {
+  return state[NAME_SPACE].review;
+};
+
+export const getIsError = (state) => {
+  return state[NAME_SPACE].isError;
+};

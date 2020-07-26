@@ -20,9 +20,57 @@ const authInfo = {
   name: `Vyacheslav`,
 };
 
+const dataReview = {
+  comment: `Очень хороший отель`,
+  rating: 4,
+};
 
 describe(`Snapshot of <OfferDetails/>`, () => {
-  it(`Render <OfferDetails/>`, () => {
+  it(`Render <OfferDetails/> NO_AUTH`, () => {
+    const store = mockStore({
+      [NameSpace.TRAVEL]: {
+        activeCity: 0,
+        activeOffer: testOffer,
+        activeHoverOffer: null,
+      },
+      [NameSpace.USER]: {
+        userStatus: `NO_AUTH`,
+        authInfo,
+        isLoading: false,
+      },
+      [NameSpace.DATA]: {
+        allOffers: offers,
+        comments: reviews,
+        nearbyOffers,
+        isLoading: false,
+        review: {
+          comment: ``,
+          rating: null,
+        },
+        isError: false,
+      },
+    });
+
+    const tree = renderer
+      .create(
+          <Provider store={store}>
+            <BrowserRouter>
+              <OfferDetails
+                userStatus={`NO_AUTH`}
+                activeOffer={testOffer}
+                nearbyOffers={nearbyOffers}
+                activeCity={0}
+                reviews={reviews}
+                handleCardTitleClick={() => {}}
+                dataReview={dataReview}
+              />
+            </BrowserRouter>
+          </Provider>).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render <OfferDetails/> AUTH`, () => {
     const store = mockStore({
       [NameSpace.TRAVEL]: {
         activeCity: 0,
@@ -39,6 +87,11 @@ describe(`Snapshot of <OfferDetails/>`, () => {
         comments: reviews,
         nearbyOffers,
         isLoading: false,
+        review: {
+          comment: ``,
+          rating: null,
+        },
+        isError: false,
       },
     });
 
@@ -47,11 +100,13 @@ describe(`Snapshot of <OfferDetails/>`, () => {
           <Provider store={store}>
             <BrowserRouter>
               <OfferDetails
+                userStatus={`AUTH`}
                 activeOffer={testOffer}
                 nearbyOffers={nearbyOffers}
                 activeCity={0}
                 reviews={reviews}
                 handleCardTitleClick={() => {}}
+                dataReview={dataReview}
               />
             </BrowserRouter>
           </Provider>).toJSON();
