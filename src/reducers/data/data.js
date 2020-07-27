@@ -4,9 +4,14 @@ import {adapterCitiesData, adapterCommentsData, adapterNearbyData} from '../../u
 // import {history} from '../../history.js';
 
 const initialState = {
-  allOffers: {},
-  comments: [],
-  nearbyOffers: [],
+  allOffers: {}, // Полученные данные по hotels
+  comments: [], // Полученные комментарии по отелю
+  nearbyOffers: [], // Полученные 3 предложения неподалёку
+  review: { // Отзыв на отправку
+    comment: ``,
+    rating: null,
+  },
+  isError: false, // Если не удалось отправить отзыв
   isLoading: false,
 };
 
@@ -15,7 +20,9 @@ const ActionType = {
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   LOAD_NEARBY: `LOAD_NEARBY`,
   TOGGLE_FAV: `TOGGLE_FAV`,
-  SET_IS_LOADING: `SET_IS_LOADING`
+  SET_IS_LOADING: `SET_IS_LOADING`,
+  SET_REVIEW: `SET_REVIEW`,
+  IS_ERROR: `IS_ERROR`,
 };
 
 const ActionCreator = {
@@ -37,6 +44,18 @@ const ActionCreator = {
       payload: nearbyOffers,
     };
   },
+  setReview: (review) => {
+    return {
+      type: ActionType.SET_REVIEW,
+      payload: review,
+    };
+  },
+  setIsError: (status) => {
+    return {
+      type: ActionType.IS_ERROR,
+      payload: status,
+    };
+  },
   toggleFavorite: (offer) => {
     return {
       type: ActionType.TOGGLE_FAV,
@@ -53,6 +72,7 @@ const ActionCreator = {
 
 // Operation это асинхронный ActionCreator
 const Operation = {
+
   loadOffers: () => (dispatch, getState, api) => {
     dispatch(ActionCreator.setIsLoading(true));
 
@@ -67,6 +87,7 @@ const Operation = {
         // history.push(AppRoute.MAIN_EMPTY);
       });
   },
+
   loadComments: (id) => (dispatch, getState, api) => {
     return api.get(`/comments/${id}`)
       .then((res) => {
@@ -75,6 +96,7 @@ const Operation = {
         dispatch(ActionCreator.loadComments(adapterCommentsData(res.data)));
       });
   },
+
   loadNearbyOffers: (id) => (dispatch, getState, api) => {
     return api.get(`/hotels/${id}/nearby`)
       .then((res) => {
@@ -83,6 +105,30 @@ const Operation = {
         dispatch(ActionCreator.loadNearbyOffers(adapterNearbyData(res.data)));
       });
   },
+
+  saveReview: (id, review) => (dispatch, getState, api) => {
+    dispatch(ActionCreator.setIsLoading(true));
+    return api.post(`/comments/${id}`, {
+      comment: review.comment,
+      rating: review.rating,
+    })
+      .then(() => {
+        // console.log('SAVE: ', res);
+        dispatch(ActionCreator.setIsLoading(false));
+        dispatch(ActionCreator.setReview({
+          comment: ``,
+          rating: null,
+        }));
+      })
+      .catch(() => {
+        dispatch(ActionCreator.setReview(review));
+        dispatch(ActionCreator.setIsLoading(false));
+        dispatch(ActionCreator.setIsError(true));
+        setTimeout(() => dispatch(ActionCreator.setIsError(false)), 5000);
+        // console.log(`Не удалось отправить отзыв, попытайтесь повторить через некоторое время`, err);
+      });
+  },
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -100,6 +146,16 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_NEARBY:
       return extend(state, {
         nearbyOffers: action.payload,
+      });
+
+    case ActionType.IS_ERROR:
+      return extend(state, {
+        isError: action.payload,
+      });
+
+    case ActionType.SET_REVIEW:
+      return extend(state, {
+        review: action.payload,
       });
 
     case ActionType.TOGGLE_FAV:

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render withFocusCard correctly Render withFocusCard correctly with focus 1`] = `
+exports[`Render <withFocusCard> Render <withFocusCard/> with focus 1`] = `
 <div>
    
   <span
