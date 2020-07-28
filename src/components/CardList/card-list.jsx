@@ -35,9 +35,9 @@ CardList.propTypes = {
   offers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
-  onCardFocusEnter: PropTypes.func.isRequired,
-  onCardFocusLeave: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
+  onCardFocusEnter: PropTypes.func,
+  onCardFocusLeave: PropTypes.func,
+  type: PropTypes.oneOf([placesType.CITY, placesType.NEAR, placesType.FAVORITE]).isRequired,
 };
 
 export default CardList;

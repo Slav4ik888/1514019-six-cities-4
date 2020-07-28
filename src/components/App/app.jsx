@@ -19,6 +19,7 @@ import {getIsLoading} from '../../reducers/user/selectors.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
 
 import {AppRoute} from '../../utils/const.js';
+import FavoritesEmpty from '../FavoritesEmpty/favorites-empty.jsx';
 
 
 const App = ({isLoading, login, activeOffer, activeCity}) => {
@@ -45,16 +46,26 @@ const App = ({isLoading, login, activeOffer, activeCity}) => {
               />)}
           />
 
-          <Route exact path={AppRoute.OFFER}>
+          <Route
+            exact
+            path={AppRoute.OFFER}>
             {activeOffer && <OfferDetails/>}
           </Route>
 
-          <PrivateRoute exact path={AppRoute.FAVORITES}
+          <PrivateRoute
+            exact
+            path={AppRoute.FAVORITES}
             render={() => {
               return <Favorites/>;
             }}
           />
 
+          <Route
+            exact
+            path={AppRoute.FAVORITES_EMPTY}
+            render={() => (
+              <FavoritesEmpty />)}
+          />
           <Route
             render={() => (
               <>

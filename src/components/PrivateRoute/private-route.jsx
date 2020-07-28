@@ -21,7 +21,7 @@ const PrivateRoute = ({exact, path, render, userStatus}) => {
         return (
           userStatus === AuthStatus.AUTH
             ? render()
-            : <Redirect to={AppRoute.LOGIN}/>
+            : <Redirect to={AppRoute.SIGN_IN}/>
         );
       }}
     />

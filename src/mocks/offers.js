@@ -3,7 +3,7 @@ export const offers = {
     {
       id: 1,
       isPremium: true,
-      isFavorite: false,
+      isFavorite: true,
       previewImage: `img/apartment-03.jpg`,
       pictures: [
         `img/apartment-01.jpg`,
@@ -62,7 +62,7 @@ export const offers = {
     {
       id: 2,
       isPremium: true,
-      isFavorite: false,
+      isFavorite: true,
       previewImage: `img/apartment-01.jpg`,
       pictures: [
         `img/apartment-01.jpg`,

@@ -21,7 +21,7 @@ const Card = (props) => {
     type,
   } = props;
 
-  const favClass = isFav ? `place-card__bookmark-button--active` : null;
+  let favClass = isFav ? `place-card__bookmark-button--active` : null;
 
   const handleTitleClick = () => {
     loadReviews(props.offer.id);
@@ -41,32 +41,64 @@ const Card = (props) => {
     onFavClick(props.offer);
   };
 
+  let placeCard;
+  let imageWrapper;
+  let placeCardInfo;
+  let imgWidth;
+  let imgHeight;
+
+  switch (type) {
+    case placesType.CITY:
+      placeCard = `cities__place-card place-card`;
+      imageWrapper = `cities__image-wrapper place-card__image-wrapper`;
+      placeCardInfo = `place-card__info`;
+      imgWidth = 260;
+      imgHeight = 200;
+      break;
+
+    case placesType.NEAR:
+      placeCard = `near-places__card place-card`;
+      imageWrapper = `near-places__image-wrapper place-card__image-wrapper`;
+      placeCardInfo = `place-card__info`;
+      imgWidth = 260;
+      imgHeight = 200;
+      break;
+
+    case placesType.FAVORITE:
+      placeCard = `favorites__card place-card`;
+      imageWrapper = `favorites__image-wrapper place-card__image-wrapper`;
+      placeCardInfo = `favorites__card-info place-card__info`;
+      favClass = `place-card__bookmark-button--active`;
+      imgWidth = 150;
+      imgHeight = 110;
+      break;
+
+  }
+
   return (
-    <article
-      className={type === placesType.CITY ? `cities__place-card place-card` : `near-places__card place-card`}
-      onPointerEnter={handlePointerEnter}
-      onPointerLeave={handlePointerLeave}
+    <article className={placeCard}
+      onPointerEnter={handlePointerEnter && null}
+      onPointerLeave={handlePointerLeave && null}
     >
       {isPremium &&
         <div className="place-card__mark">
           <span>Premium</span>
         </div>}
 
-      <div className={type === placesType.CITY ? `cities__image-wrapper` : `near-places__image-wrapper` + `place-card__image-wrapper`} >
+      <div className={imageWrapper}>
         <a href="#">
-          <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={previewImage} width={imgWidth} height={imgHeight} alt="Place image" />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={placeCardInfo}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className={`place-card__bookmark-button button ${favClass}`} type="button"
-            onClick={handleFavClick}
+            onClick={handleFavClick && null}
           >
-            {/* {userStatus === `AUTH` ? <Redirect to={AppRoute.LOGIN} /> : null} */}
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
@@ -95,14 +127,14 @@ const Card = (props) => {
 
 Card.propTypes = {
   onCardTitleClick: pt.func.isRequired,
-  onCardFocusEnter: pt.func.isRequired,
-  onCardFocusLeave: pt.func.isRequired,
+  onCardFocusEnter: pt.func,
+  onCardFocusLeave: pt.func,
   offer: pt.shape(offerPropTypes).isRequired,
-  isFav: pt.bool.isRequired,
-  onFavClick: pt.func.isRequired,
+  isFav: pt.bool,
+  onFavClick: pt.func,
   loadReviews: pt.func.isRequired,
   loadNearbies: pt.func.isRequired,
-  type: pt.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
+  type: pt.oneOf([placesType.CITY, placesType.NEAR, placesType.FAVORITE]).isRequired,
 
 };
 

@@ -31,11 +31,13 @@ export const AppRoute = {
   OFFER: `/offer`,
   OFFER_ID: `/offer/:id`,
   FAVORITES: `/favorites`,
+  FAVORITES_EMPTY: `/favorites-empty`,
 };
 
 export const placesType = {
   NEAR: `NEAR`,
   CITY: `CITY`,
+  FAVORITE: `FAVORITE`,
 };
 
 export const MAX_REVIEW_COUNT = 10;
