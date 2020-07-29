@@ -5,13 +5,13 @@ import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Page from '../Page/page.jsx';
-import {ReviewsList} from './ReviewsList/reviews-list.jsx';
+import ReviewsList from './ReviewsList/reviews-list.jsx';
 import MapCity from '../MapCity/map-city.jsx';
 import CardList from '../CardList/card-list.jsx';
 import FormReview from '../OfferDetails/FormReview/form-review.jsx';
 
-import {getRating} from '../../utils/utils.js';
 import {getUserStatus} from '../../reducers/user/selectors.js';
+import {AuthStatus} from '../../reducers/user/user.js';
 import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
@@ -22,6 +22,7 @@ import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
 import withForm from '../../hocs/with-form/with-form.js';
 
 import {coordsCities, placesType, pageType} from '../../utils/const.js';
+import {getRating} from '../../utils/utils.js';
 
 
 const MapCityWrapped = withMap(MapCity);
@@ -132,7 +133,7 @@ const OfferDetails = ({activeOffer, reviews, activeCity,
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
                 <ReviewsList reviews={reviews}/>
 
-                {userStatus === `AUTH` && <FormReviewWrapped/>}
+                {userStatus === AuthStatus.NO_AUTH && <FormReviewWrapped/>}
               </section>
             </div>
           </div>
@@ -167,7 +168,7 @@ const OfferDetails = ({activeOffer, reviews, activeCity,
 };
 
 OfferDetails.propTypes = {
-  userStatus: pt.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
+  userStatus: pt.oneOf([AuthStatus.AUTH, AuthStatus.NO_AUTH]).isRequired,
   activeOffer: pt.shape(offerPropTypes).isRequired,
   nearbyOffers: pt.arrayOf(
       pt.shape(offerPropTypes).isRequired

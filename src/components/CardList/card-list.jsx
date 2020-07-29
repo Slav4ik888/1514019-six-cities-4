@@ -8,6 +8,7 @@ import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import withFavorite from '../../hocs/with-favorite/with-favorite.js';
 
+
 const CardWrapped = withFavorite(Card);
 
 

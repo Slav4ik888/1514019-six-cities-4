@@ -9,9 +9,6 @@ import MapCity from '../MapCity/map-city.jsx';
 import CitiesList from '../CitiesList/cities-list.jsx';
 import PlacesSorting from '../PlacesSorting/places-sorting.jsx';
 
-import {cities, coordsCities, placesType, pageType} from '../../utils/const.js';
-import {offerPropTypes} from '../../utils/prop-types-templates.js';
-
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 import withMap from '../../hocs/with-map/with-map.js';
 import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
@@ -20,6 +17,9 @@ import withSort from '../../hocs/with-sort/with-sort.js';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getActiveCity, getSortedOffers, getActiveHoverOffer} from '../../reducers/travel/selectors.js';
 import {getIsLoading} from '../../reducers/data/selectors.js';
+
+import {cities, coordsCities, placesType, pageType} from '../../utils/const.js';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 
 const CitiesListWrapped = withActiveItem(CitiesList);

@@ -30,15 +30,21 @@ const Card = (props) => {
   };
 
   const handlePointerEnter = () => {
-    onCardFocusEnter(props.offer);
+    if (onCardFocusEnter) {
+      onCardFocusEnter(props.offer);
+    }
   };
 
   const handlePointerLeave = () => {
-    onCardFocusLeave();
+    if (onCardFocusLeave) {
+      onCardFocusLeave();
+    }
   };
 
   const handleFavClick = () => {
-    onFavClick(props.offer);
+    if (!placesType.FAVORITE) {
+      onFavClick(props.offer);
+    }
   };
 
   let placeCard;
@@ -77,8 +83,8 @@ const Card = (props) => {
 
   return (
     <article className={placeCard}
-      onPointerEnter={handlePointerEnter && null}
-      onPointerLeave={handlePointerLeave && null}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
     >
       {isPremium &&
         <div className="place-card__mark">
@@ -97,7 +103,7 @@ const Card = (props) => {
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className={`place-card__bookmark-button button ${favClass}`} type="button"
-            onClick={handleFavClick && null}
+            onClick={handleFavClick}
           >
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
@@ -113,7 +119,7 @@ const Card = (props) => {
         </div>
         <h2 className="place-card__name">
           <Link className="place-card__name_href"
-            to={AppRoute.OFFER}
+            to={AppRoute.ROOM}
             onClick={handleTitleClick}
           >
             {cardTitle}

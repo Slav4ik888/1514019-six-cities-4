@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import {Link} from 'react-router-dom';
 import pt from 'prop-types';
 
-import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
-import {ActionCreator} from '../../reducers/travel/travel.js';
+import Page from '../Page/page.jsx';
+import CardList from '../CardList/card-list.jsx';
+
 import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
 
-import Page from '../Page/page.jsx';
-// import Card from '../Card/card.jsx';
-import CardList from '../CardList/card-list.jsx';
+import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
+import {AuthStatus} from '../../reducers/user/user.js';
+import {ActionCreator} from '../../reducers/travel/travel.js';
 
 import {pageType, placesType} from '../../utils/const.js';
 import {offers} from '../../mocks/offers.js';
@@ -99,7 +99,7 @@ const Favorites = ({handleCardTitleClick}) => {
 };
 
 Favorites.propTypes = {
-  userStatus: pt.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
+  userStatus: pt.oneOf([AuthStatus.AUTH, AuthStatus.NO_AUTH]).isRequired,
   authInfo: pt.object,
   handleCardTitleClick: pt.func.isRequired,
 

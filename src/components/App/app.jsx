@@ -34,7 +34,7 @@ const App = ({isLoading, login, activeOffer, activeCity}) => {
       <BrowserRouter>
         <Switch>
 
-          <Route exact path={AppRoute.ROOT} component={Main}/>
+          <Route exact path={AppRoute.MAIN} component={Main}/>
 
           <Route
             exact
@@ -48,7 +48,7 @@ const App = ({isLoading, login, activeOffer, activeCity}) => {
 
           <Route
             exact
-            path={AppRoute.OFFER}>
+            path={AppRoute.ROOM}>
             {activeOffer && <OfferDetails/>}
           </Route>
 
@@ -74,7 +74,7 @@ const App = ({isLoading, login, activeOffer, activeCity}) => {
                   <br />
                   <small>Page not found</small>
                 </h1>
-                <Redirect to={AppRoute.ROOT} />
+                <Redirect to={AppRoute.MAIN} />
               </>
             )}
           />

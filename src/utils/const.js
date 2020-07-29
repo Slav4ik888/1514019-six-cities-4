@@ -25,11 +25,11 @@ export const coordsCities = [
 
 
 export const AppRoute = {
-  SIGN_IN: `/sign_in`,
-  ROOT: `/`,
-  MAIN_EMPTY: `/main_empty`,
-  OFFER: `/offer`,
-  OFFER_ID: `/offer/:id`,
+  SIGN_IN: `/login`,
+  MAIN: `/`,
+  // MAIN_EMPTY: `/main_empty`,
+  ROOM: `/offer`,
+  ROOM_ID: `/offer/:id`,
   FAVORITES: `/favorites`,
   FAVORITES_EMPTY: `/favorites-empty`,
 };

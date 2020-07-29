@@ -1,7 +1,8 @@
+import {createSelector} from 'reselect';
+
 import {NameSpace} from '../name-space.js';
 import {sortType, cities} from '../../utils/const.js';
 import {getAllOffers} from '../data/selectors.js';
-import {createSelector} from 'reselect';
 
 
 const NAME_SPACE = NameSpace.TRAVEL;

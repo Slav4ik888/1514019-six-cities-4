@@ -1,18 +1,12 @@
 import React from 'react';
 import pt from 'prop-types';
+
 import {reviewsPropTypes} from '../../../../utils/prop-types-templates.js';
 import {getRating} from '../../../../utils/utils.js';
 import {showDate} from '../../../../utils/utils.js';
 
 
-export const ReviewsItem = (props) => {
-  const {review: {
-    user,
-    comment,
-    date,
-    rating,
-  }
-  } = props;
+const ReviewsItem = ({review: {user, comment, date, rating}}) => {
 
   return (
     <li className="reviews__item">
@@ -41,3 +35,5 @@ export const ReviewsItem = (props) => {
 };
 
 ReviewsItem.propTypes = pt.shape(reviewsPropTypes).isRequired;
+
+export default ReviewsItem;

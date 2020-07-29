@@ -7,7 +7,9 @@ import {pageType} from '../../utils/const.js';
 
 const Page = ({type, children}) => {
   const styleCover = {};
-  styleCover.height = `100vh`;
+  if (type === pageType.FAVORITES_EMPTY) {
+    styleCover.height = `100vh`;
+  }
 
   return (
     <div className={cl(`page`,
