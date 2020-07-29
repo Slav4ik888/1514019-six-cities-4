@@ -25,3 +25,7 @@ export const getReview = (state) => {
 export const getIsError = (state) => {
   return state[NAME_SPACE].isError;
 };
+
+export const getFavorites = (state) => {
+  return state[NAME_SPACE].favorites;
+};

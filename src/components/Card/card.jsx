@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import pt from 'prop-types';
@@ -7,31 +6,22 @@ import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import {getRating} from '../../utils/utils.js';
 import {AppRoute, placesType} from '../../utils/const.js';
-import {Operation as DataOperation} from '../../reducers/data/data.js';
 
 
-const Card = (props) => {
-  const {offer: {isPremium, previewImage, price, rating, cardTitle, offerType},
-    loadReviews, loadNearbies,
-    onCardTitleClick,
-    onCardFocusEnter,
-    onCardFocusLeave,
-    onFavClick,
-    isFav,
-    type,
-  } = props;
+const Card = ({offer, onCardTitleClick, onCardFocusEnter, onCardFocusLeave,
+  onFavClick, isFav, type}) => {
+
+  const {isPremium, previewImage, price, rating, cardTitle, offerType} = offer;
 
   let favClass = isFav ? `place-card__bookmark-button--active` : null;
 
   const handleTitleClick = () => {
-    loadReviews(props.offer.id);
-    loadNearbies(props.offer.id);
-    onCardTitleClick(props.offer);
+    onCardTitleClick(offer);
   };
 
   const handlePointerEnter = () => {
     if (onCardFocusEnter) {
-      onCardFocusEnter(props.offer);
+      onCardFocusEnter(offer);
     }
   };
 
@@ -42,8 +32,8 @@ const Card = (props) => {
   };
 
   const handleFavClick = () => {
-    if (!placesType.FAVORITE) {
-      onFavClick(props.offer);
+    if (type !== placesType.FAVORITE) {
+      onFavClick(offer);
     }
   };
 
@@ -58,16 +48,14 @@ const Card = (props) => {
       placeCard = `cities__place-card place-card`;
       imageWrapper = `cities__image-wrapper place-card__image-wrapper`;
       placeCardInfo = `place-card__info`;
-      imgWidth = 260;
-      imgHeight = 200;
+      imgWidth = 260; imgHeight = 200;
       break;
 
     case placesType.NEAR:
       placeCard = `near-places__card place-card`;
       imageWrapper = `near-places__image-wrapper place-card__image-wrapper`;
       placeCardInfo = `place-card__info`;
-      imgWidth = 260;
-      imgHeight = 200;
+      imgWidth = 260; imgHeight = 200;
       break;
 
     case placesType.FAVORITE:
@@ -75,10 +63,8 @@ const Card = (props) => {
       imageWrapper = `favorites__image-wrapper place-card__image-wrapper`;
       placeCardInfo = `favorites__card-info place-card__info`;
       favClass = `place-card__bookmark-button--active`;
-      imgWidth = 150;
-      imgHeight = 110;
+      imgWidth = 150; imgHeight = 110;
       break;
-
   }
 
   return (
@@ -138,21 +124,9 @@ Card.propTypes = {
   offer: pt.shape(offerPropTypes).isRequired,
   isFav: pt.bool,
   onFavClick: pt.func,
-  loadReviews: pt.func.isRequired,
-  loadNearbies: pt.func.isRequired,
   type: pt.oneOf([placesType.CITY, placesType.NEAR, placesType.FAVORITE]).isRequired,
 
 };
 
 
-const mapDispatchToProps = (dispatch) => ({
-  loadReviews(id) {
-    dispatch(DataOperation.loadComments(id));
-  },
-  loadNearbies(id) {
-    dispatch(DataOperation.loadNearbyOffers(id));
-  },
-});
-
-export {Card};
-export default connect(undefined, mapDispatchToProps)(Card);
+export default Card;

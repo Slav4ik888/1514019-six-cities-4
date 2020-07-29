@@ -28,10 +28,18 @@ const Header = ({authInfo, userStatus}) => {
                   className="header__nav-link header__nav-link--profile"
                   to={userStatus === AuthStatus.AUTH ? AppRoute.FAVORITES : AppRoute.SIGN_IN}
                 >
-                  <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                   {userStatus === AuthStatus.AUTH ? <span className="header__user-name user__name">{authInfo.email}</span>
                     : <span className="header__login">Sign in</span>
                   }
+                  <div className="header__avatar-wrapper user__avatar-wrapper"></div>
+                </Link>
+              </li>
+              <li className="header__nav-item out">
+                <Link
+                  className="header__nav-link header__nav-link--profile"
+                  to={AppRoute.SIGN_IN}
+                >
+                  {userStatus === AuthStatus.AUTH && <span className="header__login">{` [->`}</span>}
                 </Link>
               </li>
             </ul>

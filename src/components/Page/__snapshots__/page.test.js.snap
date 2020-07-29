@@ -3,6 +3,7 @@
 exports[`Snapshot <Page/> correctly Render <Page/> tyep 'MAIN' 1`] = `
 <div
   className="page page--gray page--main"
+  style={Object {}}
 >
   <header
     className="header"
@@ -66,6 +67,11 @@ exports[`Snapshot <Page/> correctly Render <Page/> tyep 'MAIN' 1`] = `
 exports[`Snapshot <Page/> correctly Render <Page/> type 'FAVORITES_EMPTY' 1`] = `
 <div
   className="page page--favorites-empty"
+  style={
+    Object {
+      "height": "100vh",
+    }
+  }
 >
   <header
     className="header"
@@ -146,6 +152,7 @@ exports[`Snapshot <Page/> correctly Render <Page/> type 'FAVORITES_EMPTY' 1`] = 
 exports[`Snapshot <Page/> correctly Render <Page/> type 'SIGN_IN' 1`] = `
 <div
   className="page page--gray page--login"
+  style={Object {}}
 >
   <header
     className="header"

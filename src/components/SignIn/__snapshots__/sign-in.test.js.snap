@@ -3,6 +3,7 @@
 exports[`Snapshot <SignIn/> Render <SignIn/> 1`] = `
 <div
   className="page page--gray page--login"
+  style={Object {}}
 >
   <header
     className="header"
@@ -41,7 +42,7 @@ exports[`Snapshot <SignIn/> Render <SignIn/> 1`] = `
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="/sign_in"
+                href="/login"
                 onClick={[Function]}
               >
                 <div

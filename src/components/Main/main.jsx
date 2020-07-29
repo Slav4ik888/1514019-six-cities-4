@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import pt from 'prop-types';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Page from '../Page/page.jsx';
 import CardList from '../CardList/card-list.jsx';
@@ -17,9 +18,9 @@ import withSort from '../../hocs/with-sort/with-sort.js';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getActiveCity, getSortedOffers, getActiveHoverOffer} from '../../reducers/travel/selectors.js';
 import {getIsLoading} from '../../reducers/data/selectors.js';
+import {Operation as DataOperation} from '../../reducers/data/data.js';
 
 import {cities, coordsCities, placesType, pageType} from '../../utils/const.js';
-import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 
 const CitiesListWrapped = withActiveItem(CitiesList);
@@ -109,6 +110,8 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleCardTitleClick(offer) {
     dispatch(ActionCreator.setActiveOffer(offer));
+    dispatch(DataOperation.loadComments(offer.id));
+    dispatch(DataOperation.loadNearbyOffers(offer.id));
   },
 });
 

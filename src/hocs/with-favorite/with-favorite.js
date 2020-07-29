@@ -1,7 +1,9 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducers/data/data.js';
 import pt from 'prop-types';
+
+import {Operation as DataOperation} from '../../reducers/data/data.js';
+
 
 const withFavorite = (Component) => {
 
@@ -38,7 +40,7 @@ const withFavorite = (Component) => {
 
   const mapDispatchToProps = (dispatch) => ({
     onToggleFav(offer) {
-      dispatch(ActionCreator.toggleFavorite(offer));
+      dispatch(DataOperation.toggleFavorite(offer));
     },
   });
 

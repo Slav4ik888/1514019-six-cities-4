@@ -38,7 +38,7 @@ exports[`Snapshot <Header/> correctly Render <Header/> correctly with autorizati
           >
             <a
               className="header__nav-link header__nav-link--profile"
-              href="/sign_in"
+              href="/login"
               onClick={[Function]}
             >
               <div

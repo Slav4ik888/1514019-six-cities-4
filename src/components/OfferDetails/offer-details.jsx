@@ -6,12 +6,13 @@ import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Page from '../Page/page.jsx';
 import ReviewsList from './ReviewsList/reviews-list.jsx';
+import FormReview from '../OfferDetails/FormReview/form-review.jsx';
 import MapCity from '../MapCity/map-city.jsx';
 import CardList from '../CardList/card-list.jsx';
-import FormReview from '../OfferDetails/FormReview/form-review.jsx';
 
-import {getUserStatus} from '../../reducers/user/selectors.js';
 import {AuthStatus} from '../../reducers/user/user.js';
+import {getUserStatus} from '../../reducers/user/selectors.js';
+import {Operation as DataOperation} from '../../reducers/data/data.js';
 import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
@@ -189,6 +190,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleCardTitleClick(offer) {
     dispatch(ActionCreator.setActiveOffer(offer));
+    dispatch(DataOperation.loadComments(offer.id));
+    dispatch(DataOperation.loadNearbyOffers(offer.id));
   },
 });
 

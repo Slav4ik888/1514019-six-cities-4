@@ -1,11 +1,13 @@
-import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import Card from "./card.jsx";
-import {testOffer} from "../../mocks/test-offer.js";
-import configureStore from 'redux-mock-store';
-import {NameSpace} from '../../reducers/name-space.js';
+import React from 'react';
 import {Provider} from 'react-redux';
+import Enzyme, {shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import configureStore from 'redux-mock-store';
+
+import Card from './card.jsx';
+
+import {testOffer} from '../../mocks/test-offer.js';
+import {NameSpace} from '../../reducers/name-space.js';
 
 
 const mockStore = configureStore([]);

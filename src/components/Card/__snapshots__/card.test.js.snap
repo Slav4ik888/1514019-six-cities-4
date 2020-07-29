@@ -14,7 +14,7 @@ exports[`Snapshot <Card> Render <Card> type='CITY' isFav=false 1`] = `
     </span>
   </div>
   <div
-    className="cities__image-wrapper"
+    className="cities__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
@@ -22,9 +22,9 @@ exports[`Snapshot <Card> Render <Card> type='CITY' isFav=false 1`] = `
       <img
         alt="Place image"
         className="place-card__image"
-        height="200"
+        height={200}
         src="img/apartment-03.jpg"
-        width="260"
+        width={260}
       />
     </a>
   </div>
@@ -124,7 +124,7 @@ exports[`Snapshot <Card> Render <Card> type='CITY' isFav=true 1`] = `
     </span>
   </div>
   <div
-    className="cities__image-wrapper"
+    className="cities__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
@@ -132,9 +132,9 @@ exports[`Snapshot <Card> Render <Card> type='CITY' isFav=true 1`] = `
       <img
         alt="Place image"
         className="place-card__image"
-        height="200"
+        height={200}
         src="img/apartment-03.jpg"
-        width="260"
+        width={260}
       />
     </a>
   </div>
@@ -234,7 +234,7 @@ exports[`Snapshot <Card> Render <Card> type='NEAR' isFav=false 1`] = `
     </span>
   </div>
   <div
-    className="near-places__image-wrapperplace-card__image-wrapper"
+    className="near-places__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
@@ -242,9 +242,9 @@ exports[`Snapshot <Card> Render <Card> type='NEAR' isFav=false 1`] = `
       <img
         alt="Place image"
         className="place-card__image"
-        height="200"
+        height={200}
         src="img/apartment-03.jpg"
-        width="260"
+        width={260}
       />
     </a>
   </div>
@@ -344,7 +344,7 @@ exports[`Snapshot <Card> Render <Card> type='NEAR' isFav=true 1`] = `
     </span>
   </div>
   <div
-    className="near-places__image-wrapperplace-card__image-wrapper"
+    className="near-places__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
@@ -352,9 +352,9 @@ exports[`Snapshot <Card> Render <Card> type='NEAR' isFav=true 1`] = `
       <img
         alt="Place image"
         className="place-card__image"
-        height="200"
+        height={200}
         src="img/apartment-03.jpg"
-        width="260"
+        width={260}
       />
     </a>
   </div>

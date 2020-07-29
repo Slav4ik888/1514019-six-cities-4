@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import pt from 'prop-types';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Page from '../Page/page.jsx';
 import CardList from '../CardList/card-list.jsx';
@@ -10,6 +11,8 @@ import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
 import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
 import {AuthStatus} from '../../reducers/user/user.js';
 import {ActionCreator} from '../../reducers/travel/travel.js';
+import {getFavorites} from '../../reducers/data/selectors.js';
+// import {Operation as DataOperation} from '../../reducers/data/data.js';
 
 import {pageType, placesType} from '../../utils/const.js';
 import {offers} from '../../mocks/offers.js';
@@ -18,8 +21,10 @@ import {offers} from '../../mocks/offers.js';
 const CardListWrapped = withActiveItem(CardList);
 
 
-const Favorites = ({handleCardTitleClick}) => {
-
+const Favorites = ({handleCardTitleClick, favorites, authInfo, userStatus}) => {
+  console.log('authInfo: ', authInfo);
+  console.log('userStatus: ', userStatus);
+  console.log('favorites: ', favorites);
   return (
     <>
       <Page type={pageType.FAVORITES}>
@@ -102,19 +107,28 @@ Favorites.propTypes = {
   userStatus: pt.oneOf([AuthStatus.AUTH, AuthStatus.NO_AUTH]).isRequired,
   authInfo: pt.object,
   handleCardTitleClick: pt.func.isRequired,
-
+  favorites: pt.shape(
+      pt.arrayOf(
+          pt.shape(offerPropTypes)
+      )
+  ),
+  // handleLoadFavorites: pt.func.isRequired,
 };
 
 
 const mapStateToProps = (state) => ({
   userStatus: getUserStatus(state),
   authInfo: getAuthInfo(state),
+  favorites: getFavorites(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   handleCardTitleClick(offer) {
     dispatch(ActionCreator.setActiveOffer(offer));
   },
+  // handleLoadFavorites() {
+  //   dispatch(DataOperation.loadFavorites());
+  // },
 });
 
 export {Favorites};

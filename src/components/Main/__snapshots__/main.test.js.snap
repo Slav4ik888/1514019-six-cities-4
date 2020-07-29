@@ -3,6 +3,7 @@
 exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
 <div
   className="page page--gray page--main"
+  style={Object {}}
 >
   <header
     className="header"
@@ -266,7 +267,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                 </span>
               </div>
               <div
-                className="cities__image-wrapper"
+                className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
@@ -274,9 +275,9 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                   <img
                     alt="Place image"
                     className="place-card__image"
-                    height="200"
+                    height={200}
                     src="img/apartment-03.jpg"
-                    width="260"
+                    width={260}
                   />
                 </a>
               </div>
@@ -302,7 +303,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button null"
+                    className="place-card__bookmark-button button place-card__bookmark-button--active"
                     onClick={[Function]}
                     type="button"
                   >
@@ -373,7 +374,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                 </span>
               </div>
               <div
-                className="cities__image-wrapper"
+                className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
@@ -381,9 +382,9 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                   <img
                     alt="Place image"
                     className="place-card__image"
-                    height="200"
+                    height={200}
                     src="img/apartment-01.jpg"
-                    width="260"
+                    width={260}
                   />
                 </a>
               </div>
@@ -409,7 +410,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button null"
+                    className="place-card__bookmark-button button place-card__bookmark-button--active"
                     onClick={[Function]}
                     type="button"
                   >
@@ -495,6 +496,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
 exports[`Snapshot of <Main/> Render <Main/> with offers=[] 1`] = `
 <div
   className="page page--gray page--main"
+  style={Object {}}
 >
   <header
     className="header"

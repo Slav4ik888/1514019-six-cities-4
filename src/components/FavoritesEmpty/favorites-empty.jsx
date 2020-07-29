@@ -6,7 +6,7 @@ import {pageType} from '../../utils/const.js';
 const FavoritesEmpty = () => {
   return (
     <>
-      <Page type={pageType.FAVORITES}>
+      <Page type={pageType.FAVORITES_EMPTY}>
         <main className="page__main page__main--favorites page__main--favorites-empty">
           <div className="page__favorites-container container">
             <section className="favorites favorites--empty">

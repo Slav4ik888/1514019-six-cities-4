@@ -5,6 +5,7 @@ import {adapterCitiesData, adapterCommentsData, adapterNearbyData} from '../../u
 
 const initialState = {
   allOffers: {}, // Полученные данные по hotels
+  favorites: {}, // Загруженные с сервера фаворитные оферы выбранные пользователем
   comments: [], // Полученные комментарии по отелю
   nearbyOffers: [], // Полученные 3 предложения неподалёку
   review: { // Отзыв на отправку
@@ -19,7 +20,10 @@ const ActionType = {
   LOAD_OFFERS: `LOAD_OFFERS`,
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   LOAD_NEARBY: `LOAD_NEARBY`,
+
+  LOAD_FAVORITES: `LOAD_FAVORITES`,
   TOGGLE_FAV: `TOGGLE_FAV`,
+
   SET_IS_LOADING: `SET_IS_LOADING`,
   SET_REVIEW: `SET_REVIEW`,
   IS_ERROR: `IS_ERROR`,
@@ -60,6 +64,12 @@ const ActionCreator = {
     return {
       type: ActionType.TOGGLE_FAV,
       payload: offer,
+    };
+  },
+  loadFavorites: (favorites) => {
+    return {
+      type: ActionType.LOAD_FAVORITES,
+      payload: favorites,
     };
   },
   setIsLoading: (status) => {
@@ -129,6 +139,30 @@ const Operation = {
       });
   },
 
+  toggleFavorite: (offer) => (dispatch, getState, api) => {
+    return api.post(`/favorite/${offer.id}/${+!offer.isFavorite}`)
+      .then(() => {
+        // console.log('TOGGLE res: ', res);
+        // dispatch(Operation.loadFavorites());
+        dispatch(ActionCreator.toggleFavorite(offer));
+        // return res.data;
+      })
+      .catch((err) => {
+        throw err;
+      });
+  },
+
+  loadFavorites: () => (dispatch, getState, api) => {
+    return api.get(`/favorite`)
+      .then((res) => {
+        dispatch(ActionCreator.loadFavorites(adapterCitiesData(res.data)));
+        // console.log('GET res.data: ', res.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  },
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -167,6 +201,11 @@ const reducer = (state = initialState, action) => {
 
       return extend(state, {
         allOffers: newAllOffers,
+      });
+
+    case ActionType.LOAD_FAVORITES:
+      return Object.assign({}, state, {
+        favorites: action.payload,
       });
 
     case ActionType.SET_IS_LOADING:

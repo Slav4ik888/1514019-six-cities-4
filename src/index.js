@@ -18,14 +18,15 @@ const onError = (err) => { // Если будет поймана ошибка 40
 // console.log('INDEX err: ', err);
 
   if (err === 400) {
-    // console.log('INDEX 400 Bad request');
+    console.log('INDEX 400 Bad request');
     store.dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
     store.dispatch(ActionCreator.setActiveAuth({}));
   }
   if (err === 401) {
-    // console.log('INDEX onUnauthorized');
+    console.log('INDEX onUnauthorized');
     store.dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
-    history.push(AppRoute.SIGN_IN);
+    store.dispatch(ActionCreator.setActiveAuth({}));
+    // history.push(AppRoute.SIGN_IN);
   }
 };
 
