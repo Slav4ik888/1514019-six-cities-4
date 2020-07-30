@@ -7,6 +7,8 @@ import {AppRoute} from '../../utils/const.js';
 import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
 import {AuthStatus} from '../../reducers/user/user.js';
 
+import {LogoutOutlined} from '@ant-design/icons';
+
 
 const Header = ({authInfo, userStatus}) => {
 
@@ -23,23 +25,23 @@ const Header = ({authInfo, userStatus}) => {
           </div>
           <nav className="header__nav">
             <ul className="header__nav-list">
+              <div className="header__avatar-wrapper user__avatar-wrapper"></div>
               <li className="header__nav-item user">
                 <Link
                   className="header__nav-link header__nav-link--profile"
                   to={userStatus === AuthStatus.AUTH ? AppRoute.FAVORITES : AppRoute.SIGN_IN}
                 >
                   {userStatus === AuthStatus.AUTH ? <span className="header__user-name user__name">{authInfo.email}</span>
-                    : <span className="header__login">Sign in</span>
-                  }
-                  <div className="header__avatar-wrapper user__avatar-wrapper"></div>
+                    : <span className="header__login">Sign in</span>}
                 </Link>
               </li>
+
               <li className="header__nav-item out">
                 <Link
                   className="header__nav-link header__nav-link--profile"
                   to={AppRoute.SIGN_IN}
                 >
-                  {userStatus === AuthStatus.AUTH && <span className="header__login">{` [->`}</span>}
+                  {userStatus === AuthStatus.AUTH && <LogoutOutlined />}
                 </Link>
               </li>
             </ul>

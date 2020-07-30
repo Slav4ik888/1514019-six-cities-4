@@ -1,4 +1,6 @@
 import {NameSpace} from '../name-space.js';
+import {cities} from '../../utils/const.js';
+
 
 const NAME_SPACE = NameSpace.DATA;
 
@@ -29,3 +31,21 @@ export const getIsError = (state) => {
 export const getFavorites = (state) => {
   return state[NAME_SPACE].favorites;
 };
+
+export const getIsFavoritesEmpty = (state) => {
+  const fav = state[NAME_SPACE].favorites;
+  let result = true;
+
+  cities.forEach((city) => {
+    if (fav[city]) {
+      if (fav[city].length) {
+        result = false;
+        return true;
+      }
+    }
+    return false;
+  });
+
+  return result;
+};
+

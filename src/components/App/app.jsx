@@ -9,20 +9,23 @@ import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Main from '../Main/main.jsx';
-import {SignIn} from '../SignIn/sign-in.jsx';
+import SignIn from '../SignIn/sign-in.jsx';
 import OfferDetails from '../OfferDetails/offer-details.jsx';
 import Favorites from '../Favorites/favorites.jsx';
+import FavoritesEmpty from '../FavoritesEmpty/favorites-empty.jsx';
 import PrivateRoute from '../PrivateRoute/private-route.jsx';
 
 import {Operation as UserOperation} from '../../reducers/user/user.js';
 import {getIsLoading} from '../../reducers/user/selectors.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
+import {getIsFavoritesEmpty} from '../../reducers/data/selectors.js';
+import {Operation as DataOperation} from '../../reducers/data/data.js';
 
 import {AppRoute} from '../../utils/const.js';
-import FavoritesEmpty from '../FavoritesEmpty/favorites-empty.jsx';
 
 
-const App = ({isLoading, login, activeOffer, activeCity}) => {
+const App = ({isLoading, isFavoritesEmpty, login, activeOffer, activeCity}) => {
+  console.log('isFavoritesEmpty: ', isFavoritesEmpty);
 
   if (isLoading) {
     return null;
@@ -46,26 +49,19 @@ const App = ({isLoading, login, activeOffer, activeCity}) => {
               />)}
           />
 
-          <Route
-            exact
-            path={AppRoute.ROOM}>
+          <Route exact path={AppRoute.ROOM}>
             {activeOffer && <OfferDetails/>}
           </Route>
 
-          <PrivateRoute
-            exact
-            path={AppRoute.FAVORITES}
+          <PrivateRoute exact path={AppRoute.FAVORITES}
             render={() => {
-              return <Favorites/>;
+              if (!isFavoritesEmpty) {
+                return <Favorites />;
+              }
+              return <FavoritesEmpty />;
             }}
           />
 
-          <Route
-            exact
-            path={AppRoute.FAVORITES_EMPTY}
-            render={() => (
-              <FavoritesEmpty />)}
-          />
           <Route
             render={() => (
               <>
@@ -91,17 +87,20 @@ App.propTypes = {
   activeCity: pt.number.isRequired,
   activeOffer: pt.shape(offerPropTypes),
   isLoading: pt.bool.isRequired,
+  isFavoritesEmpty: pt.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   isLoading: getIsLoading(state),
   activeCity: getActiveCity(state),
   activeOffer: getActiveOffer(state),
+  isFavoritesEmpty: getIsFavoritesEmpty(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   login(authData) {
     dispatch(UserOperation.login(authData));
+    dispatch(DataOperation.loadOffers());
   },
 });
 

@@ -1,7 +1,7 @@
 import {extend} from '../../utils/utils.js';
-// import {AppRoute} from '../../utils/const.js';
+import {cities} from '../../utils/const.js';
 import {adapterCitiesData, adapterCommentsData, adapterNearbyData} from '../../utils/adapters.js';
-// import {history} from '../../history.js';
+
 
 const initialState = {
   allOffers: {}, // Полученные данные по hotels
@@ -15,6 +15,7 @@ const initialState = {
   isError: false, // Если не удалось отправить отзыв
   isLoading: false,
 };
+
 
 const ActionType = {
   LOAD_OFFERS: `LOAD_OFFERS`,
@@ -89,6 +90,8 @@ const Operation = {
     return api.get(`/hotels`)
       .then((res) => {
         dispatch(ActionCreator.loadOffers(adapterCitiesData(res.data)));
+        // Сразу загрузим favorites
+        dispatch(Operation.loadFavorites());
         dispatch(ActionCreator.setIsLoading(false));
       })
       .catch(() => {
@@ -134,8 +137,8 @@ const Operation = {
         dispatch(ActionCreator.setReview(review));
         dispatch(ActionCreator.setIsLoading(false));
         dispatch(ActionCreator.setIsError(true));
-        setTimeout(() => dispatch(ActionCreator.setIsError(false)), 5000);
         // console.log(`Не удалось отправить отзыв, попытайтесь повторить через некоторое время`, err);
+        setTimeout(() => dispatch(ActionCreator.setIsError(false)), 5000);
       });
   },
 
@@ -156,7 +159,7 @@ const Operation = {
     return api.get(`/favorite`)
       .then((res) => {
         dispatch(ActionCreator.loadFavorites(adapterCitiesData(res.data)));
-        // console.log('GET res.data: ', res.data);
+        // console.log('GET favorites: ', adapterCitiesData(res.data));
       })
       .catch((err) => {
         throw err;
@@ -194,19 +197,61 @@ const reducer = (state = initialState, action) => {
 
     case ActionType.TOGGLE_FAV:
       const city = action.payload.city.name;
+      const id = action.payload.id;
       // Находим индекс оффера по id в массиве данного города
-      let index = state.allOffers[city].findIndex((item) => item.id === action.payload.id);
+      let index = state.allOffers[city].findIndex((item) => item.id === id);
       let newAllOffers = state.allOffers;
       newAllOffers[city][index].isFavorite = !newAllOffers[city][index].isFavorite;
 
+      // Проверяем есть ли такой фаворит, если да то удаляем его
+      let favorites = state.favorites;
+
+      if (favorites[city]) {
+        let result = favorites[city].findIndex((offer) => (
+          offer.id === id
+        ));
+        // console.log('result: ', result);
+        if (result !== -1) {
+          // console.log(`Есть такой, удаляем`, favorites[city][result]);
+          favorites[city].splice(result, 1);
+        } else {
+          // console.log(`Нет такого, добавляем`, newAllOffers[city][index]);
+          favorites[city].push(newAllOffers[city][index]);
+        }
+      } else {
+        // console.log(`Нет такого, добавляем (создаём город)`, newAllOffers[city][index]);
+        favorites[city] = [];
+        favorites[city].push(newAllOffers[city][index]);
+      }
+
       return extend(state, {
         allOffers: newAllOffers,
+        favorites,
       });
 
+
     case ActionType.LOAD_FAVORITES:
+      // allOffers наполним данными о favorites
+      const allOffersWithFavorites = state.allOffers;
+      const favs = action.payload;
+      // eslint-disable-next-line no-shadow
+      cities.forEach((city) => {
+        allOffersWithFavorites[city].forEach((offer) => {
+          if (favs[city]) {
+            favs[city].forEach((fav) => {
+              if (fav.id === offer.id) {
+                offer.isFavorite = true;
+              }
+            });
+          }
+        });
+      });
+      console.log(`Загрузили FAVORIT`);
       return Object.assign({}, state, {
+        allOffers: allOffersWithFavorites,
         favorites: action.payload,
       });
+
 
     case ActionType.SET_IS_LOADING:
       return Object.assign({}, state, {

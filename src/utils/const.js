@@ -31,7 +31,7 @@ export const AppRoute = {
   ROOM: `/offer`,
   ROOM_ID: `/offer/:id`,
   FAVORITES: `/favorites`,
-  FAVORITES_EMPTY: `/favorites-empty`,
+  // FAVORITES_EMPTY: `/favorites-empty`,
 };
 
 export const placesType = {

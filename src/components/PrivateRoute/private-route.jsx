@@ -19,7 +19,7 @@ const PrivateRoute = ({exact, path, render, userStatus, handleLoadFavorites}) =>
       render={() => {
         if (userStatus === AuthStatus.AUTH) {
           console.log(`PRIV AUTH`);
-          handleLoadFavorites();
+          // handleLoadFavorites();
           return render();
         } else {
           console.log(`PRIV NO_AUTH`);

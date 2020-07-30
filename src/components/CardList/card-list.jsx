@@ -17,9 +17,9 @@ const CardList = ({offers, onItemClick, onCardFocusEnter,
 
   return (
     <>
-      {offers.map((offer) => {
+      {offers.map((offer, i) => {
         return <CardWrapped
-          key={offer.id}
+          key={`${offer.id} + ${i}`}
           type={type}
           offer={offer}
           onCardTitleClick={onItemClick}

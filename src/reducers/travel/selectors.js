@@ -28,7 +28,6 @@ export const getSortedOffers = createSelector(
     getSortingType,
     getAllOffers,
     getActiveCity,
-    // eslint-disable-next-line consistent-return
     (sortingType, allOffers, activeCity) => {
       const oldOffers = allOffers[cities[activeCity]];
       if (oldOffers) {
@@ -50,5 +49,6 @@ export const getSortedOffers = createSelector(
             return offers;
         }
       }
+      return oldOffers;
     }
 );

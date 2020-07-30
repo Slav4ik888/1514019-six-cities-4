@@ -8,7 +8,7 @@ import {cities, pageType} from '../../utils/const.js';
 import {AppRoute} from '../../utils/const.js';
 
 
-export class SignIn extends PureComponent {
+export default class SignIn extends PureComponent {
 
   constructor(props) {
     super(props);
