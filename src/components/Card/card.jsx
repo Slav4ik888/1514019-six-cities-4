@@ -8,16 +8,18 @@ import {getRating} from '../../utils/utils.js';
 import {AppRoute, placesType} from '../../utils/const.js';
 
 
-const Card = ({offer, onCardTitleClick, onCardFocusEnter, onCardFocusLeave,
+const Card = ({offer,
+  // onCardTitleClick,
+  onCardFocusEnter, onCardFocusLeave,
   onFavClick, isFav, type}) => {
 
-  const {isPremium, previewImage, price, rating, cardTitle, offerType} = offer;
+  const {id, isPremium, previewImage, price, rating, cardTitle, offerType} = offer;
 
   let favClass = isFav ? `place-card__bookmark-button--active` : null;
 
-  const handleTitleClick = () => {
-    onCardTitleClick(offer);
-  };
+  // const handleTitleClick = () => {
+  //   onCardTitleClick(offer);
+  // };
 
   const handlePointerEnter = () => {
     if (onCardFocusEnter) {
@@ -105,8 +107,7 @@ const Card = ({offer, onCardTitleClick, onCardFocusEnter, onCardFocusLeave,
         </div>
         <h2 className="place-card__name">
           <Link className="place-card__name_href"
-            to={AppRoute.ROOM}
-            onClick={handleTitleClick}
+            to={`${AppRoute.ROOM}/${id}`}
           >
             {cardTitle}
           </Link>

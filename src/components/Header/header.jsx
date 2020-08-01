@@ -7,8 +7,6 @@ import {AppRoute} from '../../utils/const.js';
 import {getUserStatus, getAuthInfo} from '../../reducers/user/selectors.js';
 import {AuthStatus} from '../../reducers/user/user.js';
 
-import {LogoutOutlined} from '@ant-design/icons';
-
 
 const Header = ({authInfo, userStatus}) => {
 
@@ -33,15 +31,6 @@ const Header = ({authInfo, userStatus}) => {
                 >
                   {userStatus === AuthStatus.AUTH ? <span className="header__user-name user__name">{authInfo.email}</span>
                     : <span className="header__login">Sign in</span>}
-                </Link>
-              </li>
-
-              <li className="header__nav-item out">
-                <Link
-                  className="header__nav-link header__nav-link--profile"
-                  to={AppRoute.SIGN_IN}
-                >
-                  {userStatus === AuthStatus.AUTH && <LogoutOutlined />}
                 </Link>
               </li>
             </ul>

@@ -15,7 +15,9 @@ import {getUserStatus} from '../../reducers/user/selectors.js';
 import {Operation as DataOperation} from '../../reducers/data/data.js';
 import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
 import {ActionCreator} from '../../reducers/travel/travel.js';
-import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
+import {getActiveCity,
+  // getActiveOffer,
+  getOfferFromRouteId} from '../../reducers/travel/selectors.js';
 
 import withMap from '../../hocs/with-map/with-map.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
@@ -33,7 +35,7 @@ const FormReviewWrapped = withForm(FormReview);
 
 const OfferDetails = ({activeOffer, reviews, activeCity,
   nearbyOffers, handleCardTitleClick, userStatus}) => {
-
+  console.log('activeOffer: ', activeOffer);
   const {isPremium, pictures, amenities, bedrooms, maxGuestsNumber,
     description, host, price, rating, cardTitle, offerType,
   } = activeOffer;
@@ -179,10 +181,11 @@ OfferDetails.propTypes = {
   handleCardTitleClick: pt.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
   userStatus: getUserStatus(state),
   activeCity: getActiveCity(state),
-  activeOffer: getActiveOffer(state),
+  // activeOffer: getActiveOffer(state),
+  activeOffer: getOfferFromRouteId(state, props),
   reviews: getComments(state),
   nearbyOffers: getNearbyOffers(state),
 });
