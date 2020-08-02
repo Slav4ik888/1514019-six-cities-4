@@ -85,6 +85,8 @@ const ActionCreator = {
 const Operation = {
 
   loadOffers: () => (dispatch, getState, api) => {
+    // console.log('loadOffers: ');
+
     dispatch(ActionCreator.setIsLoading(true));
 
     return api.get(`/hotels`)
@@ -97,7 +99,6 @@ const Operation = {
       .catch(() => {
         dispatch(ActionCreator.setIsLoading(false));
         // console.log(`/hotels NON`);
-        // history.push(AppRoute.MAIN_EMPTY);
       });
   },
 
@@ -145,7 +146,7 @@ const Operation = {
   toggleFavorite: (offer) => (dispatch, getState, api) => {
     return api.post(`/favorite/${offer.id}/${+!offer.isFavorite}`)
       .then(() => {
-        // console.log('TOGGLE res: ', res);
+        // console.log('TOGGLE OPER: ');
         // dispatch(Operation.loadFavorites());
         dispatch(ActionCreator.toggleFavorite(offer));
         // return res.data;
@@ -246,7 +247,7 @@ const reducer = (state = initialState, action) => {
           }
         });
       });
-      console.log(`Загрузили FAVORIT`);
+      // console.log(`Загрузили FAVORIT`);
       return Object.assign({}, state, {
         allOffers: allOffersWithFavorites,
         favorites: action.payload,

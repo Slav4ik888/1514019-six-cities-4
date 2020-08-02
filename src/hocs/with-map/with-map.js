@@ -78,7 +78,7 @@ const withMap = (Component) => {
       const {offers, activeOffer} = this.props;
 
       const icon = L.icon({
-        iconUrl: `img/pin.svg`,
+        iconUrl: `/img/pin.svg`,
         iconSize: [30, 30]
       });
       // Выводим маркеры offers на карту
@@ -98,7 +98,7 @@ const withMap = (Component) => {
       // Маркер активного activeOffer
       if (activeOffer) {
         const activeIcon = L.icon({
-          iconUrl: `img/pin-active.svg`,
+          iconUrl: `/img/pin-active.svg`,
           iconSize: [30, 30],
         });
         let marker = L.marker(activeOffer.coordinates, {icon: activeIcon});

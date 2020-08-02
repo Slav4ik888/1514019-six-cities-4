@@ -1,7 +1,5 @@
 import React from 'react';
-import {Router,
-  // BrowserRouter,
-  Route, Switch, Redirect} from 'react-router-dom';
+import {Router, Route, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {history} from '../../history.js';
 
@@ -24,8 +22,7 @@ import {Operation as DataOperation} from '../../reducers/data/data.js';
 import {AppRoute} from '../../utils/const.js';
 
 
-const App = ({userStatus, isLoading, isFavoritesEmpty, login, activeOffer, activeCity}) => {
-  console.log('userStatus: ', userStatus);
+const App = ({userStatus, isLoading, isFavoritesEmpty, login, activeCity}) => {
 
   if (isLoading) {
     return null;
@@ -34,7 +31,6 @@ const App = ({userStatus, isLoading, isFavoritesEmpty, login, activeOffer, activ
   return (
     <>
       <Router history={history}>
-        {/* <BrowserRouter> */}
         <Switch>
 
           <Route exact path={AppRoute.MAIN} component={Main}/>
@@ -81,7 +77,6 @@ const App = ({userStatus, isLoading, isFavoritesEmpty, login, activeOffer, activ
           />
 
         </Switch>
-        {/* </BrowserRouter> */}
       </Router>
     </>
   );

@@ -6,10 +6,10 @@ import Card from '../Card/card.jsx';
 import {placesType} from '../../utils/const.js';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
-import withFavorite from '../../hocs/with-favorite/with-favorite.js';
+// import withFavorite from '../../hocs/with-favorite/with-favorite.js';
 
 
-const CardWrapped = withFavorite(Card);
+// const CardWrapped = withFavorite(Card);
 
 
 const CardList = ({offers, onItemClick, onCardFocusEnter,
@@ -18,7 +18,7 @@ const CardList = ({offers, onItemClick, onCardFocusEnter,
   return (
     <>
       {offers.map((offer, i) => {
-        return <CardWrapped
+        return <Card
           key={`${offer.id} + ${i}`}
           type={type}
           offer={offer}

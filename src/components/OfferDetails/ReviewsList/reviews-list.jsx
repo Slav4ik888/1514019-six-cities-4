@@ -10,17 +10,17 @@ import {MAX_REVIEW_COUNT} from '../../../utils/const.js';
 const ReviewsList = ({reviews}) => {
   return (
     <ul className="reviews__list">
-      {reviews.length &&
-      reviews
-        .sort((a, b) => a.date - b.date)
-        .reverse()
-        .slice(0, MAX_REVIEW_COUNT)
-        .map((review) => (
-          <ReviewsItem
-            key={review.id}
-            review={review}
-          />
-        ))}
+      {reviews.length ?
+        reviews
+          .sort((a, b) => a.date - b.date)
+          .reverse()
+          .slice(0, MAX_REVIEW_COUNT)
+          .map((review) => (
+            <ReviewsItem
+              key={review.id}
+              review={review}
+            />
+          )) : ``}
     </ul>
   );
 };

@@ -44,7 +44,7 @@ const Operation = {
         dispatch(ActionCreator.requireAuthorization(AuthStatus.AUTH));
         dispatch(ActionCreator.setActiveAuth(res.data));
         dispatch(ActionCreator.setIsLoading(false));
-        console.log('USER  get /login: ', res.data);
+        // console.log('USER  get /login: ', res.data);
       })
       .catch((err) => {
         dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
@@ -67,7 +67,7 @@ const Operation = {
       .catch((err) => {
         dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
         dispatch(ActionCreator.setActiveAuth({}));
-        console.log(`ОБНУЛИЛИ AUTH и AUTHINFO`);
+        // console.log(`ОБНУЛИЛИ AUTH и AUTHINFO`);
         throw err;
       });
   },

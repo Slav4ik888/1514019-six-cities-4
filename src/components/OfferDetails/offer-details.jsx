@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
@@ -13,18 +14,16 @@ import CardList from '../CardList/card-list.jsx';
 import {AuthStatus} from '../../reducers/user/user.js';
 import {getUserStatus} from '../../reducers/user/selectors.js';
 import {Operation as DataOperation} from '../../reducers/data/data.js';
-import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
+import {getOfferFromRouteId, getNearbyOffers, getComments, getIsLoading} from '../../reducers/data/selectors.js';
 import {ActionCreator} from '../../reducers/travel/travel.js';
-import {getActiveCity,
-  // getActiveOffer,
-  getOfferFromRouteId} from '../../reducers/travel/selectors.js';
+import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
 
 import withMap from '../../hocs/with-map/with-map.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
 import withForm from '../../hocs/with-form/with-form.js';
 
-import {coordsCities, placesType, pageType} from '../../utils/const.js';
+import {AppRoute, coordsCities, placesType, pageType} from '../../utils/const.js';
 import {getRating} from '../../utils/utils.js';
 
 
@@ -33,15 +32,36 @@ const CardListWrapped = withFocusCard(withActiveItem(CardList));
 const FormReviewWrapped = withForm(FormReview);
 
 
-const OfferDetails = ({activeOffer, reviews, activeCity,
+const OfferDetails = ({selectedOffer, isLoading,
+  activeOffer, reviews, activeCity,
   nearbyOffers, handleCardTitleClick, userStatus}) => {
-  console.log('activeOffer: ', activeOffer);
+
+  console.log('selectedOffer: ', selectedOffer);
+  if (isLoading) {
+    console.log('isLoading: ', isLoading);
+    return null;
+  }
+
+  if (!activeOffer) {
+    if (selectedOffer === -1) {
+      console.log(`REDIRECT`);
+      return <Redirect to={AppRoute.MAIN}/>;
+    }
+    if (!selectedOffer) {
+      console.log(`!selectedOffer`);
+      return null;
+    }
+    handleCardTitleClick(selectedOffer);
+    return null;
+  } else {
+    if (activeOffer !== selectedOffer) {
+      handleCardTitleClick(selectedOffer);
+    }
+  }
+
   const {isPremium, pictures, amenities, bedrooms, maxGuestsNumber,
     description, host, price, rating, cardTitle, offerType,
   } = activeOffer;
-
-  // Выводим города поблизости
-  // const nearbyOffers = getNearbyOffers(allOffers[cities[activeCity]], 3, coordinates, false);
 
   return (
     <Page type={pageType.OFFER}>
@@ -136,7 +156,7 @@ const OfferDetails = ({activeOffer, reviews, activeCity,
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
                 <ReviewsList reviews={reviews}/>
 
-                {userStatus === AuthStatus.NO_AUTH && <FormReviewWrapped/>}
+                {userStatus === AuthStatus.AUTH ? <FormReviewWrapped/> : null}
               </section>
             </div>
           </div>
@@ -172,22 +192,27 @@ const OfferDetails = ({activeOffer, reviews, activeCity,
 
 OfferDetails.propTypes = {
   userStatus: pt.oneOf([AuthStatus.AUTH, AuthStatus.NO_AUTH]).isRequired,
-  activeOffer: pt.shape(offerPropTypes).isRequired,
+  activeOffer: pt.shape(offerPropTypes),
+  selectedOffer: pt.oneOf([pt.shape(offerPropTypes), pt.number]),
   nearbyOffers: pt.arrayOf(
       pt.shape(offerPropTypes).isRequired
   ).isRequired,
   activeCity: pt.number.isRequired,
   reviews: pt.array,
   handleCardTitleClick: pt.func.isRequired,
+  isLoading: pt.bool.isRequired,
+
 };
 
 const mapStateToProps = (state, props) => ({
+  selectedOffer: getOfferFromRouteId(state, props),
   userStatus: getUserStatus(state),
   activeCity: getActiveCity(state),
-  // activeOffer: getActiveOffer(state),
-  activeOffer: getOfferFromRouteId(state, props),
+  activeOffer: getActiveOffer(state),
   reviews: getComments(state),
   nearbyOffers: getNearbyOffers(state),
+  isLoading: getIsLoading(state),
+
 });
 
 const mapDispatchToProps = (dispatch) => ({

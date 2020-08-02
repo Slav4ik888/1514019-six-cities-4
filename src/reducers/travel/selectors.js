@@ -52,32 +52,3 @@ export const getSortedOffers = createSelector(
       return oldOffers;
     }
 );
-
-
-export const getIdFromMatch = (_, props) => {
-  if (props.match.params.id) {
-    return +props.match.params.id;
-  }
-  return null;
-};
-
-
-export const getOfferFromRouteId = createSelector(
-    getAllOffers,
-    getIdFromMatch,
-    (allOffers, id) => {
-      if (allOffers) {
-        let result = null;
-        // eslint-disable-next-line consistent-return
-        cities.forEach((city) => {
-          let res = allOffers[city].find((offer) => offer.id === id);
-          if (res) {
-            result = res;
-          }
-        });
-        return result;
-      } else {
-        return null;
-      }
-    }
-);

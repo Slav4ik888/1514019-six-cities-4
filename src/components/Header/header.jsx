@@ -18,7 +18,7 @@ const Header = ({authInfo, userStatus}) => {
             <Link className="header__logo-link header__logo-link--active"
               to={AppRoute.MAIN}
             >
-              <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
+              <img className="header__logo" src="/img/logo.svg" alt="6 cities logo" width="81" height="41" />
             </Link>
           </div>
           <nav className="header__nav">

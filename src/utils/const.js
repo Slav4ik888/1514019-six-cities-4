@@ -38,6 +38,7 @@ export const placesType = {
   NEAR: `NEAR`,
   CITY: `CITY`,
   FAVORITE: `FAVORITE`,
+  OFFER_DETAILS: `OFFER_DETAILS`,
 };
 
 export const MAX_REVIEW_COUNT = 10;
