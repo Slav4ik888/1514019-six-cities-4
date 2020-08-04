@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {history} from '../../history.js';
 
 import pt from 'prop-types';
-import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Main from '../Main/main.jsx';
 import SignIn from '../SignIn/sign-in.jsx';
@@ -15,14 +14,13 @@ import PrivateRoute from '../PrivateRoute/private-route.jsx';
 
 import {Operation as UserOperation, AuthStatus} from '../../reducers/user/user.js';
 import {getIsLoading, getUserStatus} from '../../reducers/user/selectors.js';
-import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
 import {getIsFavoritesEmpty} from '../../reducers/data/selectors.js';
 import {Operation as DataOperation} from '../../reducers/data/data.js';
 
 import {AppRoute} from '../../utils/const.js';
 
 
-const App = ({userStatus, isLoading, isFavoritesEmpty, login, activeCity}) => {
+const App = ({userStatus, isLoading, isFavoritesEmpty, login}) => {
 
   if (isLoading) {
     return null;
@@ -37,21 +35,15 @@ const App = ({userStatus, isLoading, isFavoritesEmpty, login, activeCity}) => {
 
           <Route exact path={AppRoute.SIGN_IN}
             render={() => {
-              console.log(`LOGIN`);
               return (
                 userStatus === AuthStatus.NO_AUTH ?
                   <SignIn
-                    activeCity={activeCity}
                     onSubmit={login}
                   /> :
                   <Redirect to={AppRoute.MAIN}/>
               );
             }}
           />
-
-          {/* <Route exact path={AppRoute.ROOM}>
-            {activeOffer && <OfferDetails/>}
-          </Route> */}
 
           <Route exact path={AppRoute.ROOM_ID} component={OfferDetails} />
 
@@ -86,8 +78,6 @@ const App = ({userStatus, isLoading, isFavoritesEmpty, login, activeCity}) => {
 App.propTypes = {
   userStatus: pt.oneOf([AuthStatus.AUTH, AuthStatus.NO_AUTH]).isRequired,
   login: pt.func.isRequired,
-  activeCity: pt.number.isRequired,
-  activeOffer: pt.shape(offerPropTypes),
   isLoading: pt.bool.isRequired,
   isFavoritesEmpty: pt.bool.isRequired,
 };
@@ -95,8 +85,6 @@ App.propTypes = {
 const mapStateToProps = (state) => ({
   userStatus: getUserStatus(state),
   isLoading: getIsLoading(state),
-  activeCity: getActiveCity(state),
-  activeOffer: getActiveOffer(state),
   isFavoritesEmpty: getIsFavoritesEmpty(state),
 });
 

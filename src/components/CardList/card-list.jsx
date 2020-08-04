@@ -12,7 +12,9 @@ import withFavorite from '../../hocs/with-favorite/with-favorite.js';
 const CardWrapped = withFavorite(Card);
 
 
-const CardList = ({offers, onItemClick, onCardFocusEnter,
+const CardList = ({offers,
+  // onItemClick,
+  onCardFocusEnter,
   onCardFocusLeave, type}) => {
 
   return (
@@ -22,7 +24,7 @@ const CardList = ({offers, onItemClick, onCardFocusEnter,
           key={`${offer.id} + ${i}`}
           type={type}
           offer={offer}
-          onCardTitleClick={onItemClick}
+          // onCardTitleClick={onItemClick}
           onCardFocusEnter={onCardFocusEnter}
           onCardFocusLeave={onCardFocusLeave}
         />;
@@ -32,7 +34,7 @@ const CardList = ({offers, onItemClick, onCardFocusEnter,
 };
 
 CardList.propTypes = {
-  onItemClick: PropTypes.func.isRequired,
+  // onItemClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,

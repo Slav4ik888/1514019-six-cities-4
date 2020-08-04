@@ -14,6 +14,9 @@ const ButtonFavorite = ({isFav, type, onFavClick, offer}) => {
       {[`place-card__bookmark-button--active`]: isFav}
   );
 
+  const w = type === placesType.OFFER_DETAILS ? 31 : 17;
+  const h = type === placesType.OFFER_DETAILS ? 33 : 18;
+
   const handleFavClick = () => {
     onFavClick(offer);
   };
@@ -22,7 +25,7 @@ const ButtonFavorite = ({isFav, type, onFavClick, offer}) => {
     <button className={btnClass} type="button"
       onClick={handleFavClick}
     >
-      <svg className="place-card__bookmark-icon" width="18" height="19">
+      <svg className="place-card__bookmark-icon" width={w} height={h}>
         <use xlinkHref="#icon-bookmark"></use>
       </svg>
       <span className="visually-hidden">To bookmarks</span>

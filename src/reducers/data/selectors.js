@@ -72,6 +72,7 @@ export const getOfferFromRouteId = createSelector(
     getAllOffers,
     getIdFromMatch,
     (allOffers, id) => {
+      // console.log('id: ', id);
       // console.log('allOffers: ', allOffers);
       let result = -1;
       if (allOffers) {

@@ -20,11 +20,11 @@ import {getActiveCity, getSortedOffers, getActiveHoverOffer} from '../../reducer
 import {getIsLoading} from '../../reducers/data/selectors.js';
 import {Operation as DataOperation} from '../../reducers/data/data.js';
 
-import {cities, coordsCities, placesType, pageType} from '../../utils/const.js';
+import {coordsCities, placesType, pageType} from '../../utils/const.js';
 
 
 const CitiesListWrapped = withActiveItem(CitiesList);
-const CardListWrapped = withFocusCard(withActiveItem(CardList));
+const CardListWrapped = withFocusCard(CardList);
 const MapCityWrapped = withMap(MapCity);
 const PlacesSortingWrapped = withSort(PlacesSorting);
 
@@ -44,18 +44,11 @@ const Main = ({isLoading, offers, handleCardTitleClick, activeCity, handleChange
             activeCity={activeCity}
             onItemClick={handleChangeCity}
           />
-
-          {!offers.length && <MainEmpty/>}
-
           {!!offers.length &&
             <div className="cities">
               <div className="cities__places-container container">
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
-                  <b className="places__found">
-                    {offers.length ? `${offers.length} places to stay ` :
-                      `No places to stay available `}
-                    in {cities[activeCity]} </b>
 
                   <PlacesSortingWrapped />
 
@@ -68,17 +61,18 @@ const Main = ({isLoading, offers, handleCardTitleClick, activeCity, handleChange
                   </div>
                 </section>
                 <div className="cities__right-section">
-                  <section className="cities__map map">
-                    <MapCityWrapped
-                      offers={offers}
-                      activeOffer={activeHoverOffer}
-                      activeCoords={coordsCities[activeCity]}
-                    />
-                  </section>
+                  <MapCityWrapped
+                    offers={offers}
+                    activeOffer={activeHoverOffer}
+                    activeCoords={coordsCities[activeCity]}
+                    type={pageType.MAIN}
+                  />
                 </div>
               </div>
             </div>
           }
+          {!offers.length && <MainEmpty activeCity={activeCity} />}
+
         </main>
       </Page>
     </>

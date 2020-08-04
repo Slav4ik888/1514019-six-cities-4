@@ -11,18 +11,15 @@ import {Operation as DataOperation} from '../../reducers/data/data.js';
 import {AppRoute} from '../../utils/const.js';
 
 
-const PrivateRoute = ({exact, path, render, userStatus, handleLoadFavorites}) => {
+const PrivateRoute = ({exact, path, render, userStatus}) => {
   return (
     <Route
       exact={exact}
       path={path}
       render={() => {
         if (userStatus === AuthStatus.AUTH) {
-          console.log(`PRIV AUTH`);
-          // handleLoadFavorites();
           return render();
         } else {
-          console.log(`PRIV NO_AUTH`);
           return <Redirect to={AppRoute.SIGN_IN} />;
         }
       }}

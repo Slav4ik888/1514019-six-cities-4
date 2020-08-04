@@ -15,14 +15,7 @@ const Card = ({offer,
   onCardFocusEnter, onCardFocusLeave,
   onFavClick, isFav,
   type}) => {
-    console.log('isFav: ', isFav);
   const {id, isPremium, previewImage, price, rating, cardTitle, offerType} = offer;
-
-  // let favClass = isFav ? `place-card__bookmark-button--active` : null;
-
-  // const handleTitleClick = () => {
-  //   onCardTitleClick(offer);
-  // };
 
   const handlePointerEnter = () => {
     if (onCardFocusEnter) {
@@ -35,12 +28,6 @@ const Card = ({offer,
       onCardFocusLeave();
     }
   };
-
-  // const handleFavClick = () => {
-  //   if (type !== placesType.FAVORITE) {
-  //     onFavClick(offer);
-  //   }
-  // };
 
   let placeCard;
   let imageWrapper;
@@ -67,7 +54,6 @@ const Card = ({offer,
       placeCard = `favorites__card place-card`;
       imageWrapper = `favorites__image-wrapper place-card__image-wrapper`;
       placeCardInfo = `favorites__card-info place-card__info`;
-      // favClass = `place-card__bookmark-button--active`;
       imgWidth = 150; imgHeight = 110;
       break;
   }
@@ -100,14 +86,6 @@ const Card = ({offer,
             type={type}
           />
 
-          {/* <button className={`place-card__bookmark-button button ${favClass}`} type="button"
-            onClick={handleFavClick}
-          >
-            <svg className="place-card__bookmark-icon" width="18" height="19">
-              <use xlinkHref="#icon-bookmark"></use>
-            </svg>
-            <span className="visually-hidden">To bookmarks</span>
-          </button> */}
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
@@ -129,7 +107,7 @@ const Card = ({offer,
 };
 
 Card.propTypes = {
-  onCardTitleClick: pt.func.isRequired,
+  // onCardTitleClick: pt.func.isRequired,
   onCardFocusEnter: pt.func,
   onCardFocusLeave: pt.func,
   offer: pt.shape(offerPropTypes).isRequired,

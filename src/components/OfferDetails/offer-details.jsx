@@ -6,6 +6,7 @@ import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Page from '../Page/page.jsx';
+import ButtonFavorite from '../ButtonFavorite/button-favorite.jsx';
 import ReviewsList from './ReviewsList/reviews-list.jsx';
 import FormReview from '../OfferDetails/FormReview/form-review.jsx';
 import MapCity from '../MapCity/map-city.jsx';
@@ -20,15 +21,17 @@ import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js'
 
 import withMap from '../../hocs/with-map/with-map.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
-import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
 import withForm from '../../hocs/with-form/with-form.js';
 
 import {AppRoute, coordsCities, placesType, pageType} from '../../utils/const.js';
 import {getRating} from '../../utils/utils.js';
 
+import withFavorite from '../../hocs/with-favorite/with-favorite.js';
 
+
+const ButtonFavoriteWrapped = withFavorite(ButtonFavorite);
 const MapCityWrapped = withMap(MapCity);
-const CardListWrapped = withFocusCard(withActiveItem(CardList));
+const CardListWrapped = withFocusCard(CardList);
 const FormReviewWrapped = withForm(FormReview);
 
 
@@ -36,28 +39,43 @@ const OfferDetails = ({selectedOffer, isLoading,
   activeOffer, reviews, activeCity,
   nearbyOffers, handleCardTitleClick, userStatus}) => {
 
-  console.log('selectedOffer: ', selectedOffer);
+  // console.log('selectedOffer: ', selectedOffer);
   if (isLoading) {
-    console.log('isLoading: ', isLoading);
+    // console.log('isLoading', isLoading);
     return null;
   }
 
   if (!activeOffer) {
-    if (selectedOffer === -1) {
-      console.log(`REDIRECT`);
-      return <Redirect to={AppRoute.MAIN}/>;
-    }
-    if (!selectedOffer) {
-      console.log(`!selectedOffer`);
+    // console.log(1);
+
+    if (!selectedOffer || selectedOffer === -1) {
+      // console.log(`!selectedOffer`);
       return null;
     }
+
+    // console.log(2);
     handleCardTitleClick(selectedOffer);
     return null;
   } else {
+    // console.log(3);
     if (activeOffer !== selectedOffer) {
+      // console.log(4);
       handleCardTitleClick(selectedOffer);
+      return null;
     }
+    // console.log(5);
   }
+  // console.log(`защита 1 пройдена`);
+  if (!activeOffer) {
+    // console.log(666);
+    return <Redirect to={AppRoute.MAIN}/>;
+  }
+  if (!nearbyOffers) {
+    // console.log(`Нирби`);
+    handleCardTitleClick(selectedOffer);
+  }
+  // console.log(`защита 2 пройдена`);
+
 
   const {isPremium, pictures, amenities, bedrooms, maxGuestsNumber,
     description, host, price, rating, cardTitle, offerType,
@@ -90,12 +108,10 @@ const OfferDetails = ({selectedOffer, isLoading,
                 <h1 className="property__name">
                   {cardTitle}
                 </h1>
-                <button className={`property__bookmark-button button`} type="button">
-                  <svg className="property__bookmark-icon" width="31" height="33">
-                    <use xlinkHref="#icon-bookmark"></use>
-                  </svg>
-                  <span className="visually-hidden">To bookmarks</span>
-                </button>
+                <ButtonFavoriteWrapped
+                  offer={activeOffer}
+                  type={placesType.OFFER_DETAILS}
+                />
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
@@ -161,14 +177,12 @@ const OfferDetails = ({selectedOffer, isLoading,
             </div>
           </div>
 
-
-          <section className="property__map map">
-            <MapCityWrapped
-              offers={nearbyOffers}
-              activeCoords={coordsCities[activeCity]}
-              activeOffer={activeOffer}
-            />
-          </section>
+          <MapCityWrapped
+            offers={nearbyOffers}
+            activeCoords={coordsCities[activeCity]}
+            activeOffer={activeOffer}
+            type={pageType.OFFER}
+          />
 
         </section>
         <div className="container">
@@ -193,7 +207,8 @@ const OfferDetails = ({selectedOffer, isLoading,
 OfferDetails.propTypes = {
   userStatus: pt.oneOf([AuthStatus.AUTH, AuthStatus.NO_AUTH]).isRequired,
   activeOffer: pt.shape(offerPropTypes),
-  selectedOffer: pt.oneOf([pt.shape(offerPropTypes), pt.number, pt.instanceOf(null)]),
+  selectedOffer: pt.any,
+  // pt.oneOf([pt.shape(offerPropTypes), pt.number, pt.instanceOf(null)]),
   nearbyOffers: pt.arrayOf(
       pt.shape(offerPropTypes).isRequired
   ).isRequired,

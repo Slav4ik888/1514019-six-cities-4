@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot <withFavorite /> correctly Render <withFavorite /> AuthStatus.AUTH 1`] = `<div />`;
+
+exports[`Snapshot <withFavorite /> correctly Render <withFavorite /> AuthStatus.NO_AUTH 1`] = `<div />`;

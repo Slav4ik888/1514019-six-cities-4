@@ -1,10 +1,10 @@
 import React, {PureComponent, createRef} from 'react';
-// import {Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import pt from 'prop-types';
 
 import Page from '../Page/page.jsx';
 
-import {cities, pageType} from '../../utils/const.js';
+import {pageType} from '../../utils/const.js';
 import {AppRoute} from '../../utils/const.js';
 
 
@@ -36,8 +36,6 @@ export default class SignIn extends PureComponent {
   }
 
   render() {
-    const {activeCity} = this.props;
-
     return (
       <>
         <Page type={pageType.SIGN_IN}>
@@ -69,9 +67,11 @@ export default class SignIn extends PureComponent {
               </section>
               <section className="locations locations--login locations--current">
                 <div className="locations__item">
-                  <a className="locations__item-link" href="#">
-                    <span>{cities[activeCity]}</span>
-                  </a>
+                  <Link className="locations__item-link" href="#"
+                    to={AppRoute.MAIN}
+                  >
+                    <span>Amsterdam</span>
+                  </Link>
                 </div>
               </section>
             </div>
@@ -83,6 +83,5 @@ export default class SignIn extends PureComponent {
 }
 
 SignIn.propTypes = {
-  activeCity: pt.number.isRequired,
   onSubmit: pt.func.isRequired,
 };

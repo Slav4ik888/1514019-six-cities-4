@@ -24,7 +24,6 @@ describe(`Snapshot <SignIn/>`, () => {
           <Provider store={store}>
             <BrowserRouter>
               <SignIn
-                activeCity={0}
                 onSubmit={() => {}}
               />
             </BrowserRouter>

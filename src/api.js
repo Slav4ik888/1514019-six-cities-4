@@ -25,7 +25,7 @@ export const createAPI = (onError) => {
     // console.log('response: ', response);
     switch (response.status) {
       case Error.UNAUTHORIZED:
-        console.log(`API onUnauthorized 401`);
+        // console.log(`API onUnauthorized 401`);
         onError(401); // Нужен, чтобы изменить данные в сторе
 
         // Бросаем ошибку, потому что нам важно прервать цепочку промисов после запроса авторизации.
@@ -33,7 +33,7 @@ export const createAPI = (onError) => {
         throw err;
 
       case Error.BAD_REQUEST:
-        console.log(`API Bad request 400`);
+        // console.log(`API Bad request 400`);
         onError(400);
         throw err;
     }
