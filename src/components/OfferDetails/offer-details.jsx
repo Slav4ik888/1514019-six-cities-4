@@ -193,7 +193,7 @@ const OfferDetails = ({selectedOffer, isLoading,
 OfferDetails.propTypes = {
   userStatus: pt.oneOf([AuthStatus.AUTH, AuthStatus.NO_AUTH]).isRequired,
   activeOffer: pt.shape(offerPropTypes),
-  selectedOffer: pt.oneOf([pt.shape(offerPropTypes), pt.number]),
+  selectedOffer: pt.oneOf([pt.shape(offerPropTypes), pt.number, pt.instanceOf(null)]),
   nearbyOffers: pt.arrayOf(
       pt.shape(offerPropTypes).isRequired
   ).isRequired,

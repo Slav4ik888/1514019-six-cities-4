@@ -1,5 +1,5 @@
 import React, {PureComponent, createRef} from 'react';
-import {Redirect} from 'react-router-dom';
+// import {Redirect} from 'react-router-dom';
 import pt from 'prop-types';
 
 import Page from '../Page/page.jsx';
@@ -31,8 +31,8 @@ export default class SignIn extends PureComponent {
 
     this.loginRef.current.value = ``;
     this.passwordRef.current.value = ``;
-
-    return <Redirect to={AppRoute.MAIN}/>;
+    history.push(AppRoute.MAIN);
+    // return <Redirect to={AppRoute.MAIN}/>;
   }
 
   render() {

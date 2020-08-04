@@ -11,11 +11,11 @@ import {AppRoute, placesType} from '../../utils/const.js';
 
 
 const Card = ({offer,
-  // onCardTitleClick, isFav
+  // onCardTitleClick,
   onCardFocusEnter, onCardFocusLeave,
-  // onFavClick,
+  onFavClick, isFav,
   type}) => {
-
+    console.log('isFav: ', isFav);
   const {id, isPremium, previewImage, price, rating, cardTitle, offerType} = offer;
 
   // let favClass = isFav ? `place-card__bookmark-button--active` : null;
@@ -94,6 +94,8 @@ const Card = ({offer,
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <ButtonFavorite
+            isFav={isFav}
+            onFavClick={onFavClick}
             offer={offer}
             type={type}
           />
@@ -131,8 +133,8 @@ Card.propTypes = {
   onCardFocusEnter: pt.func,
   onCardFocusLeave: pt.func,
   offer: pt.shape(offerPropTypes).isRequired,
-  // isFav: pt.bool,
-  // onFavClick: pt.func,
+  isFav: pt.bool,
+  onFavClick: pt.func,
   type: pt.oneOf([placesType.CITY, placesType.NEAR, placesType.FAVORITE, placesType.OFFER_DETAILS]).isRequired,
 
 };

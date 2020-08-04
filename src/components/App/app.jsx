@@ -37,6 +37,7 @@ const App = ({userStatus, isLoading, isFavoritesEmpty, login, activeCity}) => {
 
           <Route exact path={AppRoute.SIGN_IN}
             render={() => {
+              console.log(`LOGIN`);
               return (
                 userStatus === AuthStatus.NO_AUTH ?
                   <SignIn
