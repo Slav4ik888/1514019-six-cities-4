@@ -10,11 +10,8 @@ import {getRating} from '../../utils/utils.js';
 import {AppRoute, placesType} from '../../utils/const.js';
 
 
-const Card = ({offer,
-  // onCardTitleClick,
-  onCardFocusEnter, onCardFocusLeave,
-  onFavClick, isFav,
-  type}) => {
+const Card = ({offer, onCardFocusEnter, onCardFocusLeave,
+  onFavClick, isFav, type}) => {
   const {id, isPremium, previewImage, price, rating, cardTitle, offerType} = offer;
 
   const handlePointerEnter = () => {
@@ -107,7 +104,6 @@ const Card = ({offer,
 };
 
 Card.propTypes = {
-  // onCardTitleClick: pt.func.isRequired,
   onCardFocusEnter: pt.func,
   onCardFocusLeave: pt.func,
   offer: pt.shape(offerPropTypes).isRequired,

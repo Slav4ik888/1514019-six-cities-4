@@ -16,17 +16,16 @@ import {AuthStatus} from '../../reducers/user/user.js';
 import {getUserStatus} from '../../reducers/user/selectors.js';
 import {Operation as DataOperation} from '../../reducers/data/data.js';
 import {getOfferFromRouteId, getNearbyOffers, getComments, getIsLoading} from '../../reducers/data/selectors.js';
-import {ActionCreator} from '../../reducers/travel/travel.js';
+import {ActionCreator as ActionCreatorTravel} from '../../reducers/travel/travel.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
 
 import withMap from '../../hocs/with-map/with-map.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 import withForm from '../../hocs/with-form/with-form.js';
-
-import {AppRoute, coordsCities, placesType, pageType} from '../../utils/const.js';
-import {getRating} from '../../utils/utils.js';
-
 import withFavorite from '../../hocs/with-favorite/with-favorite.js';
+
+import {AppRoute, coordsCities, placesType, pageType, citiesIdx} from '../../utils/const.js';
+import {getRating} from '../../utils/utils.js';
 
 
 const ButtonFavoriteWrapped = withFavorite(ButtonFavorite);
@@ -232,7 +231,9 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   handleCardTitleClick(offer) {
-    dispatch(ActionCreator.setActiveOffer(offer));
+    dispatch(ActionCreatorTravel.setActiveOffer(offer));
+    dispatch(ActionCreatorTravel.changeCity(citiesIdx[offer.city.name]));
+
     dispatch(DataOperation.loadComments(offer.id));
     dispatch(DataOperation.loadNearbyOffers(offer.id));
   },

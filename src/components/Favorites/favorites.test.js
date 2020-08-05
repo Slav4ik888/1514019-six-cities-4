@@ -7,6 +7,8 @@ import {BrowserRouter} from 'react-router-dom';
 import {Favorites} from './favorites.jsx';
 
 import {NameSpace} from '../../reducers/name-space.js';
+import {offers} from '../../mocks/offers.js';
+import {testOffer} from '../../mocks/test-offer.js';
 
 
 const mockStore = configureStore([]);
@@ -28,6 +30,12 @@ describe(`Snapshot <Favorites/>`, () => {
         authInfo,
         isLoading: false,
       },
+      [NameSpace.DATA]: {
+        favorites: {offers},
+        allOffers: {offers},
+        activeCity: 0,
+        activeOffer: testOffer,
+      },
     });
 
     const tree = renderer
@@ -35,8 +43,11 @@ describe(`Snapshot <Favorites/>`, () => {
           <Provider store={store}>
             <BrowserRouter>
               <Favorites
-                userStatus={`AUTH`}
-                authInfo={authInfo}
+                // userStatus={`AUTH`}
+                favorites={offers}
+                handleCardTitleClick={() => {}}
+                offers={offers.Paris}
+                // authInfo={authInfo}
               />
             </BrowserRouter>
           </Provider>).toJSON();
@@ -51,6 +62,12 @@ describe(`Snapshot <Favorites/>`, () => {
         authInfo,
         isLoading: false,
       },
+      [NameSpace.DATA]: {
+        favorites: {offers},
+        allOffers: {offers},
+        activeCity: 0,
+        activeOffer: testOffer,
+      },
     });
 
     const tree = renderer
@@ -58,8 +75,11 @@ describe(`Snapshot <Favorites/>`, () => {
           <Provider store={store}>
             <BrowserRouter>
               <Favorites
-                userStatus={`NO_AUTH`}
-                authInfo={authInfo}
+                // userStatus={`NO_AUTH`}
+                favorites={offers}
+                handleCardTitleClick={() => {}}
+                offers={offers.Paris}
+                // authInfo={authInfo}
               />
             </BrowserRouter>
           </Provider>).toJSON();
@@ -68,3 +88,6 @@ describe(`Snapshot <Favorites/>`, () => {
   });
 
 });
+
+// npm run test.jest -- -u favorites.test.js
+// npm test favorites.test.js

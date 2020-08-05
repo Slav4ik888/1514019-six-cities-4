@@ -14,6 +14,15 @@ export const cities = [
   `Dusseldorf`,
 ];
 
+export const citiesIdx = {
+  Paris: 0,
+  Cologne: 1,
+  Brussels: 2,
+  Amsterdam: 3,
+  Hamburg: 4,
+  Dusseldorf: 5,
+};
+
 export const coordsCities = [
   [48.856663, 2.351556],
   [50.930779, 6.938399],

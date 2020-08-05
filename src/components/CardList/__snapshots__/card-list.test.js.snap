@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot <CardList> Render <CardList> type={'CITY'} 1`] = `
+exports[`Snapshot <CardList> Render <CardList> AUTH type={'CITY'} 1`] = `
 Array [
   <article
     className="cities__place-card place-card"
@@ -51,14 +51,14 @@ Array [
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button place-card__bookmark-button--active"
+          className="button place-card__bookmark-button place-card__bookmark-button--active"
           onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={18}
+            width={17}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -96,7 +96,7 @@ Array [
       >
         <a
           className="place-card__name_href"
-          href="/offer"
+          href="/offer/1"
           onClick={[Function]}
         >
           Beautiful & luxurious apartment at great location
@@ -158,14 +158,14 @@ Array [
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button place-card__bookmark-button--active"
+          className="button place-card__bookmark-button place-card__bookmark-button--active"
           onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={18}
+            width={17}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -203,7 +203,7 @@ Array [
       >
         <a
           className="place-card__name_href"
-          href="/offer"
+          href="/offer/2"
           onClick={[Function]}
         >
           Nice, cozy, warm big bed apartment
@@ -219,7 +219,7 @@ Array [
 ]
 `;
 
-exports[`Snapshot <CardList> Render <CardList> type={'NEAR'} 1`] = `
+exports[`Snapshot <CardList> Render <CardList> AUTH type={'NEAR'} 1`] = `
 Array [
   <article
     className="near-places__card place-card"
@@ -270,14 +270,14 @@ Array [
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button place-card__bookmark-button--active"
+          className="button place-card__bookmark-button place-card__bookmark-button--active"
           onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={18}
+            width={17}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -315,7 +315,7 @@ Array [
       >
         <a
           className="place-card__name_href"
-          href="/offer"
+          href="/offer/1"
           onClick={[Function]}
         >
           Beautiful & luxurious apartment at great location
@@ -377,14 +377,14 @@ Array [
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button place-card__bookmark-button--active"
+          className="button place-card__bookmark-button place-card__bookmark-button--active"
           onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={18}
+            width={17}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -422,7 +422,226 @@ Array [
       >
         <a
           className="place-card__name_href"
-          href="/offer"
+          href="/offer/2"
+          onClick={[Function]}
+        >
+          Nice, cozy, warm big bed apartment
+        </a>
+      </h2>
+      <p
+        className="place-card__type"
+      >
+        Hotel
+      </p>
+    </div>
+  </article>,
+]
+`;
+
+exports[`Snapshot <CardList> Render <CardList> NO_AUTH type={'CITY'} 1`] = `
+Array [
+  <article
+    className="cities__place-card place-card"
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
+  >
+    <div
+      className="place-card__mark"
+    >
+      <span>
+        Premium
+      </span>
+    </div>
+    <div
+      className="cities__image-wrapper place-card__image-wrapper"
+    >
+      <a
+        href="#"
+      >
+        <img
+          alt="Place image"
+          className="place-card__image"
+          height={200}
+          src="img/apartment-03.jpg"
+          width={260}
+        />
+      </a>
+    </div>
+    <div
+      className="place-card__info"
+    >
+      <div
+        className="place-card__price-wrapper"
+      >
+        <div
+          className="place-card__price"
+        >
+          <b
+            className="place-card__price-value"
+          >
+            €
+            180
+          </b>
+          <span
+            className="place-card__price-text"
+          >
+            / night
+          </span>
+        </div>
+        <button
+          className="button place-card__bookmark-button place-card__bookmark-button--active"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            className="place-card__bookmark-icon"
+            height={18}
+            width={17}
+          >
+            <use
+              xlinkHref="#icon-bookmark"
+            />
+          </svg>
+          <span
+            className="visually-hidden"
+          >
+            To bookmarks
+          </span>
+        </button>
+      </div>
+      <div
+        className="place-card__rating rating"
+      >
+        <div
+          className="place-card__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <h2
+        className="place-card__name"
+      >
+        <a
+          className="place-card__name_href"
+          href="/offer/1"
+          onClick={[Function]}
+        >
+          Beautiful & luxurious apartment at great location
+        </a>
+      </h2>
+      <p
+        className="place-card__type"
+      >
+        House
+      </p>
+    </div>
+  </article>,
+  <article
+    className="cities__place-card place-card"
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
+  >
+    <div
+      className="place-card__mark"
+    >
+      <span>
+        Premium
+      </span>
+    </div>
+    <div
+      className="cities__image-wrapper place-card__image-wrapper"
+    >
+      <a
+        href="#"
+      >
+        <img
+          alt="Place image"
+          className="place-card__image"
+          height={200}
+          src="img/apartment-01.jpg"
+          width={260}
+        />
+      </a>
+    </div>
+    <div
+      className="place-card__info"
+    >
+      <div
+        className="place-card__price-wrapper"
+      >
+        <div
+          className="place-card__price"
+        >
+          <b
+            className="place-card__price-value"
+          >
+            €
+            180
+          </b>
+          <span
+            className="place-card__price-text"
+          >
+            / night
+          </span>
+        </div>
+        <button
+          className="button place-card__bookmark-button place-card__bookmark-button--active"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            className="place-card__bookmark-icon"
+            height={18}
+            width={17}
+          >
+            <use
+              xlinkHref="#icon-bookmark"
+            />
+          </svg>
+          <span
+            className="visually-hidden"
+          >
+            To bookmarks
+          </span>
+        </button>
+      </div>
+      <div
+        className="place-card__rating rating"
+      >
+        <div
+          className="place-card__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "60%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <h2
+        className="place-card__name"
+      >
+        <a
+          className="place-card__name_href"
+          href="/offer/2"
           onClick={[Function]}
         >
           Nice, cozy, warm big bed apartment

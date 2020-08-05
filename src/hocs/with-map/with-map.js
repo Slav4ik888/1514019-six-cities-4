@@ -17,13 +17,11 @@ const withMap = (Component) => {
     }
 
     componentDidMount() {
-      const {activeCoords} = this.props;
+      // if (!this._mapRef.current) {
+      //   return null;
+      // }
 
-      if (!this._mapRef.current) {
-        return;
-      }
-
-      const city = activeCoords;
+      const city = this.props.activeCoords;
       // Инициализация карты
       this._map = L.map(this._mapRef.current, {
         center: city,

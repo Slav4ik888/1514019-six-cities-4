@@ -19,3 +19,6 @@ describe(`Snapshot <CitiesList/>`, () => {
     expect(tree).toMatchSnapshot();
   });
 });
+
+// npm run test.jest -- -u card-list.test.js
+// npm test card-list.test.js
