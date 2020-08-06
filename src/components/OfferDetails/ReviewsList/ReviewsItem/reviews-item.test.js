@@ -16,3 +16,6 @@ it(`Render Snapshot <ReviewsItem/>`, () => {
 
   expect(tree).toMatchSnapshot();
 });
+
+// npm run test.jest -- -u reviews-item.test.js
+// npm test reviews-item.test.js

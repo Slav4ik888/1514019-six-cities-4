@@ -13,6 +13,7 @@ import {testOffer, reviews, nearbyOffers} from '../../mocks/test-offer.js';
 
 const mockStore = configureStore([]);
 
+
 const authInfo = {
   avatarUrl: `/static/avatar/7.jpg`,
   email: `korzan.va@mail.ru`,
@@ -53,6 +54,7 @@ describe(`Snapshot <PrivateRoute/> correctly`, () => {
                 return <div/>;
               }}
               userStatus={`AUTH`}
+              handleLoadFavorites={() => {}}
             />
           </BrowserRouter>
         </Provider>
@@ -91,6 +93,8 @@ describe(`Snapshot <PrivateRoute/> correctly`, () => {
                 return <div/>;
               }}
               userStatus={`NO_AUTH`}
+              handleLoadFavorites={() => {}}
+
             />
           </BrowserRouter>
         </Provider>
@@ -100,3 +104,6 @@ describe(`Snapshot <PrivateRoute/> correctly`, () => {
   });
 
 });
+
+// npm run test.jest -- -u private-route.test.js
+// npm test private-route.test.js

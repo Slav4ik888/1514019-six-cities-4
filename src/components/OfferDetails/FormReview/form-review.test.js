@@ -24,3 +24,6 @@ describe(`Snapshot <FormReview/>`, () => {
     expect(tree).toMatchSnapshot();
   });
 });
+
+// npm run test.jest -- -u form-review.test.js
+// npm test form-review.test.js

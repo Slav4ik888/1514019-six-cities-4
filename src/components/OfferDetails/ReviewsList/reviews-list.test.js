@@ -31,3 +31,5 @@ describe(`Snapshot <ReviewsList/>`, () => {
   });
 });
 
+// npm run test.jest -- -u reviews-list.test.js
+// npm test reviews-list.test.js

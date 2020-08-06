@@ -8,7 +8,7 @@ import {pageType} from '../../utils/const.js';
 import {AppRoute} from '../../utils/const.js';
 
 
-export default class SignIn extends PureComponent {
+class SignIn extends PureComponent {
 
   constructor(props) {
     super(props);
@@ -31,7 +31,7 @@ export default class SignIn extends PureComponent {
 
     this.loginRef.current.value = ``;
     this.passwordRef.current.value = ``;
-    history.push(AppRoute.MAIN);
+    // history.push(AppRoute.MAIN);
     // return <Redirect to={AppRoute.MAIN}/>;
   }
 
@@ -85,3 +85,5 @@ export default class SignIn extends PureComponent {
 SignIn.propTypes = {
   onSubmit: pt.func.isRequired,
 };
+
+export default SignIn;

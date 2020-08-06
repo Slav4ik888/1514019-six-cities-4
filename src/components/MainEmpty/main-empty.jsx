@@ -23,7 +23,7 @@ const MainEmpty = ({activeCity}) => {
 
 
 MainEmpty.propTypes = {
-  activeCity: pt.string.isRequired,
+  activeCity: pt.number.isRequired,
 };
 
 export default MainEmpty;

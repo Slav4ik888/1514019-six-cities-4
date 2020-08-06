@@ -188,6 +188,6 @@ exports[`Snapshot <ReviewsList/> Render <ReviewsList/> reviews = empty 1`] = `
 <ul
   className="reviews__list"
 >
-  0
+  
 </ul>
 `;

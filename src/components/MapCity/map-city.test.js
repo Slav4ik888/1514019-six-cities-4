@@ -33,3 +33,6 @@ it(`Render Snapshot <MapCity/> pageType.OFFER`, () => {
 
   expect(component).toMatchSnapshot();
 });
+
+// npm run test.jest -- -u map-city.test.js
+// npm test map-city.test.js
