@@ -41,11 +41,11 @@ describe(`Snapshot <App/>`, () => {
               isLoading={false}
             />
           </Provider>
-          // , {
-          //   createNodeMock: () => {
-          //     return {};
-          //   }
-          // }
+          , {
+            createNodeMock: () => {
+              return {};
+            }
+          }
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -79,6 +79,11 @@ describe(`Snapshot <App/>`, () => {
               isLoading={false}
             />
           </Provider>
+          , {
+            createNodeMock: () => {
+              return {};
+            }
+          }
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -112,6 +117,11 @@ describe(`Snapshot <App/>`, () => {
               isLoading={false}
             />
           </Provider>
+          , {
+            createNodeMock: () => {
+              return {};
+            }
+          }
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -132,7 +142,7 @@ describe(`Snapshot <App/>`, () => {
         allOffers: offers,
         comments: [],
         nearbyOffers: [],
-        isLoading: false,
+        isLoading: true,
       },
     });
     const tree = renderer
