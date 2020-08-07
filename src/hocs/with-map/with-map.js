@@ -17,11 +17,14 @@ const withMap = (Component) => {
     }
 
     componentDidMount() {
-      // if (!this._mapRef.current) {
-      //   return null;
-      // }
+      const {activeCoords} = this.props;
 
-      const city = this.props.activeCoords;
+      if (!this._mapRef.current) {
+        return;
+      }
+
+      const city = activeCoords;
+
       // Инициализация карты
       this._map = L.map(this._mapRef.current, {
         center: city,
@@ -29,6 +32,7 @@ const withMap = (Component) => {
         zoomControl: false,
         marker: true
       });
+
 
       // Устанавливаем центр карты по координатам city
       this._map.setView(city, this._zoom);
@@ -50,7 +54,9 @@ const withMap = (Component) => {
 
     componentDidUpdate() {
       this._clearMap();
-      const city = this.props.activeCoords;
+      const {activeCoords} = this.props;
+
+      const city = activeCoords;
 
       this._map.setView(city, this._zoom);
 
@@ -104,13 +110,12 @@ const withMap = (Component) => {
 
 
     render() {
-      return (
-        <Component
-          {...this.props}
-        >
-          <div id="map" ref={this._mapRef} style={{height: `100%`}}></div>
-        </Component>
-      );
+      return <Component
+        {...this.props}
+      >
+        <div id="map" ref={this._mapRef} style={{height: `100%`}}></div>
+      </Component>
+      ;
     }
   }
 

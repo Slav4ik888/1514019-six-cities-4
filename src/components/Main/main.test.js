@@ -4,12 +4,11 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 import {BrowserRouter} from 'react-router-dom';
 
-import Main from './main.jsx';
+import {Main} from './main.jsx';
 
 import {NameSpace} from '../../reducers/name-space.js';
 import {offers} from "../../mocks/offers.js";
 import {testOffer} from '../../mocks/test-offer.js';
-
 
 const mockStore = configureStore([]);
 
@@ -56,12 +55,7 @@ describe(`Snapshot of <Main/>`, () => {
                 handleChangeCity={() => {}}
               />
             </BrowserRouter>
-          </Provider>, {
-            createNodeMock: () => {
-              return {};
-            }
-          }
-      ).toJSON();
+          </Provider>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -101,13 +95,7 @@ describe(`Snapshot of <Main/>`, () => {
                 handleChangeCity={() => {}}
               />
             </BrowserRouter>
-          </Provider>
-          , {
-            createNodeMock: () => {
-              return {};
-            }
-          }
-      ).toJSON();
+          </Provider>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
