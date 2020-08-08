@@ -237,15 +237,17 @@ const reducer = (state = initialState, action) => {
       const favs = action.payload;
       // eslint-disable-next-line no-shadow
       cities.forEach((city) => {
-        allOffersWithFavorites[city].forEach((offer) => {
-          if (favs[city]) {
-            favs[city].forEach((fav) => {
-              if (fav.id === offer.id) {
-                offer.isFavorite = true;
-              }
-            });
-          }
-        });
+        if (allOffersWithFavorites[city]) {
+          allOffersWithFavorites[city].forEach((offer) => {
+            if (favs[city]) {
+              favs[city].forEach((fav) => {
+                if (fav.id === offer.id) {
+                  offer.isFavorite = true;
+                }
+              });
+            }
+          });
+        }
       });
       // console.log(`Загрузили FAVORIT`);
       return Object.assign({}, state, {

@@ -42,3 +42,4 @@ it(`Render withMap is rendered correctly`, () => {
   expect(tree).toMatchSnapshot();
 });
 
+// npm test with-map.test.js

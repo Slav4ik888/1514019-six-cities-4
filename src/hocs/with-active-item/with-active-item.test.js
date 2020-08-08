@@ -17,3 +17,6 @@ it(`Render withActiveItem correctly`, () => {
 
   expect(tree).toMatchSnapshot();
 });
+
+// npm run test.jest -- -u with-active-item.test.js
+// npm test with-active-item.test.js
