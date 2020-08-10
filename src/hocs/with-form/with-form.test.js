@@ -66,3 +66,6 @@ it(`Render HOC <withForm/>`, () => {
 
   expect(tree).toMatchSnapshot();
 });
+
+// npm run test.jest -- -u with-form.test.js
+// npm test with-form.test.js

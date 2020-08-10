@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import pt from 'prop-types';
+import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Page from '../Page/page.jsx';
 import CardList from '../CardList/card-list.jsx';
@@ -8,9 +9,6 @@ import MainEmpty from '../MainEmpty/main-empty.jsx';
 import MapCity from '../MapCity/map-city.jsx';
 import CitiesList from '../CitiesList/cities-list.jsx';
 import PlacesSorting from '../PlacesSorting/places-sorting.jsx';
-
-import {cities, coordsCities, placesType, pageType} from '../../utils/const.js';
-import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 import withMap from '../../hocs/with-map/with-map.js';
@@ -20,10 +18,13 @@ import withSort from '../../hocs/with-sort/with-sort.js';
 import {ActionCreator} from '../../reducers/travel/travel.js';
 import {getActiveCity, getSortedOffers, getActiveHoverOffer} from '../../reducers/travel/selectors.js';
 import {getIsLoading} from '../../reducers/data/selectors.js';
+import {Operation as DataOperation} from '../../reducers/data/data.js';
+
+import {coordsCities, placesType, pageType} from '../../utils/const.js';
 
 
 const CitiesListWrapped = withActiveItem(CitiesList);
-const CardListWrapped = withFocusCard(withActiveItem(CardList));
+const CardListWrapped = withFocusCard(CardList);
 const MapCityWrapped = withMap(MapCity);
 const PlacesSortingWrapped = withSort(PlacesSorting);
 
@@ -43,18 +44,11 @@ const Main = ({isLoading, offers, handleCardTitleClick, activeCity, handleChange
             activeCity={activeCity}
             onItemClick={handleChangeCity}
           />
-
-          {!offers.length && <MainEmpty/>}
-
           {!!offers.length &&
             <div className="cities">
               <div className="cities__places-container container">
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
-                  <b className="places__found">
-                    {offers.length ? `${offers.length} places to stay ` :
-                      `No places to stay available `}
-                    in {cities[activeCity]} </b>
 
                   <PlacesSortingWrapped />
 
@@ -67,17 +61,18 @@ const Main = ({isLoading, offers, handleCardTitleClick, activeCity, handleChange
                   </div>
                 </section>
                 <div className="cities__right-section">
-                  <section className="cities__map map">
-                    <MapCityWrapped
-                      offers={offers}
-                      activeOffer={activeHoverOffer}
-                      activeCoords={coordsCities[activeCity]}
-                    />
-                  </section>
+                  <MapCityWrapped
+                    offers={offers}
+                    activeOffer={activeHoverOffer}
+                    activeCoords={coordsCities[activeCity]}
+                    type={pageType.MAIN}
+                  />
                 </div>
               </div>
             </div>
           }
+          {!offers.length && <MainEmpty activeCity={activeCity} />}
+
         </main>
       </Page>
     </>
@@ -109,6 +104,8 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleCardTitleClick(offer) {
     dispatch(ActionCreator.setActiveOffer(offer));
+    dispatch(DataOperation.loadComments(offer.id));
+    dispatch(DataOperation.loadNearbyOffers(offer.id));
   },
 });
 

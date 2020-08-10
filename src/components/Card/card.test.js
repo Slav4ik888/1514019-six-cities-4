@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 import {BrowserRouter} from 'react-router-dom';
 
-import {Card} from './card.jsx';
+import Card from './card.jsx';
 
 import {NameSpace} from '../../reducers/name-space.js';
 import {testOffer} from '../../mocks/test-offer.js';
@@ -31,15 +31,11 @@ describe(`Snapshot <Card>`, () => {
             <BrowserRouter>
               <Card
                 offer={testOffer}
-                focusCard={{}}
-                loadReviews={() => {}}
-                loadNearbies={() => {}}
                 onFavClick={() => {}}
-                type={`CITY`}
                 isFav={true}
-                onCardTitleClick={() => {}}
                 onCardFocusEnter = {() => {}}
                 onCardFocusLeave = {() => {}}
+                type={`CITY`}
               />
             </BrowserRouter>
           </Provider>).toJSON();
@@ -63,15 +59,11 @@ describe(`Snapshot <Card>`, () => {
             <BrowserRouter>
               <Card
                 offer={testOffer}
-                focusCard={{}}
-                loadReviews={() => {}}
-                loadNearbies={() => {}}
                 onFavClick={() => {}}
-                type={`CITY`}
                 isFav={false}
-                onCardTitleClick={() => {}}
                 onCardFocusEnter = {() => {}}
                 onCardFocusLeave = {() => {}}
+                type={`CITY`}
               />
             </BrowserRouter>
           </Provider>).toJSON();
@@ -95,15 +87,11 @@ describe(`Snapshot <Card>`, () => {
             <BrowserRouter>
               <Card
                 offer={testOffer}
-                focusCard={{}}
-                loadReviews={() => {}}
-                loadNearbies={() => {}}
                 onFavClick={() => {}}
-                type={`NEAR`}
                 isFav={true}
-                onCardTitleClick={() => {}}
                 onCardFocusEnter = {() => {}}
                 onCardFocusLeave = {() => {}}
+                type={`NEAR`}
               />
             </BrowserRouter>
           </Provider>).toJSON();
@@ -127,15 +115,11 @@ describe(`Snapshot <Card>`, () => {
             <BrowserRouter>
               <Card
                 offer={testOffer}
-                focusCard={{}}
-                loadReviews={() => {}}
-                loadNearbies={() => {}}
                 onFavClick={() => {}}
-                type={`NEAR`}
                 isFav={false}
-                onCardTitleClick={() => {}}
                 onCardFocusEnter = {() => {}}
                 onCardFocusLeave = {() => {}}
+                type={`NEAR`}
               />
             </BrowserRouter>
           </Provider>).toJSON();
@@ -143,3 +127,6 @@ describe(`Snapshot <Card>`, () => {
     expect(tree).toMatchSnapshot();
   });
 });
+
+// npm run test.jest -- -u card.test.js
+// npm test card.test.js

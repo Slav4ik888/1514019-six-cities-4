@@ -1,7 +1,8 @@
+import {createSelector} from 'reselect';
+
 import {NameSpace} from '../name-space.js';
 import {sortType, cities} from '../../utils/const.js';
 import {getAllOffers} from '../data/selectors.js';
-import {createSelector} from 'reselect';
 
 
 const NAME_SPACE = NameSpace.TRAVEL;
@@ -27,7 +28,6 @@ export const getSortedOffers = createSelector(
     getSortingType,
     getAllOffers,
     getActiveCity,
-    // eslint-disable-next-line consistent-return
     (sortingType, allOffers, activeCity) => {
       const oldOffers = allOffers[cities[activeCity]];
       if (oldOffers) {
@@ -49,5 +49,6 @@ export const getSortedOffers = createSelector(
             return offers;
         }
       }
+      return oldOffers;
     }
 );

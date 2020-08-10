@@ -33,6 +33,7 @@ const withMap = (Component) => {
         marker: true
       });
 
+
       // Устанавливаем центр карты по координатам city
       this._map.setView(city, this._zoom);
 
@@ -78,8 +79,8 @@ const withMap = (Component) => {
       const {offers, activeOffer} = this.props;
 
       const icon = L.icon({
-        iconUrl: `img/pin.svg`,
-        iconSize: [30, 30]
+        iconUrl: `/img/pin.svg`,
+        iconSize: [27, 33]
       });
       // Выводим маркеры offers на карту
       if (offers) {
@@ -98,8 +99,8 @@ const withMap = (Component) => {
       // Маркер активного activeOffer
       if (activeOffer) {
         const activeIcon = L.icon({
-          iconUrl: `img/pin-active.svg`,
-          iconSize: [30, 30],
+          iconUrl: `/img/pin-active.svg`,
+          iconSize: [27, 33],
         });
         let marker = L.marker(activeOffer.coordinates, {icon: activeIcon});
         this._markers.push(marker);
@@ -111,11 +112,10 @@ const withMap = (Component) => {
     render() {
       return <Component
         {...this.props}
-        // activItem={this.state.activItemId}
-        // onItemClick={this._handleItemClick}
       >
         <div id="map" ref={this._mapRef} style={{height: `100%`}}></div>
-      </Component>;
+      </Component>
+      ;
     }
   }
 

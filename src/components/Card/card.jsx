@@ -1,49 +1,62 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
+import ButtonFavorite from '../ButtonFavorite/button-favorite.jsx';
+
 import {getRating} from '../../utils/utils.js';
 import {AppRoute, placesType} from '../../utils/const.js';
-import {Operation as DataOperation} from '../../reducers/data/data.js';
 
 
-const Card = (props) => {
-  const {offer: {isPremium, previewImage, price, rating, cardTitle, offerType},
-    loadReviews, loadNearbies,
-    onCardTitleClick,
-    onCardFocusEnter,
-    onCardFocusLeave,
-    onFavClick,
-    isFav,
-    type,
-  } = props;
-
-  const favClass = isFav ? `place-card__bookmark-button--active` : null;
-
-  const handleTitleClick = () => {
-    loadReviews(props.offer.id);
-    loadNearbies(props.offer.id);
-    onCardTitleClick(props.offer);
-  };
+const Card = ({offer, onCardFocusEnter, onCardFocusLeave,
+  onFavClick, isFav, type}) => {
+  const {id, isPremium, previewImage, price, rating, cardTitle, offerType} = offer;
 
   const handlePointerEnter = () => {
-    onCardFocusEnter(props.offer);
+    if (onCardFocusEnter) {
+      onCardFocusEnter(offer);
+    }
   };
 
   const handlePointerLeave = () => {
-    onCardFocusLeave();
+    if (onCardFocusLeave) {
+      onCardFocusLeave();
+    }
   };
 
-  const handleFavClick = () => {
-    onFavClick(props.offer);
-  };
+  let placeCard;
+  let imageWrapper;
+  let placeCardInfo;
+  let imgWidth;
+  let imgHeight;
+
+  switch (type) {
+    case placesType.CITY:
+      placeCard = `cities__place-card place-card`;
+      imageWrapper = `cities__image-wrapper place-card__image-wrapper`;
+      placeCardInfo = `place-card__info`;
+      imgWidth = 260; imgHeight = 200;
+      break;
+
+    case placesType.NEAR:
+      placeCard = `near-places__card place-card`;
+      imageWrapper = `near-places__image-wrapper place-card__image-wrapper`;
+      placeCardInfo = `place-card__info`;
+      imgWidth = 260; imgHeight = 200;
+      break;
+
+    case placesType.FAVORITE:
+      placeCard = `favorites__card place-card`;
+      imageWrapper = `favorites__image-wrapper place-card__image-wrapper`;
+      placeCardInfo = `favorites__card-info place-card__info`;
+      imgWidth = 150; imgHeight = 110;
+      break;
+  }
 
   return (
-    <article
-      className={type === placesType.CITY ? `cities__place-card place-card` : `near-places__card place-card`}
+    <article className={placeCard}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
     >
@@ -52,26 +65,24 @@ const Card = (props) => {
           <span>Premium</span>
         </div>}
 
-      <div className={type === placesType.CITY ? `cities__image-wrapper` : `near-places__image-wrapper` + `place-card__image-wrapper`} >
+      <div className={imageWrapper}>
         <a href="#">
-          <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={previewImage} width={imgWidth} height={imgHeight} alt="Place image" />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={placeCardInfo}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className={`place-card__bookmark-button button ${favClass}`} type="button"
-            onClick={handleFavClick}
-          >
-            {/* {userStatus === `AUTH` ? <Redirect to={AppRoute.LOGIN} /> : null} */}
-            <svg className="place-card__bookmark-icon" width="18" height="19">
-              <use xlinkHref="#icon-bookmark"></use>
-            </svg>
-            <span className="visually-hidden">To bookmarks</span>
-          </button>
+          <ButtonFavorite
+            isFav={isFav}
+            onFavClick={onFavClick}
+            offer={offer}
+            type={type}
+          />
+
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
@@ -81,8 +92,7 @@ const Card = (props) => {
         </div>
         <h2 className="place-card__name">
           <Link className="place-card__name_href"
-            to={AppRoute.OFFER}
-            onClick={handleTitleClick}
+            to={`${AppRoute.ROOM}/${id}`}
           >
             {cardTitle}
           </Link>
@@ -94,27 +104,14 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-  onCardTitleClick: pt.func.isRequired,
-  onCardFocusEnter: pt.func.isRequired,
-  onCardFocusLeave: pt.func.isRequired,
+  onCardFocusEnter: pt.func,
+  onCardFocusLeave: pt.func,
   offer: pt.shape(offerPropTypes).isRequired,
-  isFav: pt.bool.isRequired,
-  onFavClick: pt.func.isRequired,
-  loadReviews: pt.func.isRequired,
-  loadNearbies: pt.func.isRequired,
-  type: pt.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
+  isFav: pt.bool,
+  onFavClick: pt.func,
+  type: pt.oneOf([placesType.CITY, placesType.NEAR, placesType.FAVORITE, placesType.OFFER_DETAILS]).isRequired,
 
 };
 
 
-const mapDispatchToProps = (dispatch) => ({
-  loadReviews(id) {
-    dispatch(DataOperation.loadComments(id));
-  },
-  loadNearbies(id) {
-    dispatch(DataOperation.loadNearbyOffers(id));
-  },
-});
-
-export {Card};
-export default connect(undefined, mapDispatchToProps)(Card);
+export default Card;

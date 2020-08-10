@@ -6,23 +6,22 @@ import {Route, Redirect} from 'react-router-dom';
 
 import {AuthStatus} from '../../reducers/user/user.js';
 import {getUserStatus} from '../../reducers/user/selectors.js';
+import {Operation as DataOperation} from '../../reducers/data/data.js';
 
 import {AppRoute} from '../../utils/const.js';
 
 
 const PrivateRoute = ({exact, path, render, userStatus}) => {
-  // console.log('PRIV userStatus: ', userStatus);
-
   return (
     <Route
       exact={exact}
       path={path}
       render={() => {
-        return (
-          userStatus === AuthStatus.AUTH
-            ? render()
-            : <Redirect to={AppRoute.LOGIN}/>
-        );
+        if (userStatus === AuthStatus.AUTH) {
+          return render();
+        } else {
+          return <Redirect to={AppRoute.SIGN_IN} />;
+        }
       }}
     />
   );
@@ -32,12 +31,20 @@ PrivateRoute.propTypes = {
   exact: pt.bool.isRequired,
   path: pt.string.isRequired,
   render: pt.func.isRequired,
-  userStatus: pt.string.isRequired
+  userStatus: pt.string.isRequired,
+  handleLoadFavorites: pt.func.isRequired,
+
 };
 
 const mapStateToProps = (state) => ({
   userStatus: getUserStatus(state),
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  handleLoadFavorites() {
+    dispatch(DataOperation.loadFavorites());
+  },
+});
+
 export {PrivateRoute};
-export default connect(mapStateToProps, undefined)(PrivateRoute);
+export default connect(mapStateToProps, mapDispatchToProps)(PrivateRoute);

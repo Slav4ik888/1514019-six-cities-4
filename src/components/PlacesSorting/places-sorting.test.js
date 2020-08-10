@@ -5,8 +5,8 @@ import PlacesSorting from './places-sorting.jsx';
 
 const child = <div />;
 
-describe(`Snapshot <PlacesSorting/>`, () => {
-  it(`Render <PlacesSorting/>`, () => {
+describe(`Snapshot <PlacesSorting />`, () => {
+  it(`Render <PlacesSorting />`, () => {
     const tree = renderer.create(
         <PlacesSorting>
           {child}
@@ -17,3 +17,6 @@ describe(`Snapshot <PlacesSorting/>`, () => {
   });
 
 });
+
+// npm run test.jest -- -u places-sorting.test.js
+// npm test places-sorting.test.js

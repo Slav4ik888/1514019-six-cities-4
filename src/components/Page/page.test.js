@@ -130,3 +130,6 @@ describe(`Snapshot <Page/> correctly`, () => {
     expect(tree).toMatchSnapshot();
   });
 });
+
+// npm run test.jest -- -u page.test.js
+// npm test page.test.js

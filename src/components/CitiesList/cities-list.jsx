@@ -23,7 +23,7 @@ const CitiesList = ({activeCity, onItemClick}) => {
                 >
                   <Link className={`locations__item-link tabs__item
                   ${(activeCity === i) && isActive}`}
-                  to={AppRoute.ROOT}>
+                  to={AppRoute.MAIN}>
                     <span>{item}</span>
                   </Link>
                 </li>

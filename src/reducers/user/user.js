@@ -47,6 +47,8 @@ const Operation = {
         // console.log('USER  get /login: ', res.data);
       })
       .catch((err) => {
+        dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
+        dispatch(ActionCreator.setActiveAuth({}));
         dispatch(ActionCreator.setIsLoading(false));
         throw err;
       });
@@ -63,7 +65,9 @@ const Operation = {
         // console.log('USER  post /login: ', res.data);
       })
       .catch((err) => {
-        // console.log('err: ', err);
+        dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
+        dispatch(ActionCreator.setActiveAuth({}));
+        // console.log(`ОБНУЛИЛИ AUTH и AUTHINFO`);
         throw err;
       });
   },

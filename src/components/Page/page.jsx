@@ -6,6 +6,10 @@ import cl from 'classnames';
 import {pageType} from '../../utils/const.js';
 
 const Page = ({type, children}) => {
+  const styleCover = {};
+  if (type === pageType.FAVORITES_EMPTY) {
+    styleCover.height = `100vh`;
+  }
 
   return (
     <div className={cl(`page`,
@@ -13,7 +17,8 @@ const Page = ({type, children}) => {
         {[`page--login`]: type === pageType.SIGN_IN},
         {[`page--main`]: type === pageType.MAIN},
         {[`page--favorites-empty`]: type === pageType.FAVORITES_EMPTY}
-    )}>
+    )}
+    style={styleCover}>
       <Header/>
       {children}
       {(type === pageType.FAVORITES || type === pageType.FAVORITES_EMPTY) &&

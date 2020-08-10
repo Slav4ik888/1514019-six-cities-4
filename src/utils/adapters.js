@@ -27,7 +27,11 @@ export const adapterCitiesData = (data) => {
     offer.maxGuestsNumber = data[i].max_adults;
     offer.description = data[i].description;
     offer.host = {};
-    offer.host.photo = data[i].host.avatar_url;
+    if (data[i].host.avatar_url[0] !== `/`) {
+      offer.host.photo = `/` + data[i].host.avatar_url;
+    } else {
+      offer.host.photo = data[i].host.avatar_url;
+    }
     offer.host.name = data[i].host.name;
     offer.host.super = data[i].host.is_pro;
     offer.host.id = data[i].host.id;

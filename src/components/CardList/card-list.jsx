@@ -8,20 +8,19 @@ import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import withFavorite from '../../hocs/with-favorite/with-favorite.js';
 
+
 const CardWrapped = withFavorite(Card);
 
 
-const CardList = ({offers, onItemClick, onCardFocusEnter,
-  onCardFocusLeave, type}) => {
+const CardList = ({offers, onCardFocusEnter, onCardFocusLeave, type}) => {
 
   return (
     <>
-      {offers.map((offer) => {
+      {offers.map((offer, i) => {
         return <CardWrapped
-          key={offer.id}
+          key={`${offer.id} + ${i}`}
           type={type}
           offer={offer}
-          onCardTitleClick={onItemClick}
           onCardFocusEnter={onCardFocusEnter}
           onCardFocusLeave={onCardFocusLeave}
         />;
@@ -31,13 +30,12 @@ const CardList = ({offers, onItemClick, onCardFocusEnter,
 };
 
 CardList.propTypes = {
-  onItemClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape(offerPropTypes).isRequired
   ).isRequired,
-  onCardFocusEnter: PropTypes.func.isRequired,
-  onCardFocusLeave: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([placesType.CITY, placesType.NEAR]).isRequired,
+  onCardFocusEnter: PropTypes.func,
+  onCardFocusLeave: PropTypes.func,
+  type: PropTypes.oneOf([placesType.CITY, placesType.NEAR, placesType.FAVORITE]).isRequired,
 };
 
 export default CardList;

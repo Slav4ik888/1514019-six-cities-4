@@ -33,8 +33,8 @@ export const createAPI = (onError) => {
         throw err;
 
       case Error.BAD_REQUEST:
-        onError(400);
         // console.log(`API Bad request 400`);
+        onError(400);
         throw err;
     }
 

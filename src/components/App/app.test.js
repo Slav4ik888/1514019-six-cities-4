@@ -13,7 +13,7 @@ const mockStore = configureStore([]);
 
 
 describe(`Snapshot <App/>`, () => {
-  it(`Render <App/> без activeOffer`, () => {
+  it(`Render <App/> isFavoritesEmpty={true}`, () => {
     const store = mockStore({
       [NameSpace.TRAVEL]: {
         activeCity: 0,
@@ -36,22 +36,22 @@ describe(`Snapshot <App/>`, () => {
           <Provider store={store}>
             <App
               login={() => {}}
-              activeCity={0}
-              activeOffer={null}
+              isFavoritesEmpty={true}
+              userStatus={`NO_AUTH`}
               isLoading={false}
             />
           </Provider>
-          // , {
-          //   createNodeMock: () => {
-          //     return {};
-          //   }
-          // }
+          , {
+            createNodeMock: () => {
+              return document.createElement(`div`);
+            }
+          }
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it(`Render <App/> с activeOffer`, () => {
+  it(`Render <App/> isFavoritesEmpty={false}`, () => {
     const store = mockStore({
       [NameSpace.TRAVEL]: {
         activeCity: 0,
@@ -74,18 +74,93 @@ describe(`Snapshot <App/>`, () => {
           <Provider store={store}>
             <App
               login={() => {}}
-              activeCity={0}
-              activeOffer={testOffer}
+              isFavoritesEmpty={false}
+              userStatus={`NO_AUTH`}
               isLoading={false}
             />
           </Provider>
-          // , {
-          //   createNodeMock: () => {
-          //     return {};
-          //   }
-          // }
+          , {
+            createNodeMock: () => {
+              return document.createElement(`div`);
+            }
+          }
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render <App/> userStatus: AUTH isLoading={false}`, () => {
+    const store = mockStore({
+      [NameSpace.TRAVEL]: {
+        activeCity: 0,
+        activeOffer: testOffer,
+      },
+      [NameSpace.USER]: {
+        userStatus: `AUTH`,
+        authInfo: {},
+        isLoading: false,
+      },
+      [NameSpace.DATA]: {
+        allOffers: offers,
+        comments: [],
+        nearbyOffers: [],
+        isLoading: false,
+      },
+    });
+    const tree = renderer
+      .create(
+          <Provider store={store}>
+            <App
+              login={() => {}}
+              isFavoritesEmpty={false}
+              userStatus={`AUTH`}
+              isLoading={false}
+            />
+          </Provider>
+          , {
+            createNodeMock: () => {
+              return document.createElement(`div`);
+            }
+          }
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render <App/> userStatus: AUTH isLoading={true}`, () => {
+    const store = mockStore({
+      [NameSpace.TRAVEL]: {
+        activeCity: 0,
+        activeOffer: testOffer,
+      },
+      [NameSpace.USER]: {
+        userStatus: `AUTH`,
+        authInfo: {},
+        isLoading: false,
+      },
+      [NameSpace.DATA]: {
+        allOffers: offers,
+        comments: [],
+        nearbyOffers: [],
+        isLoading: true,
+      },
+    });
+    const tree = renderer
+      .create(
+          <Provider store={store}>
+            <App
+              login={() => {}}
+              isFavoritesEmpty={false}
+              userStatus={`AUTH`}
+              isLoading={true}
+            />
+          </Provider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
+
+// npm run test.jest -- -u app.test.js
+// npm test app.test.js
+

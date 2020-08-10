@@ -3,6 +3,7 @@
 exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
 <div
   className="page page--gray page--main"
+  style={Object {}}
 >
   <header
     className="header"
@@ -25,7 +26,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
               alt="6 cities logo"
               className="header__logo"
               height="41"
-              src="img/logo.svg"
+              src="/img/logo.svg"
               width="81"
             />
           </a>
@@ -36,6 +37,9 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
           <ul
             className="header__nav-list"
           >
+            <div
+              className="header__avatar-wrapper user__avatar-wrapper"
+            />
             <li
               className="header__nav-item user"
             >
@@ -44,9 +48,6 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                 href="/favorites"
                 onClick={[Function]}
               >
-                <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
-                />
                 <span
                   className="header__user-name user__name"
                 >
@@ -183,14 +184,6 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
           >
             Places
           </h2>
-          <b
-            className="places__found"
-          >
-            2 places to stay 
-            in 
-            Paris
-             
-          </b>
           <form
             action="#"
             className="places__sorting"
@@ -266,7 +259,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                 </span>
               </div>
               <div
-                className="cities__image-wrapper"
+                className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
@@ -274,9 +267,9 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                   <img
                     alt="Place image"
                     className="place-card__image"
-                    height="200"
+                    height={200}
                     src="img/apartment-03.jpg"
-                    width="260"
+                    width={260}
                   />
                 </a>
               </div>
@@ -302,14 +295,14 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button null"
+                    className="button place-card__bookmark-button place-card__bookmark-button--active"
                     onClick={[Function]}
                     type="button"
                   >
                     <svg
                       className="place-card__bookmark-icon"
-                      height="19"
-                      width="18"
+                      height={18}
+                      width={17}
                     >
                       <use
                         xlinkHref="#icon-bookmark"
@@ -347,7 +340,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                 >
                   <a
                     className="place-card__name_href"
-                    href="/offer"
+                    href="/offer/1"
                     onClick={[Function]}
                   >
                     Beautiful & luxurious apartment at great location
@@ -373,7 +366,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                 </span>
               </div>
               <div
-                className="cities__image-wrapper"
+                className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
@@ -381,9 +374,9 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                   <img
                     alt="Place image"
                     className="place-card__image"
-                    height="200"
+                    height={200}
                     src="img/apartment-01.jpg"
-                    width="260"
+                    width={260}
                   />
                 </a>
               </div>
@@ -409,14 +402,14 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button button null"
+                    className="button place-card__bookmark-button place-card__bookmark-button--active"
                     onClick={[Function]}
                     type="button"
                   >
                     <svg
                       className="place-card__bookmark-icon"
-                      height="19"
-                      width="18"
+                      height={18}
+                      width={17}
                     >
                       <use
                         xlinkHref="#icon-bookmark"
@@ -454,7 +447,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
                 >
                   <a
                     className="place-card__name_href"
-                    href="/offer"
+                    href="/offer/2"
                     onClick={[Function]}
                   >
                     Nice, cozy, warm big bed apartment
@@ -474,7 +467,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
           className="cities__right-section"
         >
           <section
-            className="cities__map map"
+            className="map cities__map"
           >
             <div
               id="map"
@@ -495,6 +488,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers 1`] = `
 exports[`Snapshot of <Main/> Render <Main/> with offers=[] 1`] = `
 <div
   className="page page--gray page--main"
+  style={Object {}}
 >
   <header
     className="header"
@@ -517,7 +511,7 @@ exports[`Snapshot of <Main/> Render <Main/> with offers=[] 1`] = `
               alt="6 cities logo"
               className="header__logo"
               height="41"
-              src="img/logo.svg"
+              src="/img/logo.svg"
               width="81"
             />
           </a>
@@ -528,6 +522,9 @@ exports[`Snapshot of <Main/> Render <Main/> with offers=[] 1`] = `
           <ul
             className="header__nav-list"
           >
+            <div
+              className="header__avatar-wrapper user__avatar-wrapper"
+            />
             <li
               className="header__nav-item user"
             >
@@ -536,9 +533,6 @@ exports[`Snapshot of <Main/> Render <Main/> with offers=[] 1`] = `
                 href="/favorites"
                 onClick={[Function]}
               >
-                <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
-                />
                 <span
                   className="header__user-name user__name"
                 >
@@ -681,7 +675,8 @@ exports[`Snapshot of <Main/> Render <Main/> with offers=[] 1`] = `
             <p
               className="cities__status-description"
             >
-              We could not find any property availbale at the moment in Dusseldorf
+              We could not find any property availbale at the moment in 
+              0
             </p>
           </div>
         </section>

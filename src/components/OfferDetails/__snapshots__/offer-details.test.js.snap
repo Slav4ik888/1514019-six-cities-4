@@ -3,6 +3,7 @@
 exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
 <div
   className="page"
+  style={Object {}}
 >
   <header
     className="header"
@@ -25,7 +26,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
               alt="6 cities logo"
               className="header__logo"
               height="41"
-              src="img/logo.svg"
+              src="/img/logo.svg"
               width="81"
             />
           </a>
@@ -36,6 +37,9 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
           <ul
             className="header__nav-list"
           >
+            <div
+              className="header__avatar-wrapper user__avatar-wrapper"
+            />
             <li
               className="header__nav-item user"
             >
@@ -44,9 +48,6 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
                 href="/favorites"
                 onClick={[Function]}
               >
-                <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
-                />
                 <span
                   className="header__user-name user__name"
                 >
@@ -149,13 +150,14 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
               Beautiful & luxurious apartment at great location
             </h1>
             <button
-              className="property__bookmark-button button"
+              className="button property__bookmark-button"
+              onClick={[Function]}
               type="button"
             >
               <svg
-                className="property__bookmark-icon"
-                height="33"
-                width="31"
+                className="place-card__bookmark-icon"
+                height={33}
+                width={31}
               >
                 <use
                   xlinkHref="#icon-bookmark"
@@ -674,7 +676,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
         </div>
       </div>
       <section
-        className="property__map map"
+        className="map property__map"
       >
         <div
           id="map"
@@ -713,7 +715,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
               </span>
             </div>
             <div
-              className="cities__image-wrapper"
+              className="cities__image-wrapper place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -721,9 +723,9 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
                 <img
                   alt="Place image"
                   className="place-card__image"
-                  height="200"
+                  height={200}
                   src="img/apartment-03.jpg"
-                  width="260"
+                  width={260}
                 />
               </a>
             </div>
@@ -749,14 +751,14 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button button null"
+                  className="button place-card__bookmark-button"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     className="place-card__bookmark-icon"
-                    height="19"
-                    width="18"
+                    height={18}
+                    width={17}
                   >
                     <use
                       xlinkHref="#icon-bookmark"
@@ -794,7 +796,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
               >
                 <a
                   className="place-card__name_href"
-                  href="/offer"
+                  href="/offer/2"
                   onClick={[Function]}
                 >
                   Beautiful & luxurious apartment at great location
@@ -820,7 +822,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
               </span>
             </div>
             <div
-              className="cities__image-wrapper"
+              className="cities__image-wrapper place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -828,9 +830,9 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
                 <img
                   alt="Place image"
                   className="place-card__image"
-                  height="200"
+                  height={200}
                   src="img/apartment-03.jpg"
-                  width="260"
+                  width={260}
                 />
               </a>
             </div>
@@ -856,14 +858,14 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button button null"
+                  className="button place-card__bookmark-button"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     className="place-card__bookmark-icon"
-                    height="19"
-                    width="18"
+                    height={18}
+                    width={17}
                   >
                     <use
                       xlinkHref="#icon-bookmark"
@@ -901,7 +903,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
               >
                 <a
                   className="place-card__name_href"
-                  href="/offer"
+                  href="/offer/3"
                   onClick={[Function]}
                 >
                   Beautiful & luxurious apartment at great location
@@ -927,7 +929,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
               </span>
             </div>
             <div
-              className="cities__image-wrapper"
+              className="cities__image-wrapper place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -935,9 +937,9 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
                 <img
                   alt="Place image"
                   className="place-card__image"
-                  height="200"
+                  height={200}
                   src="img/apartment-03.jpg"
-                  width="260"
+                  width={260}
                 />
               </a>
             </div>
@@ -963,14 +965,14 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button button null"
+                  className="button place-card__bookmark-button"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     className="place-card__bookmark-icon"
-                    height="19"
-                    width="18"
+                    height={18}
+                    width={17}
                   >
                     <use
                       xlinkHref="#icon-bookmark"
@@ -1008,7 +1010,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
               >
                 <a
                   className="place-card__name_href"
-                  href="/offer"
+                  href="/offer/4"
                   onClick={[Function]}
                 >
                   Beautiful & luxurious apartment at great location
@@ -1032,6 +1034,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> AUTH 1`] = `
 exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
 <div
   className="page"
+  style={Object {}}
 >
   <header
     className="header"
@@ -1054,7 +1057,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
               alt="6 cities logo"
               className="header__logo"
               height="41"
-              src="img/logo.svg"
+              src="/img/logo.svg"
               width="81"
             />
           </a>
@@ -1065,17 +1068,17 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
           <ul
             className="header__nav-list"
           >
+            <div
+              className="header__avatar-wrapper user__avatar-wrapper"
+            />
             <li
               className="header__nav-item user"
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="/sign_in"
+                href="/login"
                 onClick={[Function]}
               >
-                <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
-                />
                 <span
                   className="header__login"
                 >
@@ -1178,13 +1181,14 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
               Beautiful & luxurious apartment at great location
             </h1>
             <button
-              className="property__bookmark-button button"
+              className="button property__bookmark-button"
+              onClick={[Function]}
               type="button"
             >
               <svg
-                className="property__bookmark-icon"
-                height="33"
-                width="31"
+                className="place-card__bookmark-icon"
+                height={33}
+                width={31}
               >
                 <use
                   xlinkHref="#icon-bookmark"
@@ -1535,7 +1539,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
         </div>
       </div>
       <section
-        className="property__map map"
+        className="map property__map"
       >
         <div
           id="map"
@@ -1574,7 +1578,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
               </span>
             </div>
             <div
-              className="cities__image-wrapper"
+              className="cities__image-wrapper place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -1582,9 +1586,9 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
                 <img
                   alt="Place image"
                   className="place-card__image"
-                  height="200"
+                  height={200}
                   src="img/apartment-03.jpg"
-                  width="260"
+                  width={260}
                 />
               </a>
             </div>
@@ -1610,14 +1614,14 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button button null"
+                  className="button place-card__bookmark-button"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     className="place-card__bookmark-icon"
-                    height="19"
-                    width="18"
+                    height={18}
+                    width={17}
                   >
                     <use
                       xlinkHref="#icon-bookmark"
@@ -1655,7 +1659,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
               >
                 <a
                   className="place-card__name_href"
-                  href="/offer"
+                  href="/offer/2"
                   onClick={[Function]}
                 >
                   Beautiful & luxurious apartment at great location
@@ -1681,7 +1685,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
               </span>
             </div>
             <div
-              className="cities__image-wrapper"
+              className="cities__image-wrapper place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -1689,9 +1693,9 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
                 <img
                   alt="Place image"
                   className="place-card__image"
-                  height="200"
+                  height={200}
                   src="img/apartment-03.jpg"
-                  width="260"
+                  width={260}
                 />
               </a>
             </div>
@@ -1717,14 +1721,14 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button button null"
+                  className="button place-card__bookmark-button"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     className="place-card__bookmark-icon"
-                    height="19"
-                    width="18"
+                    height={18}
+                    width={17}
                   >
                     <use
                       xlinkHref="#icon-bookmark"
@@ -1762,7 +1766,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
               >
                 <a
                   className="place-card__name_href"
-                  href="/offer"
+                  href="/offer/3"
                   onClick={[Function]}
                 >
                   Beautiful & luxurious apartment at great location
@@ -1788,7 +1792,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
               </span>
             </div>
             <div
-              className="cities__image-wrapper"
+              className="cities__image-wrapper place-card__image-wrapper"
             >
               <a
                 href="#"
@@ -1796,9 +1800,9 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
                 <img
                   alt="Place image"
                   className="place-card__image"
-                  height="200"
+                  height={200}
                   src="img/apartment-03.jpg"
-                  width="260"
+                  width={260}
                 />
               </a>
             </div>
@@ -1824,14 +1828,14 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
                   </span>
                 </div>
                 <button
-                  className="place-card__bookmark-button button null"
+                  className="button place-card__bookmark-button"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     className="place-card__bookmark-icon"
-                    height="19"
-                    width="18"
+                    height={18}
+                    width={17}
                   >
                     <use
                       xlinkHref="#icon-bookmark"
@@ -1869,7 +1873,7 @@ exports[`Snapshot of <OfferDetails/> Render <OfferDetails/> NO_AUTH 1`] = `
               >
                 <a
                   className="place-card__name_href"
-                  href="/offer"
+                  href="/offer/4"
                   onClick={[Function]}
                 >
                   Beautiful & luxurious apartment at great location

@@ -100,3 +100,6 @@ describe(`Snapshot of <Main/>`, () => {
     expect(tree).toMatchSnapshot();
   });
 });
+
+// npm run test.jest -- -u main.test.js
+// npm test main.test.js

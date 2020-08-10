@@ -22,7 +22,7 @@ exports[`Snapshot <Header/> correctly Render <Header/> correctly with autorizati
             alt="6 cities logo"
             className="header__logo"
             height="41"
-            src="img/logo.svg"
+            src="/img/logo.svg"
             width="81"
           />
         </a>
@@ -33,17 +33,17 @@ exports[`Snapshot <Header/> correctly Render <Header/> correctly with autorizati
         <ul
           className="header__nav-list"
         >
+          <div
+            className="header__avatar-wrapper user__avatar-wrapper"
+          />
           <li
             className="header__nav-item user"
           >
             <a
               className="header__nav-link header__nav-link--profile"
-              href="/sign_in"
+              href="/login"
               onClick={[Function]}
             >
-              <div
-                className="header__avatar-wrapper user__avatar-wrapper"
-              />
               <span
                 className="header__login"
               >
@@ -80,7 +80,7 @@ exports[`Snapshot <Header/> correctly Render <Header/> correctly without autoriz
             alt="6 cities logo"
             className="header__logo"
             height="41"
-            src="img/logo.svg"
+            src="/img/logo.svg"
             width="81"
           />
         </a>
@@ -91,6 +91,9 @@ exports[`Snapshot <Header/> correctly Render <Header/> correctly without autoriz
         <ul
           className="header__nav-list"
         >
+          <div
+            className="header__avatar-wrapper user__avatar-wrapper"
+          />
           <li
             className="header__nav-item user"
           >
@@ -99,9 +102,6 @@ exports[`Snapshot <Header/> correctly Render <Header/> correctly without autoriz
               href="/favorites"
               onClick={[Function]}
             >
-              <div
-                className="header__avatar-wrapper user__avatar-wrapper"
-              />
               <span
                 className="header__user-name user__name"
               >

@@ -1,3 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render Snapshot <MapCity/> 1`] = `<div />`;
+exports[`Render Snapshot <MapCity/> pageType.MAIN 1`] = `
+<section
+  className="map cities__map"
+>
+  <div />
+</section>
+`;
+
+exports[`Render Snapshot <MapCity/> pageType.OFFER 1`] = `
+<section
+  className="map property__map"
+>
+  <div />
+</section>
+`;

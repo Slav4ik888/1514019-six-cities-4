@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot <PlacesSorting/> Render <PlacesSorting/> 1`] = `
+exports[`Snapshot <PlacesSorting /> Render <PlacesSorting /> 1`] = `
 <form
   action="#"
   className="places__sorting"

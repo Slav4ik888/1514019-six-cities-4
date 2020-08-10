@@ -51,3 +51,5 @@ describe(`Render withFocusCard correctly`, () => {
   });
 });
 
+// npm run test.jest -- -u with-focus-card.test.js
+// npm test with-focus-card.test.js

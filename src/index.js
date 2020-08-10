@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
+
 import App from './components/App/app.jsx';
+
 import reducer from './reducers/reducer.js';
+
 import {createAPI} from './api.js';
 import {Operation as UserOperation, ActionCreator, AuthStatus} from './reducers/user/user.js';
 import {Operation as DataOperation} from './reducers/data/data.js';
-import {history} from './history.js';
-import {AppRoute} from './utils/const.js';
+// import {history} from './history.js';
+// import {AppRoute} from './utils/const.js';
 
 
 // Выносим код в отдельную функцию, чтобы развязать циклическую зависимость:
@@ -25,7 +28,8 @@ const onError = (err) => { // Если будет поймана ошибка 40
   if (err === 401) {
     // console.log('INDEX onUnauthorized');
     store.dispatch(ActionCreator.requireAuthorization(AuthStatus.NO_AUTH));
-    history.push(AppRoute.SIGN_IN);
+    store.dispatch(ActionCreator.setActiveAuth({}));
+    // history.push(AppRoute.SIGN_IN);
   }
 };
 

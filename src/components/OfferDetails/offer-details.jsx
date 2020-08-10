@@ -1,43 +1,84 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
 import Page from '../Page/page.jsx';
-import {ReviewsList} from './ReviewsList/reviews-list.jsx';
+import ButtonFavorite from '../ButtonFavorite/button-favorite.jsx';
+import ReviewsList from './ReviewsList/reviews-list.jsx';
+import FormReview from '../OfferDetails/FormReview/form-review.jsx';
 import MapCity from '../MapCity/map-city.jsx';
 import CardList from '../CardList/card-list.jsx';
-import FormReview from '../OfferDetails/FormReview/form-review.jsx';
 
-import {getRating} from '../../utils/utils.js';
+import {AuthStatus} from '../../reducers/user/user.js';
 import {getUserStatus} from '../../reducers/user/selectors.js';
-import {getNearbyOffers, getComments} from '../../reducers/data/selectors.js';
-import {ActionCreator} from '../../reducers/travel/travel.js';
+import {Operation as DataOperation} from '../../reducers/data/data.js';
+import {getOfferFromRouteId, getNearbyOffers, getComments, getIsLoading} from '../../reducers/data/selectors.js';
+import {ActionCreator as ActionCreatorTravel} from '../../reducers/travel/travel.js';
 import {getActiveCity, getActiveOffer} from '../../reducers/travel/selectors.js';
 
 import withMap from '../../hocs/with-map/with-map.js';
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
-import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
 import withForm from '../../hocs/with-form/with-form.js';
+import withFavorite from '../../hocs/with-favorite/with-favorite.js';
 
-import {coordsCities, placesType, pageType} from '../../utils/const.js';
+import {AppRoute, coordsCities, placesType, pageType, citiesIdx} from '../../utils/const.js';
+import {getRating} from '../../utils/utils.js';
 
 
+const ButtonFavoriteWrapped = withFavorite(ButtonFavorite);
 const MapCityWrapped = withMap(MapCity);
-const CardListWrapped = withFocusCard(withActiveItem(CardList));
+const CardListWrapped = withFocusCard(CardList);
 const FormReviewWrapped = withForm(FormReview);
 
 
-const OfferDetails = ({activeOffer, reviews, activeCity,
+const OfferDetails = ({selectedOffer, isLoading,
+  activeOffer, reviews, activeCity,
   nearbyOffers, handleCardTitleClick, userStatus}) => {
+
+  // console.log('selectedOffer: ', selectedOffer);
+  if (isLoading) {
+    // console.log('isLoading', isLoading);
+    return null;
+  }
+
+  if (!activeOffer) {
+    // console.log(1);
+
+    if (!selectedOffer || selectedOffer === -1) {
+      // console.log(`!selectedOffer`);
+      return null;
+    }
+
+    // console.log(2);
+    handleCardTitleClick(selectedOffer);
+    return null;
+  } else {
+    // console.log(3);
+    if (activeOffer !== selectedOffer) {
+      // console.log(4);
+      handleCardTitleClick(selectedOffer);
+      return null;
+    }
+    // console.log(5);
+  }
+  // console.log(`защита 1 пройдена`);
+  if (!activeOffer) {
+    // console.log(666);
+    return <Redirect to={AppRoute.MAIN}/>;
+  }
+  if (!nearbyOffers) {
+    // console.log(`Нирби`);
+    handleCardTitleClick(selectedOffer);
+  }
+  // console.log(`защита 2 пройдена`);
+
 
   const {isPremium, pictures, amenities, bedrooms, maxGuestsNumber,
     description, host, price, rating, cardTitle, offerType,
   } = activeOffer;
-
-  // Выводим города поблизости
-  // const nearbyOffers = getNearbyOffers(allOffers[cities[activeCity]], 3, coordinates, false);
 
   return (
     <Page type={pageType.OFFER}>
@@ -66,12 +107,10 @@ const OfferDetails = ({activeOffer, reviews, activeCity,
                 <h1 className="property__name">
                   {cardTitle}
                 </h1>
-                <button className={`property__bookmark-button button`} type="button">
-                  <svg className="property__bookmark-icon" width="31" height="33">
-                    <use xlinkHref="#icon-bookmark"></use>
-                  </svg>
-                  <span className="visually-hidden">To bookmarks</span>
-                </button>
+                <ButtonFavoriteWrapped
+                  offer={activeOffer}
+                  type={placesType.OFFER_DETAILS}
+                />
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
@@ -132,19 +171,17 @@ const OfferDetails = ({activeOffer, reviews, activeCity,
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
                 <ReviewsList reviews={reviews}/>
 
-                {userStatus === `AUTH` && <FormReviewWrapped/>}
+                {userStatus === AuthStatus.AUTH ? <FormReviewWrapped/> : null}
               </section>
             </div>
           </div>
 
-
-          <section className="property__map map">
-            <MapCityWrapped
-              offers={nearbyOffers}
-              activeCoords={coordsCities[activeCity]}
-              activeOffer={activeOffer}
-            />
-          </section>
+          <MapCityWrapped
+            offers={nearbyOffers}
+            activeCoords={coordsCities[activeCity]}
+            activeOffer={activeOffer}
+            type={pageType.OFFER}
+          />
 
         </section>
         <div className="container">
@@ -167,27 +204,38 @@ const OfferDetails = ({activeOffer, reviews, activeCity,
 };
 
 OfferDetails.propTypes = {
-  userStatus: pt.oneOf([`AUTH`, `NO_AUTH`]).isRequired,
-  activeOffer: pt.shape(offerPropTypes).isRequired,
+  userStatus: pt.oneOf([AuthStatus.AUTH, AuthStatus.NO_AUTH]).isRequired,
+  activeOffer: pt.shape(offerPropTypes),
+  selectedOffer: pt.any,
+  // pt.oneOf([pt.shape(offerPropTypes), pt.number, pt.instanceOf(null)]),
   nearbyOffers: pt.arrayOf(
       pt.shape(offerPropTypes).isRequired
   ).isRequired,
   activeCity: pt.number.isRequired,
   reviews: pt.array,
   handleCardTitleClick: pt.func.isRequired,
+  isLoading: pt.bool.isRequired,
+
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
+  selectedOffer: getOfferFromRouteId(state, props),
   userStatus: getUserStatus(state),
   activeCity: getActiveCity(state),
   activeOffer: getActiveOffer(state),
   reviews: getComments(state),
   nearbyOffers: getNearbyOffers(state),
+  isLoading: getIsLoading(state),
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
   handleCardTitleClick(offer) {
-    dispatch(ActionCreator.setActiveOffer(offer));
+    dispatch(ActionCreatorTravel.setActiveOffer(offer));
+    dispatch(ActionCreatorTravel.changeCity(citiesIdx[offer.city.name]));
+
+    dispatch(DataOperation.loadComments(offer.id));
+    dispatch(DataOperation.loadNearbyOffers(offer.id));
   },
 });
 

@@ -20,10 +20,10 @@ const authInfo = {
   name: `Vyacheslav`,
 };
 
-const dataReview = {
-  comment: `Очень хороший отель`,
-  rating: 4,
-};
+// const dataReview = {
+//   comment: `Очень хороший отель`,
+//   rating: 4,
+// };
 
 describe(`Snapshot of <OfferDetails/>`, () => {
   it(`Render <OfferDetails/> NO_AUTH`, () => {
@@ -58,14 +58,22 @@ describe(`Snapshot of <OfferDetails/>`, () => {
               <OfferDetails
                 userStatus={`NO_AUTH`}
                 activeOffer={testOffer}
+                selectedOffer={testOffer}
                 nearbyOffers={nearbyOffers}
                 activeCity={0}
                 reviews={reviews}
                 handleCardTitleClick={() => {}}
-                dataReview={dataReview}
+                isLoading={false}
+                // dataReview={dataReview}
               />
             </BrowserRouter>
-          </Provider>).toJSON();
+          </Provider>
+          , {
+            createNodeMock: () => {
+              return document.createElement(`div`);
+            }
+          }
+      ).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -102,15 +110,26 @@ describe(`Snapshot of <OfferDetails/>`, () => {
               <OfferDetails
                 userStatus={`AUTH`}
                 activeOffer={testOffer}
+                selectedOffer={testOffer}
                 nearbyOffers={nearbyOffers}
                 activeCity={0}
                 reviews={reviews}
                 handleCardTitleClick={() => {}}
-                dataReview={dataReview}
+                isLoading={false}
+                // dataReview={dataReview}
               />
             </BrowserRouter>
-          </Provider>).toJSON();
+          </Provider>
+          , {
+            createNodeMock: () => {
+              return document.createElement(`div`);
+            }
+          }
+      ).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 });
+
+// npm run test.jest -- -u offer-details.test.js
+// npm test offer-details.test.js

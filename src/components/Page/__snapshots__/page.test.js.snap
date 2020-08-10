@@ -3,6 +3,7 @@
 exports[`Snapshot <Page/> correctly Render <Page/> tyep 'MAIN' 1`] = `
 <div
   className="page page--gray page--main"
+  style={Object {}}
 >
   <header
     className="header"
@@ -25,7 +26,7 @@ exports[`Snapshot <Page/> correctly Render <Page/> tyep 'MAIN' 1`] = `
               alt="6 cities logo"
               className="header__logo"
               height="41"
-              src="img/logo.svg"
+              src="/img/logo.svg"
               width="81"
             />
           </a>
@@ -36,6 +37,9 @@ exports[`Snapshot <Page/> correctly Render <Page/> tyep 'MAIN' 1`] = `
           <ul
             className="header__nav-list"
           >
+            <div
+              className="header__avatar-wrapper user__avatar-wrapper"
+            />
             <li
               className="header__nav-item user"
             >
@@ -44,9 +48,6 @@ exports[`Snapshot <Page/> correctly Render <Page/> tyep 'MAIN' 1`] = `
                 href="/favorites"
                 onClick={[Function]}
               >
-                <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
-                />
                 <span
                   className="header__user-name user__name"
                 >
@@ -66,6 +67,11 @@ exports[`Snapshot <Page/> correctly Render <Page/> tyep 'MAIN' 1`] = `
 exports[`Snapshot <Page/> correctly Render <Page/> type 'FAVORITES_EMPTY' 1`] = `
 <div
   className="page page--favorites-empty"
+  style={
+    Object {
+      "height": "100vh",
+    }
+  }
 >
   <header
     className="header"
@@ -88,7 +94,7 @@ exports[`Snapshot <Page/> correctly Render <Page/> type 'FAVORITES_EMPTY' 1`] = 
               alt="6 cities logo"
               className="header__logo"
               height="41"
-              src="img/logo.svg"
+              src="/img/logo.svg"
               width="81"
             />
           </a>
@@ -99,6 +105,9 @@ exports[`Snapshot <Page/> correctly Render <Page/> type 'FAVORITES_EMPTY' 1`] = 
           <ul
             className="header__nav-list"
           >
+            <div
+              className="header__avatar-wrapper user__avatar-wrapper"
+            />
             <li
               className="header__nav-item user"
             >
@@ -107,9 +116,6 @@ exports[`Snapshot <Page/> correctly Render <Page/> type 'FAVORITES_EMPTY' 1`] = 
                 href="/favorites"
                 onClick={[Function]}
               >
-                <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
-                />
                 <span
                   className="header__user-name user__name"
                 >
@@ -146,6 +152,7 @@ exports[`Snapshot <Page/> correctly Render <Page/> type 'FAVORITES_EMPTY' 1`] = 
 exports[`Snapshot <Page/> correctly Render <Page/> type 'SIGN_IN' 1`] = `
 <div
   className="page page--gray page--login"
+  style={Object {}}
 >
   <header
     className="header"
@@ -168,7 +175,7 @@ exports[`Snapshot <Page/> correctly Render <Page/> type 'SIGN_IN' 1`] = `
               alt="6 cities logo"
               className="header__logo"
               height="41"
-              src="img/logo.svg"
+              src="/img/logo.svg"
               width="81"
             />
           </a>
@@ -179,6 +186,9 @@ exports[`Snapshot <Page/> correctly Render <Page/> type 'SIGN_IN' 1`] = `
           <ul
             className="header__nav-list"
           >
+            <div
+              className="header__avatar-wrapper user__avatar-wrapper"
+            />
             <li
               className="header__nav-item user"
             >
@@ -187,9 +197,6 @@ exports[`Snapshot <Page/> correctly Render <Page/> type 'SIGN_IN' 1`] = `
                 href="/favorites"
                 onClick={[Function]}
               >
-                <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
-                />
                 <span
                   className="header__user-name user__name"
                 >
