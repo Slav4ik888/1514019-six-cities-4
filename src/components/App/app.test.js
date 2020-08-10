@@ -43,7 +43,7 @@ describe(`Snapshot <App/>`, () => {
           </Provider>
           , {
             createNodeMock: () => {
-              return {};
+              return document.createElement(`div`);
             }
           }
       )
@@ -81,7 +81,7 @@ describe(`Snapshot <App/>`, () => {
           </Provider>
           , {
             createNodeMock: () => {
-              return {};
+              return document.createElement(`div`);
             }
           }
       )
@@ -119,7 +119,7 @@ describe(`Snapshot <App/>`, () => {
           </Provider>
           , {
             createNodeMock: () => {
-              return {};
+              return document.createElement(`div`);
             }
           }
       )

@@ -70,7 +70,7 @@ describe(`Snapshot of <OfferDetails/>`, () => {
           </Provider>
           , {
             createNodeMock: () => {
-              return {};
+              return document.createElement(`div`);
             }
           }
       ).toJSON();
@@ -122,7 +122,7 @@ describe(`Snapshot of <OfferDetails/>`, () => {
           </Provider>
           , {
             createNodeMock: () => {
-              return {};
+              return document.createElement(`div`);
             }
           }
       ).toJSON();
