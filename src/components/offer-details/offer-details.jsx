@@ -5,12 +5,12 @@ import {Redirect} from 'react-router-dom';
 import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
-import Page from '../Page/page.jsx';
-import ButtonFavorite from '../ButtonFavorite/button-favorite.jsx';
-import ReviewsList from './ReviewsList/reviews-list.jsx';
-import FormReview from '../OfferDetails/FormReview/form-review.jsx';
-import MapCity from '../MapCity/map-city.jsx';
-import CardList from '../CardList/card-list.jsx';
+import Page from '../page/page.jsx';
+import ButtonFavorite from '../button-favorite/button-favorite.jsx';
+import ReviewsList from './reviews-list/reviews-list.jsx';
+import FormReview from './form-review/form-review.jsx';
+import MapCity from '../map-city/map-city.jsx';
+import CardList from '../card-list/card-list.jsx';
 
 import {AuthStatus} from '../../reducers/user/user.js';
 import {getUserStatus} from '../../reducers/user/selectors.js';

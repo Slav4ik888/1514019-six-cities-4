@@ -5,12 +5,12 @@ import {history} from '../../history.js';
 
 import pt from 'prop-types';
 
-import Main from '../Main/main.jsx';
-import SignIn from '../SignIn/sign-in.jsx';
-import OfferDetails from '../OfferDetails/offer-details.jsx';
-import Favorites from '../Favorites/favorites.jsx';
-import FavoritesEmpty from '../FavoritesEmpty/favorites-empty.jsx';
-import PrivateRoute from '../PrivateRoute/private-route.jsx';
+import Main from '../main/main.jsx';
+import SignIn from '../sign-in/sign-in.jsx';
+import OfferDetails from '../offer-details/offer-details.jsx';
+import Favorites from '../favorites/favorites.jsx';
+import FavoritesEmpty from '../favorites-empty/favorites-empty.jsx';
+import PrivateRoute from '../private-route/private-route.jsx';
 
 import {Operation as UserOperation, AuthStatus} from '../../reducers/user/user.js';
 import {getIsLoading, getUserStatus} from '../../reducers/user/selectors.js';

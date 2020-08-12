@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Card from '../Card/card.jsx';
+import Card from '../card/card.jsx';
 
 import {placesType} from '../../utils/const.js';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';

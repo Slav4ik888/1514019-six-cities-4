@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
-import ButtonFavorite from '../ButtonFavorite/button-favorite.jsx';
+import ButtonFavorite from '../button-favorite/button-favorite.jsx';
 
 import {getRating} from '../../utils/utils.js';
 import {AppRoute, placesType} from '../../utils/const.js';

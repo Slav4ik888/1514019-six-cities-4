@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from '../Page/page.jsx';
+import Page from '../page/page.jsx';
 import {pageType} from '../../utils/const.js';
 
 

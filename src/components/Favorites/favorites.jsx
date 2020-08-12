@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import pt from 'prop-types';
 // import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
-import Page from '../Page/page.jsx';
-import CardList from '../CardList/card-list.jsx';
+import Page from '../page/page.jsx';
+import CardList from '../card-list/card-list.jsx';
 
 import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
 

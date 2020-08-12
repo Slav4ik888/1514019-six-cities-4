@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 import pt from 'prop-types';
 import {offerPropTypes} from '../../utils/prop-types-templates.js';
 
-import Page from '../Page/page.jsx';
-import CardList from '../CardList/card-list.jsx';
-import MainEmpty from '../MainEmpty/main-empty.jsx';
-import MapCity from '../MapCity/map-city.jsx';
-import CitiesList from '../CitiesList/cities-list.jsx';
-import PlacesSorting from '../PlacesSorting/places-sorting.jsx';
+import Page from '../page/page.jsx';
+import CardList from '../card-list/card-list.jsx';
+import MainEmpty from '../main-empty/main-empty.jsx';
+import MapCity from '../map-city/map-city.jsx';
+import CitiesList from '../cities-list/cities-list.jsx';
+import PlacesSorting from '../places-sorting/places-sorting.jsx';
 
 import withFocusCard from '../../hocs/with-focus-card/with-focus-card.js';
 import withMap from '../../hocs/with-map/with-map.js';

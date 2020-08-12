@@ -2,7 +2,7 @@ import React, {PureComponent, createRef} from 'react';
 import {Link} from 'react-router-dom';
 import pt from 'prop-types';
 
-import Page from '../Page/page.jsx';
+import Page from '../page/page.jsx';
 
 import {pageType} from '../../utils/const.js';
 import {AppRoute} from '../../utils/const.js';

@@ -1,7 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
-import Header from '../Header/header.jsx';
-import Footer from '../Footer/footer.jsx';
+import Header from '../header/header.jsx';
+import Footer from '../footer/footer.jsx';
 import cl from 'classnames';
 import {pageType} from '../../utils/const.js';
 
