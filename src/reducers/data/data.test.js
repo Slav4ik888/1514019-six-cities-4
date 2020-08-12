@@ -12,7 +12,7 @@ const mockReview = {
   rating: 4
 };
 
-const mockComment = [
+const mockComments = [
   {
     id: 1,
     author: {
@@ -269,9 +269,9 @@ describe(`DATA Reducer`, () => {
       comments: [],
     }, {
       type: ActionType.LOAD_COMMENTS,
-      payload: mockComment,
+      payload: mockComments,
     })).toEqual({
-      comments: mockComment,
+      comments: mockComments,
     });
   });
 
@@ -332,9 +332,9 @@ describe(`Action creators work correctly`, () => {
   });
 
   it(`loadComments`, () => {
-    expect(ActionCreator.loadComments(mockComment)).toEqual({
+    expect(ActionCreator.loadComments(mockComments)).toEqual({
       type: ActionType.LOAD_COMMENTS,
-      payload: mockComment,
+      payload: mockComments,
     });
   });
 

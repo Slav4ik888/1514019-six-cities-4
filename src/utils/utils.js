@@ -22,7 +22,7 @@ export const extend = (a, b) => {
 export const showDate = (timestamp, format) => {
 
   const newDate = new Date(timestamp);
-  const monthName = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
+  const monthNames = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
   let month = null;
   let day = null;
 
@@ -35,11 +35,11 @@ export const showDate = (timestamp, format) => {
 
   switch (format) {
     case formatType.monthYYYY:
-      return `${monthName[newDate.getMonth()]} ${newDate.getFullYear()}`;
+      return `${monthNames[newDate.getMonth()]} ${newDate.getFullYear()}`;
 
     case formatType.monthDDcYYYY:
       day = (`0` + newDate.getDate()).slice(-2);
-      return `${monthName[newDate.getMonth()]} ${day}, ${newDate.getFullYear()}`;
+      return `${monthNames[newDate.getMonth()]} ${day}, ${newDate.getFullYear()}`;
 
     case formatType.yyyymmdd:
       month = (`0` + (newDate.getMonth() + 1)).slice(-2);
@@ -87,7 +87,7 @@ const getDistance = (a, b) => {
 
 
 export const getNearbyOffers = (arr, quantity, pattern, type) => {
-  let newArr = [];
+  let newOffers = [];
   let map = new Map();
 
   // Вычисляем расстояние между объектами и pattern
@@ -116,13 +116,13 @@ export const getNearbyOffers = (arr, quantity, pattern, type) => {
     // Если pattern не нужно выводить то отсекаем его
     if (!type) {
       if (map.get(min) !== 0) {
-        newArr.push(arr[min]);
+        newOffers.push(arr[min]);
       }
     } else {
-      newArr.push(arr[min]);
+      newOffers.push(arr[min]);
     }
     map.delete(min);
   }
 
-  return newArr;
+  return newOffers;
 };

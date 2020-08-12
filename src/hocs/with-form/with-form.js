@@ -35,9 +35,10 @@ const withForm = (Component) => {
 
     _handleChangeComment(event) {
       const comment = event.target.value;
+      const limit = comment.length;
       this.setState((prevState) => ({
         comment,
-        isDisabled: prevState.rating && comment.length >= 50 && comment.length <= 300 ? false : true,
+        isDisabled: prevState.rating && limit >= 50 && limit <= 300 ? false : true,
       }));
     }
 
